@@ -10,19 +10,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.jeux.remmeds.classes.Contact;
 import com.example.jeux.remmeds.classes.ContactAdapter;
 import com.example.jeux.remmeds.R;
-
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class FragmentRepertoire extends Fragment {
     private List<Contact> contactList = new ArrayList<>();
