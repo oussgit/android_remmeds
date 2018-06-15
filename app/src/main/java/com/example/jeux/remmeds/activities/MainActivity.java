@@ -1,5 +1,6 @@
-package com.example.jeux.remmeds.Activity;
+package com.example.jeux.remmeds.activities;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -7,16 +8,17 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.jeux.remmeds.Fragment.FragmentRepertoire;
-import com.example.jeux.remmeds.Fragment.FragmentAccueil;
-import com.example.jeux.remmeds.Fragment.FragmentConfiguration;
-import com.example.jeux.remmeds.Fragment.FragmentHistorique;
-import com.example.jeux.remmeds.Fragment.FragmentProfil;
+import com.example.jeux.remmeds.fragments.FragmentRepertoire;
+import com.example.jeux.remmeds.fragments.FragmentAccueil;
+import com.example.jeux.remmeds.fragments.FragmentConfiguration;
+import com.example.jeux.remmeds.fragments.FragmentHistorique;
+import com.example.jeux.remmeds.fragments.FragmentProfil;
 import com.example.jeux.remmeds.R;
 
 public class MainActivity extends AppCompatActivity
@@ -26,16 +28,16 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         //Affiche l'accueil en premier écran
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -105,7 +107,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_repertoire:
                 fragment = new FragmentRepertoire();
                 break;
+            default:
+                fragment = new FragmentAccueil();
         }
+
         //Remplacement du fragment
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

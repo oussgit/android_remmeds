@@ -1,4 +1,4 @@
-package com.example.jeux.remmeds.Class;
+package com.example.jeux.remmeds.classes;
 
 public class Contact {
     private String nom;
