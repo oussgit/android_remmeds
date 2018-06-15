@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,8 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FragmentRepertoire extends Fragment {
     private List<Contact> contactList = new ArrayList<>();
@@ -31,7 +34,7 @@ public class FragmentRepertoire extends Fragment {
         RecyclerView mRecyclerView;
         ContactAdapter mAdapter;
         View rep = inflater.inflate(R.layout.fragment_repertoire, container, false);
-        mRecyclerView = (RecyclerView) rep.findViewById(R.id.rep_recycler_view);
+        mRecyclerView = rep.findViewById(R.id.rep_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         mAdapter = new ContactAdapter(contactList);
@@ -55,7 +58,7 @@ public class FragmentRepertoire extends Fragment {
         try {
             mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("mRecyclerView.addItem","exception",e);
         }
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -69,7 +72,7 @@ public class FragmentRepertoire extends Fragment {
         try {
             getActivity().setTitle("Repertoire");
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e("getActivity.setTitle","exception",e);
         }
     }
 }

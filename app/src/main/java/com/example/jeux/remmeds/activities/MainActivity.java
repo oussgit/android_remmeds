@@ -1,6 +1,5 @@
 package com.example.jeux.remmeds.activities;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -8,7 +7,6 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -86,10 +84,8 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void displayFragment(int itemId) {
-
         //creation du fragment
-        Fragment fragment = null;
-
+        Fragment fragment;
         //initialisation du fragment selectionné
         switch (itemId) {
             case R.id.nav_acueuil:
@@ -112,13 +108,11 @@ public class MainActivity extends AppCompatActivity
         }
 
         //Remplacement du fragment
-        if (fragment != null) {
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.content_frame, fragment);
-            ft.commit();
-        }
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_frame, fragment);
+        ft.commit();
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
 }
