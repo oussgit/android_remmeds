@@ -1,4 +1,4 @@
-package com.example.jeux.remmeds.Class;
+package com.example.jeux.remmeds.classes;
 
 import com.example.jeux.remmeds.R;
 import android.support.v7.widget.RecyclerView;
@@ -15,23 +15,27 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
     private List<Contact> contactList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView nom, prenom, adresse, numero;
+        private TextView nom;
+        private TextView prenom;
+        private TextView adresse;
+        private TextView numero;
 
         public MyViewHolder(View view) {
             super(view);
-            nom = (TextView) view.findViewById(R.id.rep_recycler_nom);
-            prenom = (TextView) view.findViewById(R.id.rep_recycler_prenom);
-            adresse = (TextView) view.findViewById(R.id.rep_recycler_adresse);
-            numero = (TextView) view.findViewById(R.id.rep_recycler_numero);
+            nom = view.findViewById(R.id.rep_recycler_nom);
+            prenom = view.findViewById(R.id.rep_recycler_prenom);
+            adresse = view.findViewById(R.id.rep_recycler_adresse);
+            numero = view.findViewById(R.id.rep_recycler_numero);
         }
     }
 
     public ContactAdapter(List<Contact> contactList) {
         this.contactList = contactList;
     }
-
+    //Creation de l'adapter qui permettera de construire la recyclerview
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        //initialisation du view holder
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.contact_list_row, parent, false);
 

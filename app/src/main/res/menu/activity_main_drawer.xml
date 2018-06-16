@@ -5,23 +5,27 @@
         <item
             android:id="@+id/nav_acueuil"
             android:icon="@mipmap/ic_launcher"
-            android:title="Accueil" />
+            android:title="@string/accueil" />
         <item
             android:id="@+id/nav_configuration"
             android:icon="@mipmap/ic_launcher"
-            android:title="Configuration" />
+            android:title="@string/configuration" />
         <item
             android:id="@+id/nav_historique"
             android:icon="@mipmap/ic_launcher"
-            android:title="Historique" />
+            android:title="@string/historique" />
         <item
             android:id="@+id/nav_profil"
             android:icon="@mipmap/ic_launcher"
-            android:title="Profil" />
+            android:title="@string/profil" />
         <item
             android:id="@+id/nav_repertoire"
             android:icon="@mipmap/ic_launcher"
-            android:title="Repertoire" />
+            android:title="@string/repertoire" />
+        <item
+            android:id="@+id/nav_gestion"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/gestion" />
 
     </group>
 
