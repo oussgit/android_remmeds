@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.jeux.remmeds.fragments.FragmentGestion;
 import com.example.jeux.remmeds.fragments.FragmentRepertoire;
 import com.example.jeux.remmeds.fragments.FragmentAccueil;
 import com.example.jeux.remmeds.fragments.FragmentConfiguration;
@@ -102,6 +103,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_repertoire:
                 fragment = new FragmentRepertoire();
+                break;
+            case R.id.nav_gestion:
+                fragment = new FragmentGestion();
                 break;
             default:
                 fragment = new FragmentAccueil();

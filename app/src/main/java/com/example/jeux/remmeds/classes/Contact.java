@@ -13,9 +13,7 @@ public class Contact {
         this.numero=numero;
         }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+    public void setNom(String nom) { this.nom = nom; }
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;

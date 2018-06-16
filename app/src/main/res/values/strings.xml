@@ -10,6 +10,8 @@
     <string name="historique">Historique</string>
     <string name="profil">Profil</string>
     <string name="repertoire">Repertoire</string>
+    <string name="gestion">Gestion des Sections</string>
     <string name="action_settings">Action Settings</string>
+    <string name="remmeds">RemMeds</string>
 
 </resources>

@@ -32,9 +32,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
     public ContactAdapter(List<Contact> contactList) {
         this.contactList = contactList;
     }
-
+    //Creation de l'adapter qui permettera de construire la recyclerview
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        //initialisation du view holder
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.contact_list_row, parent, false);
 
