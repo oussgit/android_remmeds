@@ -1,19 +1,85 @@
 <resources>
-    <string name="app_name">RemMeds</string>
+    <string name="app_name">Remmeds</string>
+    <string name="navigation_drawer_open">Ouvrir menu</string>
+    <string name="navigation_drawer_close">Fermer menu</string>
+    <string name="nav_header_title">Prénom Nom</string>
+    <string name="nav_header_subtitle">prenom.nom@mail.com</string>
+    <string name="nav_header_desc">En-tete menu</string>
+    <string name="action_settings">A propos</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-
+    <!-- ? -->
     <string name="accueil">Accueil</string>
     <string name="configuration">Configuration</string>
     <string name="historique">Historique</string>
     <string name="profil">Profil</string>
     <string name="repertoire">Repertoire</string>
     <string name="gestion">Gestion des Sections</string>
-    <string name="action_settings">Action Settings</string>
     <string name="remmeds">RemMeds</string>
+
+    <!-- HOME -->
+    <string name="titre_textView_layout_home">RemMeds, reprenez le contrôle</string>
+    <string name="description_imageView_layout_home">logo RemMeds</string>
+
+    <!-- SECTIONS -->
+    <string name="titre_textview_layout_pilulier">Un compartiment, un médicament et vous n\'aurez plus à vous en soucier !</string>
+    <string name="description_button_layout_pilulier">Bouton compartiment pilulier</string>
+
+    <!-- COMPARTIMENT -->
+    <string name="nom_edittext_layout_compartiment">Nom du médicament</string>
+    <string name="duree_textview_layout_compartiment">Durée du traitement</string>
+    <string name="conditions_textview_layout_compartiment">Conditions de prises</string>
+    <string name="ptitdej_textview_layout_compartiment">Petit-déjeuner</string>
+    <string name="dejeuner_textview_layout_compartiment">Déjeuner</string>
+    <string name="diner_textview_layout_compartiment">Dîner</string>
+    <string name="coucher_textview_layout_compartiment">Au coucher</string>
+    <string name="heureperso_textview_layout_compartiment">Heure personnalisée</string>
+    <string name="frequenceperso_checkbox_layout_compartiment">Toutes les</string>
+    <string name="fintexte_textview_layout_compartiment">heure(s), à partir de</string>
+    <string name="frequenceperso_textview_layout_compartiment">Fréquence personnalisée</string>
+    <string name="lundi_togglebutton_layout_compartiment">L</string>
+    <string name="marmer_togglebutton_layout_compartiment">M</string>
+    <string name="jeudi_togglebutton_layout_compartiment">J</string>
+    <string name="vendredi_togglebutton_layout_compartiment">V</string>
+    <string name="samedi_togglebutton_layout_compartiment">S</string>
+    <string name="dimanche_togglebutton_layout_compartiment">D</string>
+    <string name="notes_textview_layout_compartiment">Notes</string>
+    <string name="enregistrer_button_layout_compartiment">Enregistrer</string>
+    <string name="annuler_button_layout_compartiment">Annuler</string>
+
+    <!-- Historique -->
+    <string name="titre_textview_layout_historique">Retrouvez votre historique complet</string>
+
+    <!-- REPERTOIRE -->
+    <string name="titre_textview_layout_repertoire">Votre fille, votre mari&#8230; Ils seront maintenant alertés automatiquement</string>
+
+
+
+    <string name="ajouter_button_layout_repertoire">Ajouter</string>
+    <string name="editer_button_layout_repertoire">Editer</string>
+    <string name="supprimer_button_layout_repertoire">Supprimer</string>
+
+    <!-- AJOUT CONTACT -->
+    <string name="titre_textview_layout_ajoutcontact">Nouveau Contact</string>
+    <string name="ajouter_button_layout_ajoutcontact">Ajouter</string>
+    <string name="prenom_textview_layout_ajoutcontact">Prenom</string>
+    <string name="nom_textview_layout_ajoutcontact">Nom</string>
+    <string name="adresse_textview_layout_ajoutcontact">Adresse</string>
+    <string name="numero_textview_layout_ajoutcontact">Numero</string>
+
+    <!-- PROFIL -->
+    <string name="titre_textview_layout_profil">Profil</string>
+
+    <!-- AUTHENTIFICATION -->
+    <string name="connexion_button_layout_authentification">Connexion</string>
+    <string name="sinscrire_button_layout_authentification">S\'inscrire</string>
+    <string name="problemeconnexion_button_layout_authentification">Problème de connexion ?</string>
+    <string name="logo_imageview_layout_authentification">logo remmeds</string>
+    <string name="mail_imageview_layout_authentification">ic_mail</string>
+    <string name="password_imageview_layout_authentification">ic_password</string>
+
+    <string name="mail_field">mail_field</string>
+    <string name="password_field">password_field</string>
+    <string name="connexion_button">connexion_button</string>
+
 
 </resources>
