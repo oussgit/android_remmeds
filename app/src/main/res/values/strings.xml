@@ -12,8 +12,8 @@
     <string name="configuration">Configuration</string>
     <string name="historique">Historique</string>
     <string name="profil">Profil</string>
-    <string name="repertoire">Repertoire</string>
-    <string name="gestion">Gestion des Sections</string>
+    <string name="repertoire">Répertoire</string>
+    <string name="gestion">Pilulier</string>
     <string name="remmeds">RemMeds</string>
 
     <!-- HOME -->
@@ -51,8 +51,6 @@
 
     <!-- REPERTOIRE -->
     <string name="titre_textview_layout_repertoire">Votre fille, votre mari&#8230; Ils seront maintenant alertés automatiquement</string>
-
-
     <string name="ajouter_button_layout_repertoire">Ajouter</string>
     <string name="editer_button_layout_repertoire">Editer</string>
     <string name="supprimer_button_layout_repertoire">Supprimer</string>
@@ -67,6 +65,10 @@
 
     <!-- PROFIL -->
     <string name="titre_textview_layout_profil">Profil</string>
+    <string name="prenom_textview_layout_profil">Prénom</string>
+    <string name="nom_textview_layout_profil">Nom</string>
+    <string name="vosheures_textview_layout_profil">Vos heures de référence</string>
+    <string name="password_button_layout_profil">Changer le mot de passe</string>
 
     <!-- AUTHENTIFICATION -->
     <string name="connexion_button_layout_authentification">Connexion</string>
