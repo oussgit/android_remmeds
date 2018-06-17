@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //Affiche l'accueil en premier écran
-        //displayFragment(R.id.FragmentAccueil());
+        displayFragment(R.id.fragment_accueil);
     }
 
     @Override
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment;
         //initialisation du fragment selectionné
         switch (itemId) {
-            case R.id.nav_acueuil:
+            case R.id.nav_accueil:
                 fragment = new FragmentAccueil();
                 break;
             case R.id.nav_configuration:

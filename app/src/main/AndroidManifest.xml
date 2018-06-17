@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.Inscription" />
-        <activity android:name=".activities.Compartiment"></activity>
+        <activity android:name=".activities.Compartiment" />
     </application>
 
 </manifest>
