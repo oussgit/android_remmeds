@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         //Affiche l'accueil en premier écran
-        displayFragment(R.id.fragment_accueil);
+        //displayFragment(R.id.fragment_accueil);
     }
 
     @Override
