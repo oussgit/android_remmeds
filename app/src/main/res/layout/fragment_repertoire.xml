@@ -44,7 +44,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.980"
-        android:onClick="sendMessage"/>
+        />
+    <!-- Ajouter : android:onClick=" " -->
 
     <Button
         android:id="@+id/editer_button_layout_repertoire"
@@ -58,7 +59,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.980"
-        android:onClick="sendMessage"/>
+        />
+    <!-- Ajouter : android:onClick=" " -->
 
     <Button
         android:id="@+id/supprimer_button_layout_repertoire"
@@ -72,7 +74,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.980"
-        android:onClick="sendMessage"/>
+        />
+    <!-- Ajouter : android:onClick=" " -->
 
     <!--
     <Button
