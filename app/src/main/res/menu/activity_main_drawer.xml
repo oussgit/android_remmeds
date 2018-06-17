@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_accueil"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@drawable/ic_home"
             android:title="@string/accueil" />
         <!--<item
             android:id="@+id/nav_configuration"
@@ -12,19 +12,19 @@
             android:title="@string/configuration"-->
         <item
             android:id="@+id/nav_profil"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@drawable/ic_profile"
             android:title="@string/profil" />
         <item
             android:id="@+id/nav_gestion"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@drawable/ic_pillbox"
             android:title="@string/gestion" />
         <item
             android:id="@+id/nav_repertoire"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@drawable/ic_contacts"
             android:title="@string/repertoire" />
         <item
             android:id="@+id/nav_historique"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@drawable/ic_history"
             android:title="@string/historique" />
 
     </group>
