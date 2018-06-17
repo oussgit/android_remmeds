@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".activities.Inscription" />
         <activity android:name=".activities.Compartiment" />
-        <activity android:name=".activities.Authentification"></activity>
+        <activity android:name=".activities.Authentification" />
+        <activity android:name=".activities.Ajoutcontact"></activity>
     </application>
 
 </manifest>

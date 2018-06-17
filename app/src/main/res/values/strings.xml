@@ -61,8 +61,8 @@
     <string name="ajouter_button_layout_ajoutcontact">Ajouter</string>
     <string name="prenom_textview_layout_ajoutcontact">Prenom</string>
     <string name="nom_textview_layout_ajoutcontact">Nom</string>
-    <string name="adresse_textview_layout_ajoutcontact">Adresse</string>
-    <string name="numero_textview_layout_ajoutcontact">Numero</string>
+    <string name="adresse_textview_layout_ajoutcontact">Adresse email</string>
+    <string name="numero_textview_layout_ajoutcontact">Numéro de téléphone</string>
 
     <!-- PROFIL -->
     <string name="titre_textview_layout_profil">Profil</string>
