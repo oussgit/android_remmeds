@@ -11,7 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/nav_header_desc"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
         app:srcCompat="@mipmap/ic_launcher_round"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -25,6 +24,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:hint="@string/prenom_textview_layout_profil"
         android:text="@string/prenom_textview_layout_profil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
@@ -39,6 +39,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
+        android:hint="@string/nom_textview_layout_profil"
         android:text="@string/nom_textview_layout_profil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
@@ -60,17 +61,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.37"/>
 
+
     <ImageView
         android:id="@+id/breakfast_imageview_layout_profil"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:srcCompat="@mipmap/ic_breakfast"
+        app:srcCompat="@drawable/ic_breakfast"
+        android:contentDescription="@string/ptitdej_textview_layout_compartiment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45"/>
+
 
     <TextView
         android:id="@+id/breakfast_textView_layout_profil"
@@ -85,7 +89,7 @@
         app:layout_constraintStart_toEndOf="@+id/breakfast_imageview_layout_profil"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45"
-        app:srcCompat="@mipmap/ic_breakfast" />
+        app:srcCompat="@drawable/ic_breakfast" />
 
     <EditText
         android:id="@+id/breakfast_editText_layout_profil"
@@ -93,6 +97,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="time"
+        android:hint="@string/blank"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -104,7 +109,8 @@
         android:id="@+id/lunch_imageview_layout_profil"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:srcCompat="@mipmap/ic_lunch"
+        app:srcCompat="@drawable/ic_lunch"
+        android:contentDescription="@string/dejeuner_textview_layout_compartiment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -132,6 +138,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="time"
+        android:hint="@string/blank"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -143,7 +150,8 @@
         android:id="@+id/dinner_imageview_layout_profil"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:srcCompat="@mipmap/ic_dinner"
+        app:srcCompat="@drawable/ic_dinner"
+        android:contentDescription="@string/diner_textview_layout_compartiment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -171,6 +179,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="time"
+        android:hint="@string/blank"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -182,7 +191,8 @@
         android:id="@+id/bedtime_imageview_layout_profil"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:srcCompat="@mipmap/ic_bedtime"
+        app:srcCompat="@drawable/ic_bedtime"
+        android:contentDescription="@string/coucher_textview_layout_compartiment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -210,6 +220,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="time"
+        android:hint="@string/blank"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -258,6 +269,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.980"
         />
-
 
 </android.support.constraint.ConstraintLayout>

@@ -6,6 +6,7 @@
     <string name="nav_header_subtitle">prenom.nom@mail.com</string>
     <string name="nav_header_desc">En-tete menu</string>
     <string name="action_settings">A propos</string>
+    <string name="blank"> </string>
 
     <!-- ? -->
     <string name="accueil">Accueil</string>
