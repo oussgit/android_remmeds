@@ -74,9 +74,9 @@
 
     <Button
         android:id="@+id/connexion_button_layout_authentification"
-        android:layout_width="158dp"
+        android:layout_width="150dp"
         android:layout_height="50dp"
-        android:background="#0078ff"
+        android:background="@drawable/bouton_arrondi_bleu"
         android:text="@string/connexion_button_layout_authentification"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
