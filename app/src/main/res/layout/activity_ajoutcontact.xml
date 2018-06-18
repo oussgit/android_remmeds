@@ -13,15 +13,26 @@
         android:layout_height="wrap_content"
         android:text="@string/titre_textview_layout_ajoutcontact"
         android:textSize="18sp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.07"/>
 
+    <View
+        android:layout_width="150dp"
+        android:layout_height="1dip"
+        android:background="#FF909090"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2"/>
+
     <EditText
         android:id="@+id/prenom_edittext_layout_ajoutcontact"
-        android:layout_width="150dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/prenom_textview_layout_ajoutcontact"
@@ -35,7 +46,7 @@
 
     <EditText
         android:id="@+id/nom_edittext_layout_ajoutcontact"
-        android:layout_width="150dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/nom_textview_layout_ajoutcontact"
@@ -59,7 +70,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
+        app:layout_constraintVertical_bias="0.4"
         app:srcCompat="@drawable/ic_phone" />
 
     <EditText
@@ -73,7 +84,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"/>
+        app:layout_constraintVertical_bias="0.4"/>
 
     <ImageView
         android:id="@+id/adresse_imageview_layout_ajoutcontact"
@@ -87,7 +98,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55"
+        app:layout_constraintVertical_bias="0.5"
         app:srcCompat="@drawable/ic_mail" />
 
     <EditText
@@ -101,7 +112,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55"/>
+        app:layout_constraintVertical_bias="0.5"/>
 
     <EditText
         android:id="@+id/notes_edittext_layout_ajoutcontact"
@@ -115,7 +126,54 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.70"/>
+        app:layout_constraintVertical_bias="0.65"/>
+
+    <View
+        android:layout_width="150dp"
+        android:layout_height="1dip"
+        android:background="#FF909090"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.73"/>
+
+    <TextView
+        android:id="@+id/alerte_textview_layout_ajoutcontact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alerte_textview_layout_ajoutcontact"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintVertical_bias="0.8"/>
+
+    <CheckBox
+        android:id="@+id/mail_checkbox_layout_ajoutcontact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mail_checkbox_layout_ajoutcontact"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.8"/>
+
+    <CheckBox
+        android:id="@+id/sms_checkbox_layout_ajoutcontact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sms_checkbox_layout_ajoutcontact"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintVertical_bias="0.8"/>
 
     <Button
         android:id="@+id/ajouter_button_layout_ajoutcontact"

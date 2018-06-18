@@ -57,12 +57,15 @@
     <string name="supprimer_button_layout_repertoire">Supprimer</string>
 
     <!-- AJOUT CONTACT -->
-    <string name="titre_textview_layout_ajoutcontact">Nouveau Contact</string>
+    <string name="titre_textview_layout_ajoutcontact">Pour chaque contact, \ndéfinissez VOTRE niveau d\'alerte</string>
     <string name="ajouter_button_layout_ajoutcontact">Ajouter</string>
     <string name="prenom_textview_layout_ajoutcontact">Prenom</string>
     <string name="nom_textview_layout_ajoutcontact">Nom</string>
     <string name="adresse_textview_layout_ajoutcontact">Adresse email</string>
     <string name="numero_textview_layout_ajoutcontact">Numéro de téléphone</string>
+    <string name="alerte_textview_layout_ajoutcontact">Prévenir par&#8230;</string>
+    <string name="mail_checkbox_layout_ajoutcontact">Mail</string>
+    <string name="sms_checkbox_layout_ajoutcontact">SMS</string>
 
     <!-- PROFIL -->
     <string name="titre_textview_layout_profil">Profil</string>
