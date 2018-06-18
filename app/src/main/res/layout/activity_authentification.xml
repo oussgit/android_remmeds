@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.Authentification">
+
+    <ImageView
+        android:id="@+id/logo_imageview_layout_authentification"
+        android:layout_width="205dp"
+        android:layout_height="166dp"
+        android:contentDescription="@string/logo_imageview_layout_authentification"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046"
+        app:srcCompat="@mipmap/ic_remmeds" />
+
+    <ImageView
+        android:id="@+id/mail_imageview_layout_authentification"
+        android:layout_width="48dp"
+        android:layout_height="43dp"
+        android:contentDescription="@string/mail_imageview_layout_authentification"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.463"
+        app:srcCompat="@drawable/ic_mail" />
+
+    <EditText
+        android:id="@+id/mail_edittext_layout_authentification"
+        android:layout_width="224dp"
+        android:layout_height="43dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.463" />
+
+    <ImageView
+        android:id="@+id/password_imageview_layout_authentification"
+        android:layout_width="48dp"
+        android:layout_height="43dp"
+        android:contentDescription="@string/password_imageview_layout_authentification"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.619"
+        app:srcCompat="@drawable/ic_key" />
+
+    <EditText
+        android:id="@+id/password_edittext_layout_authentification"
+        android:layout_width="225dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.619" />
+
+    <Button
+        android:id="@+id/connexion_button_layout_authentification"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@drawable/bouton_arrondi_bleu"
+        android:text="@string/connexion_button_layout_authentification"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77" />
+
+    <Button
+        android:id="@+id/sinscrire_button_layout_authentification"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="242dp"
+        android:layout_height="29dp"
+        android:background="#fafafa"
+        android:text="@string/sinscrire_button_layout_authentification"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.877" />
+
+    <Button
+        android:id="@+id/problemeconnexion_button_layout_authentification"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="242dp"
+        android:layout_height="29dp"
+        android:background="#fafafa"
+        android:text="@string/problemeconnexion_button_layout_authentification"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.966" />
+
+</android.support.constraint.ConstraintLayout>

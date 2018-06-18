@@ -18,7 +18,6 @@ public class FragmentHistorique extends Fragment {
         return inflater.inflate(R.layout.fragment_historique, container, false);
     }
 
-
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
