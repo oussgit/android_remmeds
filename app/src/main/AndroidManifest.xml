@@ -22,7 +22,8 @@
         <activity android:name=".activities.Inscription" />
         <activity android:name=".activities.Compartiment" />
         <activity android:name=".activities.Authentification" />
-        <activity android:name=".activities.Ajoutcontact"></activity>
+        <activity android:name=".activities.Ajoutcontact" />
+        <activity android:name=".activities.debug"></activity>
     </application>
 
 </manifest>
