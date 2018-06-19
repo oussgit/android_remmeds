@@ -77,26 +77,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.980" />
     <!-- Ajouter : android:onClick=" " -->
-
-    <!--
-    <Button
-        android:id="@+id/repertoire_edit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/ic_menu_edit"/>
-
-    <Button
-        android:id="@+id/repertoire_add_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/ic_input_add"
-        android:onClick="sendMessage" />
-
-    <Button
-        android:id="@+id/repertoire_remove_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/ic_delete" />
-        -->
-
 </android.support.constraint.ConstraintLayout>
