@@ -3,6 +3,7 @@ package com.example.jeux.remmeds.activities;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,10 +22,12 @@ public class Authentification extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentification);
-        Button connexion_button = (Button) findViewById(R.id.connexion_button_layout_authentification);
-        Button sinscrire_button = (Button) findViewById(R.id.sinscrire_button_layout_authentification);
-        Button problemeconnexion_button = (Button) findViewById(R.id.problemeconnexion_button_layout_authentification);
+        Button connexion_button = findViewById(R.id.connexion_button_layout_authentification);
+        Button sinscrire_button = findViewById(R.id.sinscrire_button_layout_authentification);
+        Button problemeconnexion_button = findViewById(R.id.problemeconnexion_button_layout_authentification);
         connexion_button.setOnClickListener(this);
+        sinscrire_button.setOnClickListener(this);
+        problemeconnexion_button.setOnClickListener(this);
     }
 
     @Override
@@ -45,6 +48,7 @@ public class Authentification extends AppCompatActivity implements View.OnClickL
                 startActivity(signup_activity);
                 break;
             case R.id.problemeconnexion_button_layout_authentification:
+                alert_dialog_connection_error();
                 break;
         }
     }
@@ -63,6 +67,41 @@ public class Authentification extends AppCompatActivity implements View.OnClickL
                 dialogInterface.cancel();
             }
         });
+        builder.show();
+    }
+
+    private void alert_dialog_connection_error() {
+        //Display an alert dialog for credential error
+        AlertDialog.Builder builder = new AlertDialog.Builder(Authentification.this);
+
+        builder.setCancelable(true);
+        builder.setTitle("Problème de connexion ?");
+        builder.setMessage("Cliquez sur le bouton ci-joint pour envoyer un mail au support " +
+                "   de notre application ou via notre site web.\n(Rubrique: Nous contacter)");
+
+        builder.setNegativeButton("Envoyer mail", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String mailto = "mailto:remmeds@outlook.fr" +
+                        "?subject=" + Uri.encode("Problème de connexion Application RemMeds");
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse(mailto));
+                startActivity(emailIntent);
+                dialogInterface.cancel();
+            }
+        });
+
+        builder.setPositiveButton("Visiter site web", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String website_address = "http://212.73.217.202:10080/"; //NOSONAR
+                Intent viewIntent =
+                        new Intent("android.intent.action.VIEW",
+                                Uri.parse(website_address));
+                startActivity(viewIntent);
+            }
+        });
+
         builder.show();
     }
 
