@@ -30,28 +30,28 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintVertical_bias="0.45" >
+
+    </android.support.v7.widget.RecyclerView>
 
     <Button
-        android:id="@+id/ajouter_button_layout_repertoire"
+        android:id="@+id/supprimer_button_layout_repertoire"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bouton_arrondi_bleu"
-        android:textColor="@android:color/background_light"
-        android:text="@string/ajouter_button_layout_repertoire"
+        android:layout_height="31dp"
+        android:background="@drawable/bouton_arrondi"
+        android:text="@string/supprimer_button_layout_repertoire"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.980"
-        />
+        app:layout_constraintVertical_bias="0.980" />
     <!-- Ajouter : android:onClick=" " -->
 
     <Button
         android:id="@+id/editer_button_layout_repertoire"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="31dp"
         android:background="@drawable/bouton_arrondi"
         android:text="@string/editer_button_layout_repertoire"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,39 +64,17 @@
     <!-- Ajouter : android:onClick=" " -->
 
     <Button
-        android:id="@+id/supprimer_button_layout_repertoire"
+        android:id="@+id/ajouter_button_layout_repertoire"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bouton_arrondi"
-        android:text="@string/supprimer_button_layout_repertoire"
+        android:layout_height="31dp"
+        android:background="@drawable/bouton_arrondi_bleu"
+        android:text="@string/ajouter_button_layout_repertoire"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.980"
-        />
+        app:layout_constraintVertical_bias="0.980" />
     <!-- Ajouter : android:onClick=" " -->
-
-    <!--
-    <Button
-        android:id="@+id/repertoire_edit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/ic_menu_edit"/>
-
-    <Button
-        android:id="@+id/repertoire_add_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/ic_input_add"
-        android:onClick="sendMessage" />
-
-    <Button
-        android:id="@+id/repertoire_remove_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/ic_delete" />
-        -->
-
 </android.support.constraint.ConstraintLayout>

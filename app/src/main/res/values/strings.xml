@@ -5,7 +5,7 @@
     <string name="nav_header_title">Prénom Nom</string>
     <string name="nav_header_subtitle">prenom.nom@mail.com</string>
     <string name="nav_header_desc">En-tete menu</string>
-    <string name="action_settings">A propos</string>
+    <string name="action_settings">Debug</string>
     <string name="blank"> </string>
 
     <!-- ? -->
@@ -86,5 +86,16 @@
     <string name="password_field">password_field</string>
     <string name="connexion_button">connexion_button</string>
 
+    <!-- INSCRIPTION -->
+    <string name="mail_edittext_layout_inscription">Adresse email</string>
+    <string name="password_edittext_layout_inscription">Mot de passe</string>
+    <string name="passwordconf_edittext_layout_inscription">Répéter le mot de passe</string>
+    <string name="conditions_checkbox_layout_inscription">J\'accepte les Conditions d\'utilisation</string>
+    <string name="valider_burrton_layout_inscription">Valider</string>
 
+    <!-- DEBUG -->
+    <string name="authentification_debug">Authentification</string>
+    <string name="inscription_debug">Inscription</string>
+    <string name="compartiment_debug">Compartiment</string>
+    <string name="ajoutcontact_debug">Ajout contact</string>
 </resources>
