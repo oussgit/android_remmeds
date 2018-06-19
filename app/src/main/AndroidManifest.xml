@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.Authentification"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".activities.Inscription" />
         <activity android:name=".activities.Compartiment" />
-        <activity android:name=".activities.Authentification" />
+        <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.Ajoutcontact" />
         <activity android:name=".activities.debug"></activity>
     </application>

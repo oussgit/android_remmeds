@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    private void displayFragment(int itemId) {
+    public void displayFragment(int itemId) {
         //creation du fragment
         Fragment fragment;
         //initialisation du fragment selectionné
