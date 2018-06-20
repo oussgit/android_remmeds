@@ -98,4 +98,5 @@
     <string name="inscription_debug">Inscription</string>
     <string name="compartiment_debug">Compartiment</string>
     <string name="ajoutcontact_debug">Ajout contact</string>
+    <string name="setup_debug">Step by step</string>
 </resources>
