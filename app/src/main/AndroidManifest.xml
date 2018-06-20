@@ -23,7 +23,8 @@
         <activity android:name=".activities.Compartiment" />
         <activity android:name=".activities.Authentification" />
         <activity android:name=".activities.Ajoutcontact" />
-        <activity android:name=".activities.debug"></activity>
+        <activity android:name=".activities.debug" />
+        <activity android:name=".activities.Setup"></activity>
     </application>
 
 </manifest>

@@ -30,4 +30,8 @@ public class debug extends AppCompatActivity {
     public void gocompartiment (View view){
         startActivity(new Intent(debug.this, Compartiment.class));
     }
+
+    public void gosetup (View view){
+        startActivity(new Intent(debug.this, Setup.class));
+    }
 }
