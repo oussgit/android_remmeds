@@ -109,4 +109,20 @@ public class Authentification extends AppCompatActivity implements View.OnClickL
         //ATM hardcoded credentials awaiting database connection
         return user.getText().toString().equals("root") && password.getText().toString().equals("");
     }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Quitter l'application ?")
+                .setMessage("\nÊtes-vous sûr de vouloir quitter l'application ?")
+                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("Non", null)
+                .show();
+    }
 }
