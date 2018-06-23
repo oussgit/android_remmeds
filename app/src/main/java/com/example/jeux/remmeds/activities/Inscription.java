@@ -36,6 +36,7 @@ public class Inscription extends AppCompatActivity {
                 if (conditions_are_ok(accepte_CU, adresse_mail, password, password_conf)) {
                     Intent set_profil = new Intent(Inscription.this, Setup.class);
                     startActivity(set_profil);
+                    finish();
                 } else {
                     alert_dialog_password_missmatch_error();
                 }
@@ -78,4 +79,19 @@ public class Inscription extends AppCompatActivity {
         builder.show();
     }
 
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Annuler inscription ?")
+                .setMessage("\nÊtes-vous sûr de vouloir annuler l'inscription ?")
+                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("Non", null)
+                .show();
+    }
 }
