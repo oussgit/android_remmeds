@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.example.jeux.remmeds.R;
 
-public class debug extends AppCompatActivity {
+public class Debug extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,22 +16,22 @@ public class debug extends AppCompatActivity {
     }
 
     public void goajoutcontact (View view){
-        startActivity(new Intent(debug.this, Ajoutcontact.class));
+        startActivity(new Intent(Debug.this, Ajoutcontact.class));
     }
 
     public void goauthentification (View view){
-        startActivity(new Intent(debug.this, Authentification.class));
+        startActivity(new Intent(Debug.this, Authentification.class));
     }
 
     public void goinscription (View view){
-        startActivity(new Intent(debug.this, Inscription.class));
+        startActivity(new Intent(Debug.this, Inscription.class));
     }
 
     public void gocompartiment (View view){
-        startActivity(new Intent(debug.this, Compartiment.class));
+        startActivity(new Intent(Debug.this, Compartiment.class));
     }
 
     public void gosetup (View view){
-        startActivity(new Intent(debug.this, Setup.class));
+        startActivity(new Intent(Debug.this, Setup.class));
     }
 }

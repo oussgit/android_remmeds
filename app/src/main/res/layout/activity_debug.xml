@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.debug">
+    tools:context=".activities.Debug">
 
     <Button
         android:id="@+id/authentification_button_debug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/authentification_debug"
         android:onClick="goauthentification"
+        android:text="@string/authentification_debug"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -23,20 +22,20 @@
         android:id="@+id/inscription_button_debug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/inscription_debug"
         android:onClick="goinscription"
+        android:text="@string/inscription_debug"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4"/>
+        app:layout_constraintVertical_bias="0.4" />
 
     <Button
         android:id="@+id/compartiment_button_debug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/compartiment_debug"
         android:onClick="gocompartiment"
+        android:text="@string/compartiment_debug"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -47,24 +46,24 @@
         android:id="@+id/ajoutcontact_button_debug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ajoutcontact_debug"
         android:onClick="goajoutcontact"
+        android:text="@string/ajoutcontact_debug"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"/>
+        app:layout_constraintVertical_bias="0.6" />
 
     <Button
         android:id="@+id/setup_button_debug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/setup_debug"
         android:onClick="gosetup"
+        android:text="@string/setup_debug"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7"/>
+        app:layout_constraintVertical_bias="0.7" />
 
 </android.support.constraint.ConstraintLayout>
