@@ -1,5 +1,7 @@
 package com.example.jeux.remmeds.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,9 +41,9 @@ public class Compartiment extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (swi_breakfast.isChecked()) {
-                    Toast.makeText(Compartiment.this, "Switch is on", Toast.LENGTH_LONG).show();
+                    choix_heure();
                 } else {
-                    Toast.makeText(Compartiment.this, "Switch is Off", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Compartiment.this, "ptitdej désactivé", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -52,9 +54,9 @@ public class Compartiment extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (swi_dejeuner.isChecked()) {
-                    Toast.makeText(Compartiment.this, "Switch is on", Toast.LENGTH_LONG).show();
+                    choix_heure();
                 } else {
-                    Toast.makeText(Compartiment.this, "Switch is Off", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Compartiment.this, "dejeuner désactivé", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -65,9 +67,9 @@ public class Compartiment extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (swi_diner.isChecked()) {
-                    Toast.makeText(Compartiment.this, "Switch is on", Toast.LENGTH_LONG).show();
+                    choix_heure();
                 } else {
-                    Toast.makeText(Compartiment.this, "Switch is Off", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Compartiment.this, "Diner désactivé", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -78,9 +80,11 @@ public class Compartiment extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (swi_coucher.isChecked()) {
-                    Toast.makeText(Compartiment.this, "Switch is on", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Compartiment.this, "Coucher activé", Toast.LENGTH_LONG).show();
+                    //TODO
                 } else {
-                    Toast.makeText(Compartiment.this, "Switch is Off", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Compartiment.this, "Coucher désactivé", Toast.LENGTH_LONG).show();
+                    //TODO
                 }
             }
         });
@@ -139,5 +143,35 @@ public class Compartiment extends AppCompatActivity {
                 }
             }
         });
+    }
+
+
+    private void choix_heure() {
+        final CharSequence[] items = {" Avant "," Pendant "," Après "};
+        // arraylist pour l'item sélectionné
+        final ArrayList<Integer> selectedItems=new ArrayList<Integer>();
+        new AlertDialog.Builder(this)
+                .setTitle("A quel moment du repas ?")
+                .setMultiChoiceItems(items, null, new DialogInterface.OnMultiChoiceClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int indexSelected, boolean isChecked) {
+                        if (isChecked) {
+                            // ajoute valeur dans selectedItems
+                            selectedItems.add(indexSelected);
+                        } else if (selectedItems.contains(indexSelected)) {
+                            // si valeur déjà dans array, supprimer
+                            selectedItems.remove(Integer.valueOf(indexSelected));
+                        }
+                    }
+                })
+                .setPositiveButton("Valider", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+
+                })
+                .setNegativeButton("Annuler", null)
+                .show();
     }
 }
