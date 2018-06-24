@@ -46,6 +46,12 @@
     <string name="notes_textview_layout_compartiment">Notes</string>
     <string name="enregistrer_button_layout_compartiment">Enregistrer</string>
     <string name="annuler_button_layout_compartiment">Annuler</string>
+    <string-array name="type_duree_traitement">
+        <item>Jours</item>
+        <item>Semaines</item>
+        <item>Mois</item>
+        <item>Années</item>
+    </string-array>
 
     <!-- Historique -->
     <string name="titre_textview_layout_historique">Retrouvez votre historique complet</string>
@@ -99,4 +105,14 @@
     <string name="compartiment_debug">Compartiment</string>
     <string name="ajoutcontact_debug">Ajout contact</string>
     <string name="setup_debug">Step by step</string>
+
+    <!-- NOMBRES -->
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
 </resources>

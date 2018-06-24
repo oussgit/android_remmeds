@@ -20,15 +20,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.07"/>
 
-    <View
-        android:layout_width="150dp"
-        android:layout_height="1dip"
-        android:background="#FF909090"
+    <View style="@style/style_Divider"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2"/>
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <EditText
         android:id="@+id/prenom_edittext_layout_ajoutcontact"
@@ -37,6 +34,7 @@
         android:ems="10"
         android:hint="@string/prenom_textview_layout_ajoutcontact"
         android:inputType="text"
+        android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -51,6 +49,7 @@
         android:ems="10"
         android:hint="@string/nom_textview_layout_ajoutcontact"
         android:inputType="text"
+        android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -80,6 +79,7 @@
         android:ems="10"
         android:hint="@string/numero_textview_layout_ajoutcontact"
         android:inputType="phone"
+        android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -108,6 +108,7 @@
         android:ems="10"
         android:hint="@string/adresse_textview_layout_ajoutcontact"
         android:inputType="textEmailAddress"
+        android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -122,21 +123,19 @@
         android:lines="2"
         android:inputType="textMultiLine"
         android:hint="@string/notes_textview_layout_compartiment"
+        android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.65"/>
 
-    <View
-        android:layout_width="150dp"
-        android:layout_height="1dip"
-        android:background="#FF909090"
+    <View style="@style/style_Divider"
+        app:layout_constraintVertical_bias="0.73"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.73"/>
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <TextView
         android:id="@+id/alerte_textview_layout_ajoutcontact"
@@ -156,24 +155,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/mail_checkbox_layout_ajoutcontact"
+        android:theme="@style/style_checkbox"
+        app:layout_constraintBaseline_toBaselineOf="@+id/alerte_textview_layout_ajoutcontact"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.8"/>
+        app:layout_constraintHorizontal_bias="0.5"/>
 
     <CheckBox
         android:id="@+id/sms_checkbox_layout_ajoutcontact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sms_checkbox_layout_ajoutcontact"
+        android:theme="@style/style_checkbox"
+        app:layout_constraintBaseline_toBaselineOf="@+id/alerte_textview_layout_ajoutcontact"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintVertical_bias="0.8"/>
+        app:layout_constraintHorizontal_bias="0.8"/>
 
     <Button
         android:id="@+id/ajouter_button_layout_ajoutcontact"

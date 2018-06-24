@@ -17,4 +17,51 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- divider horizontal classique -->
+    <style name="style_Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">?android:attr/listDivider</item>
+    </style>
+
+    <!-- theme des switchs -->
+    <style name="style_switch" parent="Theme.AppCompat.Light">
+        <!-- activé -->
+        <item name="colorControlActivated">#0078FF</item>
+        <!-- inactif -->
+        <item name="colorSwitchThumbNormal">#f1f1f1</item>
+        <!-- inactif interactif -->
+        <item name="android:colorForeground">#42221f1f</item>
+    </style>
+
+    <!-- theme des toggle button -->
+    <style name="style_togglebutton" parent="Theme.AppCompat.Light">
+        <!-- activé -->
+        <item name="colorControlActivated">#0078FF</item>
+        <!-- inactif -->
+        <item name="colorSwitchThumbNormal">#f1f1f1</item>
+        <!-- inactif interactif -->
+        <item name="android:colorForeground">#42221f1f</item>
+    </style>
+
+    <!-- theme des check boxes -->
+    <style name="style_checkbox" parent="Theme.AppCompat.Light">
+        <!-- activé -->
+        <item name="colorControlActivated">#0078FF</item>
+        <!-- inactif -->
+        <item name="colorSwitchThumbNormal">#f1f1f1</item>
+        <!-- inactif interactif -->
+        <item name="android:colorForeground">#42221f1f</item>
+    </style>
+
+    <!-- theme des edit text -->
+    <style name="style_edittext" parent="Theme.AppCompat.Light">
+        <!-- activé -->
+        <item name="colorControlActivated">#0078FF</item>
+        <!-- inactif -->
+        <item name="colorSwitchThumbNormal">#f1f1f1</item>
+        <!-- inactif interactif -->
+        <item name="android:colorForeground">#42221f1f</item>
+    </style>
+
 </resources>
