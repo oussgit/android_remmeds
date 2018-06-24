@@ -44,4 +44,24 @@
         <item name="android:colorForeground">#42221f1f</item>
     </style>
 
+    <!-- theme des check boxes -->
+    <style name="style_checkbox" parent="Theme.AppCompat.Light">
+        <!-- activé -->
+        <item name="colorControlActivated">#0078FF</item>
+        <!-- inactif -->
+        <item name="colorSwitchThumbNormal">#f1f1f1</item>
+        <!-- inactif interactif -->
+        <item name="android:colorForeground">#42221f1f</item>
+    </style>
+
+    <!-- theme des edit text -->
+    <style name="style_edittext" parent="Theme.AppCompat.Light">
+        <!-- activé -->
+        <item name="colorControlActivated">#0078FF</item>
+        <!-- inactif -->
+        <item name="colorSwitchThumbNormal">#f1f1f1</item>
+        <!-- inactif interactif -->
+        <item name="android:colorForeground">#42221f1f</item>
+    </style>
+
 </resources>
