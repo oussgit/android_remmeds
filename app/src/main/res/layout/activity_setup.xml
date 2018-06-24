@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,20 +11,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@string/nav_header_desc"
-        app:srcCompat="@mipmap/ic_launcher_round"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05"/>
+        app:layout_constraintVertical_bias="0.05"
+        app:srcCompat="@mipmap/ic_launcher_round" />
 
     <EditText
         android:id="@+id/prenom_edittext_layout_setup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/prenom_textview_layout_profil"
+        android:inputType="textPersonName"
         android:text="@string/prenom_textview_layout_profil"
         android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,15 +32,15 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/nom_edittext_layout_setup"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"/>
+        app:layout_constraintVertical_bias="0.25" />
 
     <EditText
         android:id="@+id/nom_edittext_layout_setup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/nom_textview_layout_profil"
+        android:inputType="textPersonName"
         android:text="@string/nom_textview_layout_profil"
         android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +48,7 @@
         app:layout_constraintLeft_toRightOf="@+id/prenom_edittext_layout_setup"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"/>
+        app:layout_constraintVertical_bias="0.25" />
 
     <TextView
         android:id="@+id/vosheures_textview_layout_setup"
@@ -62,21 +61,21 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42"/>
+        app:layout_constraintVertical_bias="0.42" />
 
 
     <ImageView
         android:id="@+id/breakfast_imageview_layout_setup"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:srcCompat="@drawable/ic_breakfast"
         android:contentDescription="@string/ptitdej_textview_layout_compartiment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"/>
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/ic_breakfast" />
 
 
     <TextView
@@ -98,11 +97,10 @@
         android:id="@+id/breakfast_editText_layout_setup"
         android:layout_width="64dp"
         android:layout_height="41dp"
-        android:editable="false"
         android:ems="10"
         android:focusable="false"
         android:hint="@string/blank"
-        android:inputType="time"
+        android:inputType="none"
         android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.625"
@@ -114,14 +112,14 @@
         android:id="@+id/lunch_imageview_layout_setup"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:srcCompat="@drawable/ic_lunch"
         android:contentDescription="@string/dejeuner_textview_layout_compartiment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6"/>
+        app:layout_constraintVertical_bias="0.6"
+        app:srcCompat="@drawable/ic_lunch" />
 
     <TextView
         android:id="@+id/lunch_textview_layout_setup"
@@ -141,11 +139,10 @@
         android:id="@+id/lunch_edittext_layout_setup"
         android:layout_width="64dp"
         android:layout_height="41dp"
-        android:editable="false"
         android:ems="10"
         android:focusable="false"
         android:hint="@string/blank"
-        android:inputType="time"
+        android:inputType="none"
         android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.625"
@@ -158,14 +155,14 @@
         android:id="@+id/dinner_imageview_layout_setup"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:srcCompat="@drawable/ic_dinner"
         android:contentDescription="@string/diner_textview_layout_compartiment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7"/>
+        app:layout_constraintVertical_bias="0.7"
+        app:srcCompat="@drawable/ic_dinner" />
 
     <TextView
         android:id="@+id/dinner_textview_layout_setup"
@@ -185,11 +182,10 @@
         android:id="@+id/dinner_edittext_layout_setup"
         android:layout_width="64dp"
         android:layout_height="41dp"
-        android:editable="false"
         android:ems="10"
         android:focusable="false"
         android:hint="@string/blank"
-        android:inputType="time"
+        android:inputType="none"
         android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.625"
@@ -202,14 +198,14 @@
         android:id="@+id/bedtime_imageview_layout_setup"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:srcCompat="@drawable/ic_bedtime"
         android:contentDescription="@string/coucher_textview_layout_compartiment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8"/>
+        app:layout_constraintVertical_bias="0.8"
+        app:srcCompat="@drawable/ic_bedtime" />
 
     <TextView
         android:id="@+id/bedtime_textview_layout_setup"
@@ -229,11 +225,10 @@
         android:id="@+id/bedtime_edittext_layout_setup"
         android:layout_width="64dp"
         android:layout_height="41dp"
-        android:editable="false"
-        android:focusable="false"
         android:ems="10"
+        android:focusable="false"
         android:hint="@string/blank"
-        android:inputType="time"
+        android:inputType="none"
         android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.625"
@@ -247,13 +242,12 @@
         android:layout_width="102dp"
         android:layout_height="31dp"
         android:background="@drawable/bouton_arrondi_bleu"
-        android:textColor="@android:color/background_light"
         android:text="@string/valider_burrton_layout_inscription"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.980"
-        />
+        app:layout_constraintVertical_bias="0.980" />
 
 </android.support.constraint.ConstraintLayout>

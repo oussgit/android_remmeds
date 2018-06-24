@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import com.example.jeux.remmeds.fragments.FragmentGestion;
 import com.example.jeux.remmeds.fragments.FragmentRepertoire;
 import com.example.jeux.remmeds.fragments.FragmentAccueil;
-import com.example.jeux.remmeds.fragments.FragmentConfiguration;
 import com.example.jeux.remmeds.fragments.FragmentHistorique;
 import com.example.jeux.remmeds.fragments.FragmentProfil;
 import com.example.jeux.remmeds.R;
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = new Intent (this, debug.class);
+            Intent intent = new Intent (this, Debug.class);
             startActivity(intent);
         }
 

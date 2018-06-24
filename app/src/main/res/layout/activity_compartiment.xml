@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.Compartiment">
@@ -11,19 +10,20 @@
         android:id="@+id/nom_editText_layout_compartiment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginStart="20dp"
         android:ems="10"
+        android:hint="@string/blank"
         android:inputType="textPersonName"
         android:text="@string/nom_edittext_layout_compartiment"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
         android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.03"/>
+        app:layout_constraintVertical_bias="0.03" />
 
     <TextView
         android:id="@+id/duree_textView_layout_compartiment"
@@ -36,13 +36,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.12"/>
+        app:layout_constraintVertical_bias="0.12" />
 
     <EditText
         android:id="@+id/nombre_editText_layout_compartiment"
         android:layout_width="47dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/blank"
         android:inputType="number"
         android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,25 +51,26 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17"/>
+        app:layout_constraintVertical_bias="0.17" />
 
     <Spinner
         android:id="@+id/typenombre_spinner_layout_compartiment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:entries="@array/type_duree_traitement"
-        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintBaseline_toBaselineOf="@+id/nombre_editText_layout_compartiment"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintLeft_toRightOf="@+id/nombre_editText_layout_compartiment"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <View style="@style/style_Divider"
-        app:layout_constraintVertical_bias="0.235"
-        app:layout_constraintTop_toTopOf="parent"
+    <View
+        style="@style/style_Divider"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.235" />
 
     <TextView
         android:id="@+id/conditions_textView_layout_compartiment"
@@ -81,7 +83,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"/>
+        app:layout_constraintVertical_bias="0.25" />
 
     <Switch
         android:id="@+id/ptitdej_switch_layout_compartiment"
@@ -93,14 +95,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"/>
+        app:layout_constraintVertical_bias="0.3" />
 
     <TextView
         android:id="@+id/ptitdej_textView_layout_compartiment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:text="@string/ptitdej_textview_layout_compartiment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.250"
@@ -120,14 +122,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35"/>
+        app:layout_constraintVertical_bias="0.35" />
 
     <TextView
         android:id="@+id/dejeuner_textView_layout_compartiment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:text="@string/dejeuner_textview_layout_compartiment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.250"
@@ -147,14 +149,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.4"/>
+        app:layout_constraintVertical_bias="0.4" />
 
     <TextView
         android:id="@+id/diner_textView_layout_compartiment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:text="@string/diner_textview_layout_compartiment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.250"
@@ -174,14 +176,14 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"/>
+        app:layout_constraintVertical_bias="0.45" />
 
     <TextView
         android:id="@+id/coucher_textView_layout_compartiment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:text="@string/coucher_textview_layout_compartiment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.250"
@@ -199,7 +201,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"/>
+        app:layout_constraintVertical_bias="0.5" />
 
     <Switch
         android:id="@+id/heureperso_switch_layout_compartiment"
@@ -217,8 +219,8 @@
         android:id="@+id/heureperso_textView_layout_compartiment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:text="@string/heureperso_textview_layout_compartiment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.250"
@@ -234,23 +236,24 @@
         android:layout_height="wrap_content"
         android:text="@string/frequenceperso_checkbox_layout_compartiment"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@+id/heureperso_switch_layout_compartiment"
         app:layout_constraintHorizontal_bias="0.150"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heureperso_switch_layout_compartiment" />
 
     <EditText
         android:id="@+id/nombreheure_editText_layout_compartiment"
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/blank"
         android:inputType="number"
-        android:visibility="gone"
         android:theme="@style/style_edittext"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/debuttexte_textview_layout_commpartiment"
         app:layout_constraintHorizontal_bias="0.370"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/debuttexte_textview_layout_commpartiment"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
     <TextView
         android:id="@+id/fintexte_TextView_layout_compartiment"
@@ -258,24 +261,25 @@
         android:layout_height="wrap_content"
         android:text="@string/fintexte_textview_layout_compartiment"
         android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/debuttexte_textview_layout_commpartiment"
         app:layout_constraintHorizontal_bias="0.700"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/debuttexte_textview_layout_commpartiment"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
         android:id="@+id/heuredepart_editText_layout_compartiment"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/blank"
         android:inputType="time"
         android:textSize="12sp"
-        android:visibility="gone"
         android:theme="@style/style_edittext"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/debuttexte_textview_layout_commpartiment"
         app:layout_constraintHorizontal_bias="0.950"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/debuttexte_textview_layout_commpartiment" />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Switch
         android:id="@+id/frequenceperso_switch_layout_compartiment"
@@ -285,21 +289,20 @@
         app:layout_constraintHorizontal_bias="0.100"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/debuttexte_textview_layout_commpartiment"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/debuttexte_textview_layout_commpartiment" />
 
     <TextView
         android:id="@+id/frequenceperso_textView_layout_compartiment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:text="@string/frequenceperso_textview_layout_compartiment"
+        app:layout_constraintBaseline_toBaselineOf="@+id/frequenceperso_switch_layout_compartiment"
         app:layout_constraintHorizontal_bias="0.250"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/frequenceperso_switch_layout_compartiment"
-        app:layout_constraintBaseline_toBaselineOf="@+id/frequenceperso_switch_layout_compartiment"/>
+        app:layout_constraintStart_toEndOf="@+id/frequenceperso_switch_layout_compartiment" />
 
     <ToggleButton
         android:id="@+id/lundi_toggleButton_layout_compartiment"
@@ -307,12 +310,12 @@
         android:layout_height="37dp"
         android:textOff="@string/lundi_togglebutton_layout_compartiment"
         android:textOn="@string/lundi_togglebutton_layout_compartiment"
-        android:visibility="gone"
         android:theme="@style/style_togglebutton"
+        android:visibility="gone"
         app:layout_constraintHorizontal_bias="0.150"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frequenceperso_switch_layout_compartiment"/>
+        app:layout_constraintTop_toBottomOf="@+id/frequenceperso_switch_layout_compartiment" />
 
     <ToggleButton
         android:id="@+id/mardi_toggleButton_layout_compartiment"
@@ -320,12 +323,12 @@
         android:layout_height="37dp"
         android:textOff="@string/marmer_togglebutton_layout_compartiment"
         android:textOn="@string/marmer_togglebutton_layout_compartiment"
-        android:visibility="gone"
         android:theme="@style/style_togglebutton"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lundi_toggleButton_layout_compartiment"
         app:layout_constraintHorizontal_bias="0.250"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/lundi_toggleButton_layout_compartiment"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ToggleButton
         android:id="@+id/mercredi_toggleButton_layout_compartiment"
@@ -333,12 +336,12 @@
         android:layout_height="37dp"
         android:textOff="@string/marmer_togglebutton_layout_compartiment"
         android:textOn="@string/marmer_togglebutton_layout_compartiment"
-        android:visibility="gone"
         android:theme="@style/style_togglebutton"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lundi_toggleButton_layout_compartiment"
         app:layout_constraintHorizontal_bias="0.350"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/lundi_toggleButton_layout_compartiment"/>
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ToggleButton
         android:id="@+id/jeudi_toggleButton_layout_compartiment"
@@ -346,13 +349,12 @@
         android:layout_height="37dp"
         android:textOff="@string/jeudi_togglebutton_layout_compartiment"
         android:textOn="@string/jeudi_togglebutton_layout_compartiment"
-        android:visibility="gone"
         android:theme="@style/style_togglebutton"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lundi_toggleButton_layout_compartiment"
         app:layout_constraintHorizontal_bias="0.450"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/lundi_toggleButton_layout_compartiment"
-        />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ToggleButton
         android:id="@+id/vendredi_toggleButton_layout_compartiment"
@@ -360,13 +362,12 @@
         android:layout_height="37dp"
         android:textOff="@string/vendredi_togglebutton_layout_compartiment"
         android:textOn="@string/vendredi_togglebutton_layout_compartiment"
-        android:visibility="gone"
         android:theme="@style/style_togglebutton"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lundi_toggleButton_layout_compartiment"
         app:layout_constraintHorizontal_bias="0.550"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/lundi_toggleButton_layout_compartiment"
-        />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ToggleButton
         android:id="@+id/samedi_toggleButton_layout_compartiment"
@@ -374,13 +375,12 @@
         android:layout_height="37dp"
         android:textOff="@string/samedi_togglebutton_layout_compartiment"
         android:textOn="@string/samedi_togglebutton_layout_compartiment"
-        android:visibility="gone"
         android:theme="@style/style_togglebutton"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lundi_toggleButton_layout_compartiment"
         app:layout_constraintHorizontal_bias="0.650"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/lundi_toggleButton_layout_compartiment"
-        />
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ToggleButton
         android:id="@+id/dimanche_toggleButton_layout_compartiment"
@@ -388,20 +388,20 @@
         android:layout_height="37dp"
         android:textOff="@string/dimanche_togglebutton_layout_compartiment"
         android:textOn="@string/dimanche_togglebutton_layout_compartiment"
-        android:visibility="gone"
         android:theme="@style/style_togglebutton"
+        android:visibility="gone"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lundi_toggleButton_layout_compartiment"
         app:layout_constraintHorizontal_bias="0.750"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@+id/lundi_toggleButton_layout_compartiment"
-        />
+        app:layout_constraintRight_toRightOf="parent" />
 
-    <View style="@style/style_Divider"
-        app:layout_constraintVertical_bias="0.71"
-        app:layout_constraintTop_toTopOf="parent"
+    <View
+        style="@style/style_Divider"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71" />
 
     <TextView
         android:id="@+id/note_textView1_layout_compartiment"
@@ -414,24 +414,25 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.750"/>
+        app:layout_constraintVertical_bias="0.750" />
 
     <EditText
         android:id="@+id/note_editText_layout_compartiment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:layout_marginStart="20dp"
+        android:ems="10"
+        android:hint="@string/blank"
+        android:inputType="textMultiLine"
         android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.850"/>
+        app:layout_constraintVertical_bias="0.850" />
 
     <Button
         android:id="@+id/annuler_button_layout_compartiment"
@@ -444,21 +445,20 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.980"/>
+        app:layout_constraintVertical_bias="0.980" />
 
     <Button
         android:id="@+id/enregistrer_button_layout_compartiment"
         android:layout_width="102dp"
         android:layout_height="31dp"
         android:background="@drawable/bouton_arrondi_bleu"
-        android:textColor="@android:color/background_light"
         android:text="@string/enregistrer_button_layout_compartiment"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.980"
-        />
+        app:layout_constraintVertical_bias="0.980" />
 
 </android.support.constraint.ConstraintLayout>

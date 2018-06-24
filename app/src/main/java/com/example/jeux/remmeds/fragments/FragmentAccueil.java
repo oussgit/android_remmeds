@@ -11,7 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 
 import com.example.jeux.remmeds.R;
@@ -36,19 +35,19 @@ public class FragmentAccueil extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new PriseAdapter(priseListe);
 
-        Prise a = new Prise("Heure du coucher",R.drawable.ic_bedtime,"20h30");
-        Prise b = new Prise("Doliprane",R.drawable.ic_pillbox,"15h00");
-        Prise c = new Prise("Kebab",R.drawable.ic_lunch,"12h30");
-        Prise d = new Prise("Smecta",R.drawable.ic_pillbox,"9h00");
-        Prise u = new Prise("Smecta",R.drawable.ic_pillbox,"9h00");
-        Prise f = new Prise("Smecta",R.drawable.ic_pillbox,"9h00");
-        Prise g = new Prise("Smecta",R.drawable.ic_pillbox,"9h00");
+        Prise a = new Prise("Heure du coucher", R.drawable.ic_bedtime, "20h30");
+        Prise b = new Prise("Doliprane", R.drawable.ic_pillbox, "15h00");
+        Prise c = new Prise("Kebab", R.drawable.ic_lunch, "12h30");
+        Prise d = new Prise("Smecta", R.drawable.ic_pillbox, "9h00");
+        Prise u = new Prise("Smecta", R.drawable.ic_pillbox, "9h00");
+        Prise f = new Prise("Smecta", R.drawable.ic_pillbox, "9h00");
+        Prise g = new Prise("Smecta", R.drawable.ic_pillbox, "9h00");
 
 
         try {
             mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
         } catch (Exception e) {
-            Log.e("mRecyclerView.addItem","exception",e);
+            Log.e("mRecyclerView.addItem", "exception", e);
         }
 
         mRecyclerView.setAdapter(mAdapter);
