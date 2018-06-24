@@ -15,23 +15,23 @@ public class Debug extends AppCompatActivity {
         setContentView(R.layout.activity_debug);
     }
 
-    public void goajoutcontact (View view){
-        startActivity(new Intent(Debug.this, Ajoutcontact.class));
-    }
-
-    public void goauthentification (View view){
-        startActivity(new Intent(Debug.this, Authentification.class));
-    }
-
-    public void goinscription (View view){
-        startActivity(new Intent(Debug.this, Inscription.class));
-    }
-
-    public void gocompartiment (View view){
-        startActivity(new Intent(Debug.this, Compartiment.class));
-    }
-
-    public void gosetup (View view){
-        startActivity(new Intent(Debug.this, Setup.class));
+    public void displayPage (View view){
+        switch(view.getId()){
+            case R.id.authentification_button_debug:
+                startActivity(new Intent(Debug.this, Authentification.class));
+                break;
+            case R.id.inscription_button_debug:
+                startActivity(new Intent(Debug.this, Inscription.class));
+                break;
+            case R.id.compartiment_button_debug:
+                startActivity(new Intent(Debug.this, Compartiment.class));
+                break;
+            case R.id.ajoutcontact_button_debug:
+                startActivity(new Intent(Debug.this, Ajoutcontact.class));
+                break;
+            case R.id.setup_button_debug:
+                startActivity(new Intent(Debug.this, Setup.class));
+                break;
+        }
     }
 }
