@@ -27,7 +27,7 @@
     <!-- theme des switchs -->
     <style name="style_switch" parent="Theme.AppCompat.Light">
         <!-- activé -->
-        <item name="colorControlActivated">#0078FF</item>
+        <item name="colorControlActivated">@color/bleu_remmeds</item>
         <!-- inactif -->
         <item name="colorSwitchThumbNormal">#f1f1f1</item>
         <!-- inactif interactif -->
@@ -37,7 +37,7 @@
     <!-- theme des toggle button -->
     <style name="style_togglebutton" parent="Theme.AppCompat.Light">
         <!-- activé -->
-        <item name="colorControlActivated">#0078FF</item>
+        <item name="colorControlActivated">@color/bleu_remmeds</item>
         <!-- inactif -->
         <item name="colorSwitchThumbNormal">#f1f1f1</item>
         <!-- inactif interactif -->
@@ -47,7 +47,7 @@
     <!-- theme des check boxes -->
     <style name="style_checkbox" parent="Theme.AppCompat.Light">
         <!-- activé -->
-        <item name="colorControlActivated">#0078FF</item>
+        <item name="colorControlActivated">@color/bleu_remmeds</item>
         <!-- inactif -->
         <item name="colorSwitchThumbNormal">#f1f1f1</item>
         <!-- inactif interactif -->
@@ -57,7 +57,7 @@
     <!-- theme des edit text -->
     <style name="style_edittext" parent="Theme.AppCompat.Light">
         <!-- activé -->
-        <item name="colorControlActivated">#0078FF</item>
+        <item name="colorControlActivated">@color/bleu_remmeds</item>
         <!-- inactif -->
         <item name="colorSwitchThumbNormal">#f1f1f1</item>
     </style>
