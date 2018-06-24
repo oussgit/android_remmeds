@@ -60,8 +60,6 @@
         <item name="colorControlActivated">#0078FF</item>
         <!-- inactif -->
         <item name="colorSwitchThumbNormal">#f1f1f1</item>
-        <!-- inactif interactif -->
-        <item name="android:colorForeground">#42221f1f</item>
     </style>
 
 </resources>

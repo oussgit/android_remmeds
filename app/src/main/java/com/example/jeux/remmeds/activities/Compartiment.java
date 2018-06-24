@@ -164,7 +164,6 @@ public class Compartiment extends AppCompatActivity {
                 .setPositiveButton("Valider", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
                     }
 
                 })
