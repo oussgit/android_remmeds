@@ -46,6 +46,12 @@
     <string name="notes_textview_layout_compartiment">Notes</string>
     <string name="enregistrer_button_layout_compartiment">Enregistrer</string>
     <string name="annuler_button_layout_compartiment">Annuler</string>
+    <string-array name="type_duree_traitement">
+        <item>Jours</item>
+        <item>Semaines</item>
+        <item>Mois</item>
+        <item>Années</item>
+    </string-array>
 
     <!-- Historique -->
     <string name="titre_textview_layout_historique">Retrouvez votre historique complet</string>

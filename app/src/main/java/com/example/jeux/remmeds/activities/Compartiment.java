@@ -9,10 +9,14 @@ import android.widget.TextView;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Toast;
+import android.widget.Spinner;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ToggleButton;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import com.example.jeux.remmeds.R;
 
@@ -28,67 +32,59 @@ public class Compartiment extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compartiment);
-        swi_breakfast = (Switch)findViewById(R.id.ptitdej_switch_layout_compartiment);
+        swi_breakfast = (Switch) findViewById(R.id.ptitdej_switch_layout_compartiment);
         swi_breakfast.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                if(swi_breakfast.isChecked())
-                {
+                if (swi_breakfast.isChecked()) {
                     Toast.makeText(Compartiment.this, "Switch is on", Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
                     Toast.makeText(Compartiment.this, "Switch is Off", Toast.LENGTH_LONG).show();
                 }
             }
         });
-        swi_dejeuner = (Switch)findViewById(R.id.dejeuner_switch_layout_compartiment);
+        swi_dejeuner = (Switch) findViewById(R.id.dejeuner_switch_layout_compartiment);
         swi_dejeuner.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                if(swi_dejeuner.isChecked())
-                {
+                if (swi_dejeuner.isChecked()) {
                     Toast.makeText(Compartiment.this, "Switch is on", Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
                     Toast.makeText(Compartiment.this, "Switch is Off", Toast.LENGTH_LONG).show();
                 }
             }
         });
-        swi_diner = (Switch)findViewById(R.id.diner_switch_layout_compartiment);
+        swi_diner = (Switch) findViewById(R.id.diner_switch_layout_compartiment);
         swi_diner.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                if(swi_diner.isChecked())
-                {
+                if (swi_diner.isChecked()) {
                     Toast.makeText(Compartiment.this, "Switch is on", Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
                     Toast.makeText(Compartiment.this, "Switch is Off", Toast.LENGTH_LONG).show();
                 }
             }
         });
-        swi_coucher = (Switch)findViewById(R.id.coucher_switch_layout_compartiment);
+        swi_coucher = (Switch) findViewById(R.id.coucher_switch_layout_compartiment);
         swi_coucher.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                if(swi_coucher.isChecked())
-                {
+                if (swi_coucher.isChecked()) {
                     Toast.makeText(Compartiment.this, "Switch is on", Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
                     Toast.makeText(Compartiment.this, "Switch is Off", Toast.LENGTH_LONG).show();
                 }
             }
         });
-        swi_heureperso = (Switch)findViewById(R.id.heureperso_switch_layout_compartiment);
+        swi_heureperso = (Switch) findViewById(R.id.heureperso_switch_layout_compartiment);
         tex_apartirde = (TextView) findViewById(R.id.fintexte_TextView_layout_compartiment);
         tex_toutesles = (TextView) findViewById(R.id.debuttexte_textview_layout_commpartiment);
         edi_nbrheure = (EditText) findViewById(R.id.nombreheure_editText_layout_compartiment);
@@ -98,14 +94,12 @@ public class Compartiment extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(swi_heureperso.isChecked())
-                {
+                if (swi_heureperso.isChecked()) {
                     tex_apartirde.setVisibility(View.VISIBLE);
                     tex_toutesles.setVisibility(View.VISIBLE);
                     edi_nbrheure.setVisibility(View.VISIBLE);
                     edi_apartirde.setVisibility(View.VISIBLE);
-                }
-                else {
+                } else {
                     tex_apartirde.setVisibility(View.GONE);
                     tex_toutesles.setVisibility(View.GONE);
                     edi_nbrheure.setVisibility(View.GONE);
@@ -113,21 +107,20 @@ public class Compartiment extends AppCompatActivity {
                 }
             }
         });
-        swi_frequenceperso = (Switch)findViewById(R.id.frequenceperso_switch_layout_compartiment);
-        tog_lundi = (ToggleButton)findViewById(R.id.lundi_toggleButton_layout_compartiment);
-        tog_mardi = (ToggleButton)findViewById(R.id.mardi_toggleButton_layout_compartiment);
-        tog_mercredi = (ToggleButton)findViewById(R.id.mercredi_toggleButton_layout_compartiment);
-        tog_jeudi = (ToggleButton)findViewById(R.id.jeudi_toggleButton_layout_compartiment);
-        tog_vendredi = (ToggleButton)findViewById(R.id.vendredi_toggleButton_layout_compartiment);
-        tog_samedi = (ToggleButton)findViewById(R.id.samedi_toggleButton_layout_compartiment);
-        tog_dimanche = (ToggleButton)findViewById(R.id.dimanche_toggleButton_layout_compartiment);
+        swi_frequenceperso = (Switch) findViewById(R.id.frequenceperso_switch_layout_compartiment);
+        tog_lundi = (ToggleButton) findViewById(R.id.lundi_toggleButton_layout_compartiment);
+        tog_mardi = (ToggleButton) findViewById(R.id.mardi_toggleButton_layout_compartiment);
+        tog_mercredi = (ToggleButton) findViewById(R.id.mercredi_toggleButton_layout_compartiment);
+        tog_jeudi = (ToggleButton) findViewById(R.id.jeudi_toggleButton_layout_compartiment);
+        tog_vendredi = (ToggleButton) findViewById(R.id.vendredi_toggleButton_layout_compartiment);
+        tog_samedi = (ToggleButton) findViewById(R.id.samedi_toggleButton_layout_compartiment);
+        tog_dimanche = (ToggleButton) findViewById(R.id.dimanche_toggleButton_layout_compartiment);
         swi_frequenceperso.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                if(swi_frequenceperso.isChecked())
-                {
+                if (swi_frequenceperso.isChecked()) {
                     tog_lundi.setVisibility(View.VISIBLE);
                     tog_mardi.setVisibility(View.VISIBLE);
                     tog_mercredi.setVisibility(View.VISIBLE);
@@ -135,8 +128,7 @@ public class Compartiment extends AppCompatActivity {
                     tog_vendredi.setVisibility(View.VISIBLE);
                     tog_samedi.setVisibility(View.VISIBLE);
                     tog_dimanche.setVisibility(View.VISIBLE);
-                }
-                else {
+                } else {
                     tog_lundi.setVisibility(View.GONE);
                     tog_mardi.setVisibility(View.GONE);
                     tog_mercredi.setVisibility(View.GONE);
