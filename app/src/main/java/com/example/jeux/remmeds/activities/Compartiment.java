@@ -8,13 +8,10 @@ import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Toast;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.content.Intent;
 import android.view.View;
 import android.widget.ToggleButton;
 import java.util.ArrayList;
@@ -167,7 +164,7 @@ public class Compartiment extends AppCompatActivity {
                 .setPositiveButton("Valider", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        finish();
+                        //permet d'ajouter une action au bouton
                     }
 
                 })
