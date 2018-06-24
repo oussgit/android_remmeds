@@ -25,11 +25,11 @@ public class Ajoutcontact extends AppCompatActivity {
                 EditText num = findViewById(R.id.numero_edittext_layout_ajoutcontact);
                 EditText mail = findViewById(R.id.adresse_edittext_layout_ajoutcontact);
 
-                String contact_nom = nom.getText().toString();
-                String contact_prenom = prenom.getText().toString();
-                String contact_num = num.getText().toString();
-                String contact_mail = mail.getText().toString();
-                FragmentRepertoire.addItem(contact_nom, contact_prenom, contact_num, contact_mail);
+                String contactNom = nom.getText().toString();
+                String contactPrenom = prenom.getText().toString();
+                String contactNum = num.getText().toString();
+                String contactMail = mail.getText().toString();
+                FragmentRepertoire.addItem(contactNom, contactPrenom, contactNum, contactMail);
             }
         });
 
