@@ -23,9 +23,9 @@ public class PriseAdapter extends RecyclerView.Adapter<PriseAdapter.MyViewHolder
 
         public MyViewHolder(View view) {
             super(view);
-            nomMedicament = view.findViewById(R.id.acceuil_recycler_nomMedicament);
-            compartiment = view.findViewById(R.id.acceuil_recycler_compartiment);
-            heurePrise = view.findViewById(R.id.acceuil_recycler_heurePrise);
+            nomMedicament = view.findViewById(R.id.accueil_recycler_nomMedicament);
+            compartiment = view.findViewById(R.id.accueil_recycler_compartiment);
+            heurePrise = view.findViewById(R.id.accueil_recycler_heurePrise);
         }
     }
 
