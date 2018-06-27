@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 import com.example.jeux.remmeds.R;
 import com.example.jeux.remmeds.activities.Setup;
 
