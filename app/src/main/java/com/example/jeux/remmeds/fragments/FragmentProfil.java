@@ -12,7 +12,6 @@ import android.widget.TimePicker;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-
 import com.example.jeux.remmeds.R;
 import com.example.jeux.remmeds.activities.Setup;
 
@@ -23,7 +22,7 @@ public class FragmentProfil extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
         return inflater.inflate(R.layout.fragment_profil, container, false);
