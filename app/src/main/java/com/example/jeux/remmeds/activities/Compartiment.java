@@ -63,28 +63,30 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            default:
+                break;
             case R.id.ptitdej_switch_layout_compartiment:
-                Choixheure();
+                choixheure();
                 break;
             case R.id.dejeuner_switch_layout_compartiment:
-                Choixheure();
+                choixheure();
                 break;
             case R.id.diner_switch_layout_compartiment:
-                Choixheure();
+                choixheure();
                 break;
             case R.id.coucher_switch_layout_compartiment:
 
                 break;
             case R.id.heureperso_switch_layout_compartiment:
-                OptionsHeureperso();
+                optionsheureperso();
                 break;
             case R.id.frequenceperso_switch_layout_compartiment:
-                OptionsFrequenceperso();
+                optionsfrequenceperso();
                 break;
         }
     }
 
-    private void OptionsFrequenceperso() {
+    private void optionsfrequenceperso() {
         if (swifrequenceperso.isChecked()) {
             toglundi.setVisibility(View.VISIBLE);
             togmardi.setVisibility(View.VISIBLE);
@@ -104,7 +106,7 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void OptionsHeureperso() {
+    private void optionsheureperso() {
         if (swiheureperso.isChecked()) {
             texapartirde.setVisibility(View.VISIBLE);
             textoutesles.setVisibility(View.VISIBLE);
@@ -118,7 +120,7 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void Choixheure() {
+    private void choixheure() {
         final CharSequence[] items = {" Avant ", " Pendant ", " Après "};
         // arraylist pour l'item sélectionné
         final ArrayList<Integer> selectedItems = new ArrayList<>();

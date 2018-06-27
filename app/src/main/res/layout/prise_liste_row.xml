@@ -11,26 +11,34 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/row_padding_vertical">
 
-
-    <TextView
-        android:id="@+id/acceuil_recycler_nomMedicament"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
     <ImageView
-        android:id="@+id/acceuil_recycler_compartiment"
-        android:layout_width="match_parent"
+        android:id="@+id/accueil_recycler_compartiment"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rep_recycler_nom" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:contentDescription="@string/blank"
+        />
 
     <TextView
-        android:id="@+id/acceuil_recycler_heurePrise"
-        android:layout_width="match_parent"
+        android:id="@+id/accueil_recycler_nomMedicament"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@id/accueil_recycler_compartiment"
+        android:layout_toRightOf="@id/accueil_recycler_compartiment"/>
+
+    <TextView
+        android:id="@+id/accueil_recycler_heurePrise"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@string/blank"
         android:gravity="end"/>
 
 </RelativeLayout>
