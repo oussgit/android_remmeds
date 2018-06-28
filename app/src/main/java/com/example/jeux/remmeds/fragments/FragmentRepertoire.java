@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +31,7 @@ import java.util.List;
 
 public class FragmentRepertoire extends Fragment {
     private static List<Contact> contactList = new ArrayList<>();
-    private static ContactAdapter mAdapter;
+    private static ContactAdapter mAdapter = new ContactAdapter(contactList);
 
     @Nullable
     @Override
@@ -45,10 +44,9 @@ public class FragmentRepertoire extends Fragment {
 
         mRecyclerView = rep.findViewById(R.id.rep_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        mAdapter = new ContactAdapter(contactList);
 
         if (contactList.isEmpty()) {
-            fillRecycler("http://212.73.217.202:15020/repertory/list_repertory/6");
+            fillRecycler("http://212.73.217.202:15020/contact/list_contact/6");
         }
 
         addButton = rep.findViewById(R.id.ajouter_button_layout_repertoire);
@@ -70,11 +68,13 @@ public class FragmentRepertoire extends Fragment {
     public void fillRecycler(String str) {
 
         JSONObject data = MainActivity.getDoInBackground(str);
-        JSONArray array = null;
+        JSONArray array = new JSONArray();
         try {
-            array = data.getJSONArray("repertory_contact");
+            array = data.getJSONArray("contact");
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e("arrayRecycler","Exception catched"+e);
+        } catch (java.lang.NullPointerException e){
+            Log.e("arrayRecycler","NULL JSON"+e);
         }
         for (int i = 0; i < array.length(); i++) {
             Contact a = new Contact();
@@ -85,7 +85,7 @@ public class FragmentRepertoire extends Fragment {
                 a.setNumero(array.getJSONObject(i).getString("phonenumber"));
                 contactList.add(a);
             } catch (JSONException e) {
-                e.printStackTrace();
+                Log.e("CreationContact","NULL JSON"+e);
             }
         }
         mAdapter.notifyDataSetChanged();

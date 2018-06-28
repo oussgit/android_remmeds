@@ -39,9 +39,9 @@ public class FragmentAccueil extends Fragment {
         Prise b = new Prise("Doliprane", R.drawable.ic_pillbox, "15h00");
         Prise c = new Prise("Kebab", R.drawable.ic_lunch, "12h30");
         Prise d = new Prise("Smecta", R.drawable.ic_pillbox, "9h00");
-        Prise u = new Prise("Smecta", R.drawable.ic_pillbox, "9h00");
-        Prise f = new Prise("Smecta", R.drawable.ic_pillbox, "9h00");
-        Prise g = new Prise("Smecta", R.drawable.ic_pillbox, "9h00");
+        Prise u = new Prise("Paracétamol", R.drawable.ic_pillbox, "9h00");
+        Prise f = new Prise("Rigolamol", R.drawable.ic_pillbox, "9h00");
+        Prise g = new Prise("CestMoiLaMol", R.drawable.ic_pillbox, "9h00");
 
 
         try {

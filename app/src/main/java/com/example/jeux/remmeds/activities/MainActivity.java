@@ -79,12 +79,12 @@ public class MainActivity extends AppCompatActivity
             urlConn = url.openConnection();
             bufferedReader = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
 
-            StringBuffer stringBuffer = new StringBuffer();
+            StringBuilder stringBuilder = new StringBuilder();
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                stringBuffer.append(line);
+                stringBuilder.append(line);
             }
-            return new JSONObject(stringBuffer.toString());
+            return new JSONObject(stringBuilder.toString());
         } catch (Exception ex) {
             Log.e("App", "yourDataTask", ex);
             return null;
