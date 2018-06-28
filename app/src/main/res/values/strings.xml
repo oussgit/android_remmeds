@@ -64,7 +64,7 @@
 
     <!-- AJOUT CONTACT -->
     <string name="titre_textview_layout_ajoutcontact">Pour chaque contact, \ndéfinissez VOTRE niveau d\'alerte</string>
-    <string name="ajouter_button_layout_ajoutcontact">Ajouter</string>
+    <string name="ajouter_button_layout_ajoutcontact">Enregistrer</string>
     <string name="prenom_textview_layout_ajoutcontact">Prenom</string>
     <string name="nom_textview_layout_ajoutcontact">Nom</string>
     <string name="adresse_textview_layout_ajoutcontact">Adresse email</string>
