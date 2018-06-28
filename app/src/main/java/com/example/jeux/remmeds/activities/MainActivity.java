@@ -2,6 +2,7 @@ package com.example.jeux.remmeds.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
@@ -10,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -20,15 +22,27 @@ import com.example.jeux.remmeds.fragments.FragmentHistorique;
 import com.example.jeux.remmeds.fragments.FragmentProfil;
 import com.example.jeux.remmeds.R;
 
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -53,6 +67,30 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    public static JSONObject getDoInBackground(String str) {
+        //Permet d'initier la connexion à l'api pour des requetes GET
+        // STR : Url du chemin de l'API
+
+        URLConnection urlConn = null;
+        BufferedReader bufferedReader = null;
+
+        try {
+            URL url = new URL(str);
+            urlConn = url.openConnection();
+            bufferedReader = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
+
+            StringBuffer stringBuffer = new StringBuffer();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuffer.append(line);
+            }
+            return new JSONObject(stringBuffer.toString());
+        } catch (Exception ex) {
+            Log.e("App", "yourDataTask", ex);
+            return null;
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -69,7 +107,9 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = new Intent (this, Debug.class);
+
+            Intent intent = new Intent(this, Debug.class);
+
             startActivity(intent);
         }
 
