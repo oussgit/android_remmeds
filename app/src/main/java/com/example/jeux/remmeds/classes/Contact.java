@@ -6,14 +6,19 @@ public class Contact {
     private String adresse;
     private String numero;
 
-    public Contact(String nom, String prenom, String adresse, String numero){
-        this.nom=nom;
-        this.prenom=prenom;
-        this.adresse=adresse;
-        this.numero=numero;
-        }
+    public Contact(String nom, String prenom, String adresse, String numero) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.numero = numero;
+    }
 
-    public void setNom(String nom) { this.nom = nom; }
+    public Contact() {
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
 
     public void setPrenom(String prenom) {
         this.prenom = prenom;
