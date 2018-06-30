@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 import com.example.jeux.remmeds.R;
 import com.example.jeux.remmeds.classes.Prise;
 import com.example.jeux.remmeds.classes.PriseAdapter;
@@ -23,13 +22,13 @@ import java.util.List;
 
 public class FragmentAccueil extends Fragment {
     private static List<Prise> priseListe = new ArrayList<>();
-    private static PriseAdapter mAdapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         RecyclerView mRecyclerView;
         final View acc = inflater.inflate(R.layout.fragment_accueil, container, false);
+        PriseAdapter mAdapter;
 
         mRecyclerView = acc.findViewById(R.id.prisesjour_recyclerView_layout_home);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -43,13 +42,11 @@ public class FragmentAccueil extends Fragment {
         Prise f = new Prise("Rigolamol", R.drawable.ic_pillbox, "9h00");
         Prise g = new Prise("CestMoiLaMol", R.drawable.ic_pillbox, "9h00");
 
-
         try {
             mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
         } catch (Exception e) {
             Log.e("mRecyclerView.addItem", "exception", e);
         }
-
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         priseListe.add(a);
@@ -60,7 +57,6 @@ public class FragmentAccueil extends Fragment {
         priseListe.add(f);
         priseListe.add(g);
         mAdapter.notifyDataSetChanged();
-
         return acc;
     }
 
