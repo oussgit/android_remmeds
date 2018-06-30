@@ -22,50 +22,49 @@ public class Setup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
-        final EditText field_prenom = findViewById(R.id.prenom_edittext_layout_setup);
-        final EditText field_nom = findViewById(R.id.nom_edittext_layout_setup);
-        final EditText field_breakfast = findViewById(R.id.breakfast_editText_layout_setup);
-        final EditText field_lunch = findViewById(R.id.lunch_edittext_layout_setup);
-        final EditText field_dinner = findViewById(R.id.dinner_edittext_layout_setup);
-        final EditText field_bedtime = findViewById(R.id.bedtime_edittext_layout_setup);
-        get_formatted_hour(field_breakfast);
-        get_formatted_hour(field_lunch);
-        get_formatted_hour(field_dinner);
-        get_formatted_hour(field_bedtime);
-        Button valider_button = findViewById(R.id.enregistrer_button_layout_setup);
-        valider_button.setOnClickListener(new View.OnClickListener() {
+        final EditText fieldPrenom = findViewById(R.id.prenom_edittext_layout_setup);
+        final EditText fieldNom = findViewById(R.id.nom_edittext_layout_setup);
+        final EditText fieldBreakfast = findViewById(R.id.breakfast_editText_layout_setup);
+        final EditText fieldLunch = findViewById(R.id.lunch_edittext_layout_setup);
+        final EditText fieldDinner = findViewById(R.id.dinner_edittext_layout_setup);
+        final EditText fieldBedtime = findViewById(R.id.bedtime_edittext_layout_setup);
+        getFormattedHour(fieldBreakfast);
+        getFormattedHour(fieldLunch);
+        getFormattedHour(fieldDinner);
+        getFormattedHour(fieldBedtime);
+        Button validerButton = findViewById(R.id.enregistrer_button_layout_setup);
+        validerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!TextUtils.isEmpty(field_prenom.getText()) && !TextUtils.isEmpty(field_nom.getText()) &&
-                        !TextUtils.isEmpty(field_breakfast.getText()) && !TextUtils.isEmpty(field_lunch.getText()) &&
-                        !TextUtils.isEmpty(field_dinner.getText()) && !TextUtils.isEmpty(field_bedtime.getText())) {
+                if (!TextUtils.isEmpty(fieldPrenom.getText()) && !TextUtils.isEmpty(fieldNom.getText()) &&
+                        !TextUtils.isEmpty(fieldBreakfast.getText()) && !TextUtils.isEmpty(fieldLunch.getText()) &&
+                        !TextUtils.isEmpty(fieldDinner.getText()) && !TextUtils.isEmpty(fieldBedtime.getText())) {
                     //ATM  do nothing, Future add values in DB 
                     finish();
                 } else {
-                    alert_dialog_missing_field_error();
+                    alertDialogMissingFieldError();
                 }
             }
         });
     }
 
 
-    private void get_formatted_hour(final EditText which_field) {
+    private void getFormattedHour(final EditText whichField) {
         //Launch a time picker instead of keyboard on clock field
-        which_field.setOnClickListener(new View.OnClickListener() {
+        whichField.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Calendar my_current_time = Calendar.getInstance();
-                int hour = my_current_time.get(Calendar.HOUR_OF_DAY);
-                int minute = my_current_time.get(Calendar.MINUTE);
+                Calendar myCurrentTime = Calendar.getInstance();
+                int hour = myCurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = myCurrentTime.get(Calendar.MINUTE);
 
                 TimePickerDialog mTimePicker;
                 mTimePicker = new TimePickerDialog(Setup.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                        DecimalFormat add_zero = new DecimalFormat("00");
-                        which_field.setText(add_zero.format(selectedHour) + ":" + add_zero.format(selectedMinute)); //NOSONAR
+                        DecimalFormat addZero = new DecimalFormat("00");
+                        whichField.setText(addZero.format(selectedHour) + ":" + addZero.format(selectedMinute)); //NOSONAR
                     }
                 }, hour, minute, true);
                 mTimePicker.setTitle("Sélectionner heure");
@@ -76,7 +75,7 @@ public class Setup extends AppCompatActivity {
     }
 
 
-    private void alert_dialog_missing_field_error() {
+    private void alertDialogMissingFieldError() {
         //Display an alert dialog for missing field
         AlertDialog.Builder builder = new AlertDialog.Builder(Setup.this);
 

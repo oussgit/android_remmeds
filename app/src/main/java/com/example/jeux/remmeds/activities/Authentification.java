@@ -6,28 +6,27 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 
 import com.example.jeux.remmeds.R;
 
 public class Authentification extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView alertTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentification);
-        Button connexion_button = findViewById(R.id.connexion_button_layout_authentification);
-        Button sinscrire_button = findViewById(R.id.sinscrire_button_layout_authentification);
-        Button problemeconnexion_button = findViewById(R.id.problemeconnexion_button_layout_authentification);
-        connexion_button.setOnClickListener(this);
-        sinscrire_button.setOnClickListener(this);
-        problemeconnexion_button.setOnClickListener(this);
+        Button connexionButton = findViewById(R.id.connexion_button_layout_authentification);
+        Button sInscrireButton = findViewById(R.id.sinscrire_button_layout_authentification);
+        Button problemeConnexionButton = findViewById(R.id.problemeconnexion_button_layout_authentification);
+        connexionButton.setOnClickListener(this);
+        sInscrireButton.setOnClickListener(this);
+        problemeConnexionButton.setOnClickListener(this);
     }
 
     @Override
@@ -36,24 +35,27 @@ public class Authentification extends AppCompatActivity implements View.OnClickL
             case R.id.connexion_button_layout_authentification:
                 EditText user = findViewById(R.id.mail_edittext_layout_authentification);
                 EditText password = findViewById(R.id.password_edittext_layout_authentification);
-                if (authentication_check(user, password)) {
-                    Intent main_activity = new Intent(Authentification.this, MainActivity.class);
-                    startActivity(main_activity);
+                if (authenticationCheck(user, password)) {
+                    Intent mainActivity = new Intent(Authentification.this, MainActivity.class);
+                    startActivity(mainActivity);
                 } else {
-                    alert_dialog_authentication();
+                    alertDialogAuthentication();
                 }
                 break;
             case R.id.sinscrire_button_layout_authentification:
-                Intent signup_activity = new Intent(Authentification.this, Inscription.class);
-                startActivity(signup_activity);
+                Intent signUpActivity = new Intent(Authentification.this, Inscription.class);
+                startActivity(signUpActivity);
                 break;
             case R.id.problemeconnexion_button_layout_authentification:
-                alert_dialog_connection_error();
+                alertDialogConnectionError();
                 break;
+            default:
+                Log.i("Dafault switch", "Any button catched");
+
         }
     }
 
-    private void alert_dialog_authentication() {
+    private void alertDialogAuthentication() {
         //Display an alert dialog for credential error
         AlertDialog.Builder builder = new AlertDialog.Builder(Authentification.this);
 
@@ -70,7 +72,7 @@ public class Authentification extends AppCompatActivity implements View.OnClickL
         builder.show();
     }
 
-    private void alert_dialog_connection_error() {
+    private void alertDialogConnectionError() {
         //Display an alert dialog for credential error
         AlertDialog.Builder builder = new AlertDialog.Builder(Authentification.this);
 
@@ -94,10 +96,10 @@ public class Authentification extends AppCompatActivity implements View.OnClickL
         builder.setPositiveButton("Visiter site web", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                String website_address = "http://212.73.217.202:10080/"; //NOSONAR
+                String websiteAddress = "http://212.73.217.202:10080/"; //NOSONAR
                 Intent viewIntent =
                         new Intent("android.intent.action.VIEW",
-                                Uri.parse(website_address));
+                                Uri.parse(websiteAddress));
                 startActivity(viewIntent);
             }
         });
@@ -105,7 +107,7 @@ public class Authentification extends AppCompatActivity implements View.OnClickL
         builder.show();
     }
 
-    private boolean authentication_check(EditText user, EditText password) {
+    private boolean authenticationCheck(EditText user, EditText password) {
         //ATM hardcoded credentials awaiting database connection
         return user.getText().toString().equals("root") && password.getText().toString().equals("");
     }
