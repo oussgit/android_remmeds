@@ -6,10 +6,6 @@
             android:id="@+id/nav_accueil"
             android:icon="@drawable/ic_home"
             android:title="@string/accueil" />
-        <!--<item
-            android:id="@+id/nav_configuration"
-            android:icon="@mipmap/ic_launcher"
-            android:title="@string/configuration"-->
         <item
             android:id="@+id/nav_profil"
             android:icon="@drawable/ic_profile"
@@ -26,7 +22,10 @@
             android:id="@+id/nav_historique"
             android:icon="@drawable/ic_history"
             android:title="@string/historique" />
-
+        <item
+            android:id="@+id/nav_disconnect"
+            android:icon="@drawable/ic_sign_out"
+            android:title="@string/disconnect" />
     </group>
 
 
