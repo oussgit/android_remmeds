@@ -179,8 +179,8 @@
 
     <Button
         android:id="@+id/ajouter_button_layout_ajoutcontact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="102dp"
+        android:layout_height="31dp"
         android:background="@drawable/bouton_arrondi_bleu"
         android:text="@string/ajouter_button_layout_ajoutcontact"
         android:textColor="@android:color/background_light"
