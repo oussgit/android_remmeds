@@ -1,5 +1,7 @@
 package com.example.jeux.remmeds.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -62,8 +64,6 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
         }
     }
 
@@ -144,6 +144,20 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_gestion:
                 fragment = new FragmentGestion();
+                break;
+            case R.id.nav_disconnect:
+                new AlertDialog.Builder(this)
+                        .setTitle("Déconnexion")
+                        .setMessage("\nÊtes-vous sûr de vouloir vous déconnecter ?")
+                        .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("Non", null)
+                        .show();
+                fragment = new FragmentAccueil();
                 break;
             default:
                 fragment = new FragmentAccueil();

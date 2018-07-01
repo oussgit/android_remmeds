@@ -8,7 +8,7 @@
     <string name="action_settings">Debug</string>
     <string name="blank"> </string>
 
-    <!-- ? -->
+    <!-- NavigationBar -->
     <string name="accueil">Accueil</string>
     <string name="configuration">Configuration</string>
     <string name="historique">Historique</string>
@@ -16,6 +16,7 @@
     <string name="repertoire">Répertoire</string>
     <string name="gestion">Pilulier</string>
     <string name="remmeds">RemMeds</string>
+    <string name="disconnect">Déconnexion</string>
 
     <!-- HOME -->
     <string name="titre_textView_layout_home">RemMeds, reprenez le contrôle</string>

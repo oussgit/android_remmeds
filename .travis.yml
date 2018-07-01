@@ -1,6 +1,11 @@
 language: android
 sudo: false
 jdk: oraclejdk8
+addons:
+  sonarcloud:
+    organization: remmeds
+    token:
+      secure: 71a0474c2d6a00ad268e14a1419ffd5ea04f720b
 android:
   components:
   - build-tools-27.0.3
@@ -10,7 +15,6 @@ script:
 - "./gradlew test"
 - "./gradlew lint"
 - bash .travis/script.sh
-
 before_install:
 - chmod +x gradlew
 cache:
