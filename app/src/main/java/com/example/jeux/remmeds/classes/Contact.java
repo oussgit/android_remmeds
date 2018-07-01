@@ -1,50 +1,83 @@
 package com.example.jeux.remmeds.classes;
 
-public class Contact {
-    private String nom;
-    private String prenom;
-    private String adresse;
-    private String numero;
 
-    public Contact(String nom, String prenom, String adresse, String numero) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.adresse = adresse;
-        this.numero = numero;
+public class Contact {
+    private String nomContact;
+    private String prenomContact;
+    private String adresseContact;
+    private String numeroContact;
+    private String smsCheck;
+    private String mailCheck;
+    private String noteContact;
+
+    public Contact(String nom, String prenom, String adresse, String numero, String smsCheck, String mailCheck, String noteContact) {
+        this.nomContact = nom;
+        this.prenomContact = prenom;
+        this.adresseContact = adresse;
+        this.numeroContact = numero;
+        this.smsCheck = smsCheck;
+        this.mailCheck = mailCheck;
+        this.noteContact = noteContact;
+
     }
 
     public Contact() {
+
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        this.nomContact = nom;
     }
 
     public void setPrenom(String prenom) {
-        this.prenom = prenom;
+        this.prenomContact = prenom;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setAdresseContact(String adresseContact) {
+        this.adresseContact = adresseContact;
     }
 
     public void setNumero(String numero) {
-        this.numero = numero;
+        this.numeroContact = numero;
     }
 
     public String getNom() {
-        return nom;
+        return nomContact;
     }
 
     public String getPrenom() {
-        return prenom;
+        return prenomContact;
     }
 
-    public String getAdresse() {
-        return adresse;
+    public String getAdresseContact() {
+        return adresseContact;
     }
 
     public String getNumero() {
-        return numero;
+        return numeroContact;
+    }
+
+    public void setSmsCheck(String smsCheck) {
+        this.smsCheck = smsCheck;
+    }
+
+    public void setMailCheck(String mailCheck) {
+        this.mailCheck = mailCheck;
+    }
+
+    public void setNoteContact(String noteContact) {
+        this.noteContact = noteContact;
+    }
+
+    public String getSmsCheck() {
+        return smsCheck;
+    }
+
+    public String getMailCheck() {
+        return mailCheck;
+    }
+
+    public String getNoteContact() {
+        return noteContact;
     }
 }

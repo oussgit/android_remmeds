@@ -46,9 +46,9 @@ public class FragmentRepertoire extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         if (contactList.isEmpty()) {
-            fillRecycler("http://212.73.217.202:15020/contact/list_contact/6");
-        }
+            fillRecyclerRep("18");
 
+        }
         addButton = rep.findViewById(R.id.ajouter_button_layout_repertoire);
         addButton.setOnClickListener(new View.OnClickListener() {
 
@@ -59,42 +59,48 @@ public class FragmentRepertoire extends Fragment {
             }
         });
 
-
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         return rep;
+
     }
 
-    public void fillRecycler(String str) {
-
-        JSONObject data = MainActivity.getDoInBackground(str);
+    public void fillRecyclerRep(String id) {
+        JSONObject data = MainActivity.getDoInBackground("http://212.73.217.202:15020/contact/list_contact/" + id);
         JSONArray array = new JSONArray();
         try {
             array = data.getJSONArray("contact");
         } catch (JSONException e) {
-            Log.e("arrayRecycler","Exception catched"+e);
-        } catch (java.lang.NullPointerException e){
-            Log.e("arrayRecycler","NULL JSON"+e);
+            Log.e("arrayRecycler", "Exception catched" + e);
+        } catch (java.lang.NullPointerException e) {
+            Log.e("arrayRecycler", "NULL JSON" + e);
         }
         for (int i = 0; i < array.length(); i++) {
             Contact a = new Contact();
             try {
                 a.setNom(array.getJSONObject(i).getString("lastname"));
                 a.setPrenom(array.getJSONObject(i).getString("firstname"));
-                a.setAdresse(array.getJSONObject(i).getString("mail"));
+                a.setAdresseContact(array.getJSONObject(i).getString("mail"));
                 a.setNumero(array.getJSONObject(i).getString("phonenumber"));
+                a.setMailCheck(array.getJSONObject(i).getString("chx_mail"));
+                a.setSmsCheck(array.getJSONObject(i).getString("chx_sms"));
+                a.setNoteContact(array.getJSONObject(i).getString("note"));
                 contactList.add(a);
             } catch (JSONException e) {
-                Log.e("CreationContact","NULL JSON"+e);
+                Log.e("CreationContact", "NULL JSON" + e);
             }
         }
+        refreshRecyclerRep();
+    }
+
+    public static void refreshRecyclerRep() {
         mAdapter.notifyDataSetChanged();
     }
 
-    public static void addItem(String nom, String prenom, String adresse, String numero) {
-        Contact contact = new Contact(nom, prenom, adresse, numero);
+    public static void addItem(String nom, String prenom, String adresse, String numero, String mailCheck, String smsCheck, String note) {
+        Contact contact = new Contact(nom, prenom, adresse, numero, mailCheck, smsCheck, note);
         contactList.add(contact);
-        mAdapter.notifyDataSetChanged();
+        refreshRecyclerRep();
     }
 
     @Override
@@ -107,6 +113,5 @@ public class FragmentRepertoire extends Fragment {
             Log.e("getActivity.setTitle", "exception", e);
         }
     }
-
 
 }

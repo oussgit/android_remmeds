@@ -1,6 +1,7 @@
 package com.example.jeux.remmeds.classes;
 
 import com.example.jeux.remmeds.R;
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHolder>{
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHolder> {
 
     private List<Contact> contactList;
 
@@ -32,6 +33,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
     public ContactAdapter(List<Contact> contactList) {
         this.contactList = contactList;
     }
+
     //Creation de l'adapter qui permettera de construire la recyclerview
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -48,7 +50,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
 
         holder.nom.setText(contact.getNom());
         holder.prenom.setText(contact.getPrenom());
-        holder.adresse.setText(contact.getAdresse());
+        holder.adresse.setText(contact.getAdresseContact());
         holder.numero.setText(contact.getNumero());
     }
 

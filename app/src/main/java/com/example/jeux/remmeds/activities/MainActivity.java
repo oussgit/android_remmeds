@@ -27,7 +27,9 @@ import com.example.jeux.remmeds.R;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -67,15 +69,15 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public static JSONObject getDoInBackground(String str) {
+    public static JSONObject getDoInBackground(String targetURL) {
         //Permet d'initier la connexion à l'api pour des requetes GET
-        // STR : Url du chemin de l'API
+        // targetURL : Url du chemin de l'API
 
         URLConnection urlConn = null;
         BufferedReader bufferedReader = null;
 
         try {
-            URL url = new URL(str);
+            URL url = new URL(targetURL);
             urlConn = url.openConnection();
             bufferedReader = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
 
@@ -89,6 +91,47 @@ public class MainActivity extends AppCompatActivity
             Log.e("App", "yourDataTask", ex);
             return null;
         }
+    }
+
+    public static String postDoInBackground(String targetURL) {
+        //Permet d'initier la connexion à l'api pour des requetes POST
+        // targetURL : Url du chemin de l'API
+        int timeout = 5000;
+        URL url = null;
+        HttpURLConnection connexion = null;
+        try {
+            // Crée les connexions
+            url = new URL("http://212.73.217.202:15020/contact/add_contact/" + targetURL);
+            connexion = (HttpURLConnection) url.openConnection();
+            connexion.setRequestMethod("POST");
+            connexion.setRequestProperty("Content-Type",
+                    "application/json");
+            connexion.setRequestProperty("Content-Language", "fr-FR");
+            connexion.setUseCaches(false);
+            connexion.setDoInput(true);
+            connexion.setDoOutput(true);
+            connexion.setConnectTimeout(timeout);
+            connexion.setReadTimeout(timeout);
+            InputStream is = connexion.getInputStream();
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+            String line;
+            StringBuilder response = new StringBuilder();
+            while ((line = rd.readLine()) != null) {
+                response.append(line);
+                response.append('\r');
+            }
+            rd.close();
+            Log.i("azerty", "azerty" + response.toString());
+            return response.toString();
+
+        } catch (Exception e) {
+            Log.e("doPost", "Exception catched :" + e);
+        } finally {
+            if (connexion != null) {
+                connexion.disconnect();
+            }
+        }
+        return null;
     }
 
     @Override
