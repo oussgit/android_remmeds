@@ -36,15 +36,23 @@ import java.net.URLConnection;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    static String userID;
+
+    public static String getUserID() {
+        return userID;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Intent authenticationActivity = getIntent();
+        userID = authenticationActivity.getStringExtra("userID");
+
+        Log.i("============", "============" + userID);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
@@ -68,6 +76,7 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         }
     }
+
 
     public static JSONObject getDoInBackground(String targetURL) {
         //Permet d'initier la connexion à l'api pour des requetes GET

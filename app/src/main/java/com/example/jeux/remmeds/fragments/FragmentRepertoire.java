@@ -46,7 +46,7 @@ public class FragmentRepertoire extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         if (contactList.isEmpty()) {
-            fillRecyclerRep("18");
+            fillRecyclerRep(MainActivity.getUserID());
 
         }
         addButton = rep.findViewById(R.id.ajouter_button_layout_repertoire);
