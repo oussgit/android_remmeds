@@ -9,8 +9,9 @@ public class Contact {
     private String smsCheck;
     private String mailCheck;
     private String noteContact;
+    private String idContact;
 
-    public Contact(String nom, String prenom, String adresse, String numero, String smsCheck, String mailCheck, String noteContact) {
+    public Contact(String nom, String prenom, String adresse, String numero, String smsCheck, String mailCheck, String noteContact, String idContact) {
         this.nomContact = nom;
         this.prenomContact = prenom;
         this.mailContact = adresse;
@@ -18,11 +19,20 @@ public class Contact {
         this.smsCheck = smsCheck;
         this.mailCheck = mailCheck;
         this.noteContact = noteContact;
+        this.idContact = idContact;
 
     }
 
     public Contact() {
 
+    }
+
+    public String getIdContact() {
+        return idContact;
+    }
+
+    public void setIdContact(String idContact) {
+        this.idContact = idContact;
     }
 
     public void setNom(String nom) {

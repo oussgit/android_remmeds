@@ -51,7 +51,6 @@ public class FragmentRepertoire extends Fragment {
                     @Override
                     public void onItemClick(View view, int position) {
                         Contact contact = contactList.get(position);
-                        Log.i("1","1"+position);
                         Intent i = new Intent(view.getContext(), Ajoutcontact.class);
                         i.putExtra("ContactNom", contact.getNom());
                         i.putExtra("ContactPrenom", contact.getPrenom());
@@ -60,7 +59,8 @@ public class FragmentRepertoire extends Fragment {
                         i.putExtra("ContactSmsCheck", contact.getSmsCheck());
                         i.putExtra("ContactNum", contact.getNumero());
                         i.putExtra("ContactNote", contact.getNoteContact());
-                        i.putExtra("ContactPos", position);;
+                        i.putExtra("ContactPos", position);
+                        i.putExtra("ContactId",contact.getIdContact());
                         startActivity(i);
                     }
                 })
@@ -100,6 +100,7 @@ public class FragmentRepertoire extends Fragment {
                 a.setMailCheck(array.getJSONObject(i).getString("chx_mail"));
                 a.setSmsCheck(array.getJSONObject(i).getString("chx_sms"));
                 a.setNoteContact(array.getJSONObject(i).getString("note"));
+                a.setIdContact(array.getJSONObject(i).getString("contact_id"));
                 contactList.add(a);
             } catch (JSONException e) {
                 Log.e("CreationContact", "NULL JSON" + e);
@@ -116,8 +117,9 @@ public class FragmentRepertoire extends Fragment {
         mAdapter.notifyItemChanged(position);
     }
 
-    public static void addItem(String nom, String prenom, String adresse, String numero, String mailCheck, String smsCheck, String note) {
-        Contact contact = new Contact(nom, prenom, adresse, numero, mailCheck, smsCheck, note);
+    public static void addItem(String nom, String prenom, String adresse, String numero, String mailCheck, String smsCheck, String note, String id) {
+        Contact contact = new Contact(nom, prenom, adresse, numero, mailCheck, smsCheck, note, id);
+
         contactList.add(contact);
         refreshRecyclerRep();
     }
