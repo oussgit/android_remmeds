@@ -50,7 +50,7 @@ public class Authentification extends AppCompatActivity implements View.OnClickL
                         @Override
                         public void onSuccess(int statusCode, Header[] header, JSONObject response) {
                             super.onSuccess(statusCode, header, response);
-                            Toast.makeText(Authentification.this, "onSuccess Call", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Authentification.this, "Vous êtes connecté", Toast.LENGTH_SHORT).show();
                             try {
                                 String connection = response.getString("connection");
                                 String userID = response.getString("user_id");
