@@ -40,6 +40,7 @@ public class Ajoutcontact extends AppCompatActivity {
             note.setText(getIntent().getExtras().getString("ContactNote"));
             contactPos = getIntent().getIntExtra("ContactPos", 0);
             contactId = getIntent().getExtras().getString("ContactId");
+
             if (getIntent().getExtras().getString("ContactSmsCheck") == "1") {
                 smsCheck.setChecked(true);
             }
@@ -70,9 +71,11 @@ public class Ajoutcontact extends AppCompatActivity {
                 }
 
                 if (okTest == "0") {
+
                     FragmentRepertoire.addItem(nomContact, prenomContact, mailContact, numContact, mailCheckContact, smsCheckContact, noteContact, contactId);
                     FragmentRepertoire.refreshRecyclerRep();
                     MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/add_contact/" + contactId + "&" + nomContact + "&" + prenomContact + "&" + numContact + "&" + mailContact + "&" + smsCheckContact + "&" + mailCheckContact + "&" + noteContact));
+
                 } else {
                     Contact contact1 = new Contact();
                     contact1 = FragmentRepertoire.contactList.get(contactPos);
@@ -91,9 +94,11 @@ public class Ajoutcontact extends AppCompatActivity {
                         contact1.setSmsCheck("0");
                     }
                     FragmentRepertoire.changeItemRecyclerRep(contactPos);
+
                     MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/update_contact/" + contactId + "&" + nomContact + "&" + prenomContact + "&" + numContact + "&" + mailContact + "&" + smsCheckContact + "&" + mailCheckContact + "&" + noteContact));
+
+                    onBackPressed();
                 }
-                onBackPressed();
             }
         });
     }

@@ -119,6 +119,7 @@ public class FragmentRepertoire extends Fragment {
 
     public static void addItem(String nom, String prenom, String adresse, String numero, String mailCheck, String smsCheck, String note, String id) {
         Contact contact = new Contact(nom, prenom, adresse, numero, mailCheck, smsCheck, note, id);
+
         contactList.add(contact);
         refreshRecyclerRep();
     }
