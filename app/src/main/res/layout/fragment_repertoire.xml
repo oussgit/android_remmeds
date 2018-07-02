@@ -36,8 +36,8 @@
 
     <Button
         android:id="@+id/ajouter_button_layout_repertoire"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:contentDescription="@string/blank"
         android:background="@drawable/ic_addbutton"
         app:layout_constraintBottom_toBottomOf="parent"
