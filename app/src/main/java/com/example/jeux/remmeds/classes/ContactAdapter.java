@@ -11,22 +11,26 @@ import android.widget.TextView;
 import java.util.List;
 
 
-public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHolder> {
 
+public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHolder> {
     private List<Contact> contactList;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView nom;
         private TextView prenom;
         private TextView adresse;
         private TextView numero;
 
-        public MyViewHolder(View view) {
+        private MyViewHolder(View view) {
             super(view);
             nom = view.findViewById(R.id.rep_recycler_nom);
             prenom = view.findViewById(R.id.rep_recycler_prenom);
             adresse = view.findViewById(R.id.rep_recycler_adresse);
             numero = view.findViewById(R.id.rep_recycler_numero);
+        }
+
+        @Override
+        public void onClick(View v) {
         }
     }
 
@@ -47,10 +51,9 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Contact contact = contactList.get(position);
-
         holder.nom.setText(contact.getNom());
         holder.prenom.setText(contact.getPrenom());
-        holder.adresse.setText(contact.getAdresseContact());
+        holder.adresse.setText(contact.getMailContact());
         holder.numero.setText(contact.getNumero());
     }
 

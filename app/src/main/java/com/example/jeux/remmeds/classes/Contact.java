@@ -4,7 +4,7 @@ package com.example.jeux.remmeds.classes;
 public class Contact {
     private String nomContact;
     private String prenomContact;
-    private String adresseContact;
+    private String mailContact;
     private String numeroContact;
     private String smsCheck;
     private String mailCheck;
@@ -13,7 +13,7 @@ public class Contact {
     public Contact(String nom, String prenom, String adresse, String numero, String smsCheck, String mailCheck, String noteContact) {
         this.nomContact = nom;
         this.prenomContact = prenom;
-        this.adresseContact = adresse;
+        this.mailContact = adresse;
         this.numeroContact = numero;
         this.smsCheck = smsCheck;
         this.mailCheck = mailCheck;
@@ -33,8 +33,8 @@ public class Contact {
         this.prenomContact = prenom;
     }
 
-    public void setAdresseContact(String adresseContact) {
-        this.adresseContact = adresseContact;
+    public void setMailContact(String mailContact) {
+        this.mailContact = mailContact;
     }
 
     public void setNumero(String numero) {
@@ -49,8 +49,8 @@ public class Contact {
         return prenomContact;
     }
 
-    public String getAdresseContact() {
-        return adresseContact;
+    public String getMailContact() {
+        return mailContact;
     }
 
     public String getNumero() {

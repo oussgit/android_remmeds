@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public static String postDoInBackground(String targetURL) {
+    public static void postDoInBackground(String targetURL) {
         //Permet d'initier la connexion à l'api pour des requetes POST
         // targetURL : Url du chemin de l'API
         int timeout = 5000;
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity
         HttpURLConnection connexion = null;
         try {
             // Crée les connexions
-            url = new URL("http://212.73.217.202:15020/contact/add_contact/" + targetURL);
+            url = new URL(targetURL);
             connexion = (HttpURLConnection) url.openConnection();
             connexion.setRequestMethod("POST");
             connexion.setRequestProperty("Content-Type",
@@ -131,7 +131,6 @@ public class MainActivity extends AppCompatActivity
             }
             rd.close();
             Log.i("azerty", "azerty" + response.toString());
-            return response.toString();
 
         } catch (Exception e) {
             Log.e("doPost", "Exception catched :" + e);
@@ -140,7 +139,6 @@ public class MainActivity extends AppCompatActivity
                 connexion.disconnect();
             }
         }
-        return null;
     }
 
     @Override
