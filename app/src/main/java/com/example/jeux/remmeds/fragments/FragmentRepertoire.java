@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.jeux.remmeds.activities.Ajoutcontact;
+import com.example.jeux.remmeds.classes.RecyclerItemClickListener;
 import com.example.jeux.remmeds.activities.MainActivity;
 import com.example.jeux.remmeds.classes.Contact;
 import com.example.jeux.remmeds.classes.ContactAdapter;
@@ -30,8 +31,8 @@ import java.util.List;
 
 
 public class FragmentRepertoire extends Fragment {
-    private static List<Contact> contactList = new ArrayList<>();
-    private static ContactAdapter mAdapter = new ContactAdapter(contactList);
+    public static List<Contact> contactList = new ArrayList<>();
+    public static ContactAdapter mAdapter = new ContactAdapter(contactList);
 
     @Nullable
     @Override
@@ -44,25 +45,39 @@ public class FragmentRepertoire extends Fragment {
 
         mRecyclerView = rep.findViewById(R.id.rep_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getContext(), new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Contact contact = contactList.get(position);
+                        Intent i = new Intent(view.getContext(), Ajoutcontact.class);
+                        i.putExtra("ContactNom", contact.getNom());
+                        i.putExtra("ContactPrenom", contact.getPrenom());
+                        i.putExtra("ContactMail", contact.getMailContact());
+                        i.putExtra("ContactMailCheck", contact.getMailCheck());
+                        i.putExtra("ContactSmsCheck", contact.getSmsCheck());
+                        i.putExtra("ContactNum", contact.getNumero());
+                        i.putExtra("ContactNote", contact.getNoteContact());
+                        i.putExtra("ContactPos", position);
+                        i.putExtra("ContactId",contact.getIdContact());
+                        startActivity(i);
+                    }
+                })
+        );
         if (contactList.isEmpty()) {
             fillRecyclerRep(MainActivity.getUserID());
-
         }
         addButton = rep.findViewById(R.id.ajouter_button_layout_repertoire);
         addButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(), Ajoutcontact.class);
                 startActivity(i);
             }
         });
-
-        mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         return rep;
-
     }
 
     public void fillRecyclerRep(String id) {
@@ -80,11 +95,12 @@ public class FragmentRepertoire extends Fragment {
             try {
                 a.setNom(array.getJSONObject(i).getString("lastname"));
                 a.setPrenom(array.getJSONObject(i).getString("firstname"));
-                a.setAdresseContact(array.getJSONObject(i).getString("mail"));
+                a.setMailContact(array.getJSONObject(i).getString("mail"));
                 a.setNumero(array.getJSONObject(i).getString("phonenumber"));
                 a.setMailCheck(array.getJSONObject(i).getString("chx_mail"));
                 a.setSmsCheck(array.getJSONObject(i).getString("chx_sms"));
                 a.setNoteContact(array.getJSONObject(i).getString("note"));
+                a.setIdContact(array.getJSONObject(i).getString("contact_id"));
                 contactList.add(a);
             } catch (JSONException e) {
                 Log.e("CreationContact", "NULL JSON" + e);
@@ -97,8 +113,12 @@ public class FragmentRepertoire extends Fragment {
         mAdapter.notifyDataSetChanged();
     }
 
-    public static void addItem(String nom, String prenom, String adresse, String numero, String mailCheck, String smsCheck, String note) {
-        Contact contact = new Contact(nom, prenom, adresse, numero, mailCheck, smsCheck, note);
+    public static void changeItemRecyclerRep(int position){
+        mAdapter.notifyItemChanged(position);
+    }
+
+    public static void addItem(String nom, String prenom, String adresse, String numero, String mailCheck, String smsCheck, String note, String id) {
+        Contact contact = new Contact(nom, prenom, adresse, numero, mailCheck, smsCheck, note, id);
         contactList.add(contact);
         refreshRecyclerRep();
     }

@@ -24,7 +24,8 @@
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.Ajoutcontact" />
         <activity android:name=".activities.Debug" />
-        <activity android:name=".activities.Setup"></activity>
+        <activity android:name=".activities.Setup">
+        </activity>
     </application>
 
 </manifest>
