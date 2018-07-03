@@ -80,7 +80,7 @@ public class FragmentRepertoire extends Fragment {
         return rep;
     }
 
-    public void fillRecyclerRep(String id) {
+    public static void fillRecyclerRep(String id) {
         JSONObject data = MainActivity.getDoInBackground("http://212.73.217.202:15020/contact/list_contact/" + id);
         JSONArray array = new JSONArray();
         try {
@@ -117,9 +117,19 @@ public class FragmentRepertoire extends Fragment {
         mAdapter.notifyItemChanged(position);
     }
 
+    public static void removeItem(int position){
+        contactList.remove(position);
+        refreshRecyclerRep();
+    }
+
+    public static void emptyContact(){
+        int i;
+        for(i=0;i<contactList.size();i++){
+            contactList.remove(i);
+        }
+    }
     public static void addItem(String nom, String prenom, String adresse, String numero, String mailCheck, String smsCheck, String note, String id) {
         Contact contact = new Contact(nom, prenom, adresse, numero, mailCheck, smsCheck, note, id);
-
         contactList.add(contact);
         refreshRecyclerRep();
     }

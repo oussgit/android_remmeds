@@ -20,7 +20,6 @@ public class Contact {
         this.mailCheck = mailCheck;
         this.noteContact = noteContact;
         this.idContact = idContact;
-
     }
 
     public Contact() {
