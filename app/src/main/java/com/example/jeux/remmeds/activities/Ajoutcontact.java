@@ -29,6 +29,7 @@ public class Ajoutcontact extends AppCompatActivity {
         final CheckBox mailCheck = findViewById(R.id.mail_checkbox_layout_ajoutcontact);
         final EditText note = findViewById(R.id.notes_edittext_layout_ajoutcontact);
         final Button ajout = findViewById(R.id.ajouter_button_layout_ajoutcontact);
+        final Button supprimer = findViewById(R.id.supprimer_button_layout_ajoutcontact);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -41,13 +42,22 @@ public class Ajoutcontact extends AppCompatActivity {
             contactPos = getIntent().getIntExtra("ContactPos", 0);
             contactId = getIntent().getExtras().getString("ContactId");
 
-            if (getIntent().getExtras().getString("ContactSmsCheck") == "1") {
+
+            if ((getIntent().getExtras().getString("ContactSmsCheck")).equals("1")) {
                 smsCheck.setChecked(true);
             }
-            if (getIntent().getExtras().getString("ContactMailCheck") == "1") {
+            if ((getIntent().getExtras().getString("ContactMailCheck")).equals("1")) {
                 mailCheck.setChecked(true);
             }
         }
+        supprimer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentRepertoire.removeItem(contactPos);
+                MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/delete_contact/" + contactId));
+                onBackPressed();
+            }
+        });
 
         ajout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,9 +82,11 @@ public class Ajoutcontact extends AppCompatActivity {
 
                 if (okTest == "0") {
 
-                    FragmentRepertoire.addItem(nomContact, prenomContact, mailContact, numContact, mailCheckContact, smsCheckContact, noteContact, contactId);
+                    FragmentRepertoire.emptyContact();
+                    MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/add_contact/" + MainActivity.getUserID() + "&" + nomContact + "&" + prenomContact + "&" + numContact + "&" + mailContact + "&" + smsCheckContact + "&" + mailCheckContact + "&" + noteContact));
+                    FragmentRepertoire.fillRecyclerRep(MainActivity.getUserID());
                     FragmentRepertoire.refreshRecyclerRep();
-                    MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/add_contact/" + contactId + "&" + nomContact + "&" + prenomContact + "&" + numContact + "&" + mailContact + "&" + smsCheckContact + "&" + mailCheckContact + "&" + noteContact));
+                    onBackPressed();
 
                 } else {
                     Contact contact1 = new Contact();
@@ -89,14 +101,12 @@ public class Ajoutcontact extends AppCompatActivity {
                         contact1.setSmsCheck("0");
                     }
                     if (mailCheck.isChecked()) {
-                        contact1.setSmsCheck("1");
+                        contact1.setMailCheck("1");
                     } else {
-                        contact1.setSmsCheck("0");
+                        contact1.setMailCheck("0");
                     }
                     FragmentRepertoire.changeItemRecyclerRep(contactPos);
-
                     MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/update_contact/" + contactId + "&" + nomContact + "&" + prenomContact + "&" + numContact + "&" + mailContact + "&" + smsCheckContact + "&" + mailCheckContact + "&" + noteContact));
-
                     onBackPressed();
                 }
             }
