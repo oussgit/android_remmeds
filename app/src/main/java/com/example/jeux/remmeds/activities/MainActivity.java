@@ -51,8 +51,6 @@ public class MainActivity extends AppCompatActivity
 
         Intent authenticationActivity = getIntent();
         userID = authenticationActivity.getStringExtra("userID");
-
-        Log.i("============", "============" + userID);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
