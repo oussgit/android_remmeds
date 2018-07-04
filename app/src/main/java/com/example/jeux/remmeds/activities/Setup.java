@@ -104,6 +104,7 @@ public class Setup extends AppCompatActivity {
                     }
 
                 })
+                .setNegativeButton("Non", null)
                 .show();
     }
 }

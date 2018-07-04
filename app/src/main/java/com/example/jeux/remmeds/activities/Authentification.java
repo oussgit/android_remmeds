@@ -103,7 +103,7 @@ public class Authentification extends AppCompatActivity implements View.OnClickL
         builder.setCancelable(true);
         builder.setTitle("Problème de connexion ?");
         builder.setMessage("Cliquez sur le bouton ci-joint pour envoyer un mail au support " +
-                "   de notre application ou via notre site web.\n(Rubrique: Nous contacter)");
+                "de notre application ou via notre site web.\n(Rubrique: Nous contacter)");
         builder.setNegativeButton("Envoyer mail", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
