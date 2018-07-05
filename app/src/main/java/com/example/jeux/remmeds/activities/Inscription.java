@@ -34,7 +34,11 @@ public class Inscription extends AppCompatActivity {
                 String passwordConf = fieldPasswordConf.getText().toString();
                 //we will have to add a check on the mail address in the future: if exit in DB then raise error
                 if (conditionsAreOk(accepteCU, adresseMail, password, passwordConf)) {
+                    String myMail = fieldAdresseMail.getText().toString();
+                    String myPassword = fieldPassword.getText().toString();
                     Intent setProfil = new Intent(Inscription.this, Setup.class);
+                    setProfil.putExtra("mailAccount", myMail);
+                    setProfil.putExtra("passwordAccount", myPassword);
                     startActivity(setProfil);
                     finish();
                 } else {

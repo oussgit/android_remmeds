@@ -34,36 +34,35 @@ public class FragmentAccueil extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new PriseAdapter(priseListe);
 
-        Prise a = new Prise("Heure du coucher", R.drawable.ic_bedtime, "20h30");
-        Prise b = new Prise("Doliprane", R.drawable.ic_pillbox, "15h00");
-        Prise c = new Prise("Kebab", R.drawable.ic_lunch, "12h30");
-        Prise d = new Prise("Smecta", R.drawable.ic_pillbox, "9h00");
-        Prise u = new Prise("Paracétamol", R.drawable.ic_pillbox, "9h00");
-        Prise f = new Prise("Rigolamol", R.drawable.ic_pillbox, "9h00");
-        Prise g = new Prise("CestMoiLaMol", R.drawable.ic_pillbox, "9h00");
+        Prise u = new Prise("Lexomil 500", R.drawable.comp2, "20h30");
+        Prise d = new Prise("Doliprane", R.drawable.comp3, "15h00");
+        Prise y = new Prise("Doliprane", R.drawable.comp3, "12h00");
+        Prise b = new Prise("Smecta", R.drawable.comp5, "11h00");
+        Prise a = new Prise("Paracétamol", R.drawable.comp8, "9h00");
 
         try {
             mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
         } catch (Exception e) {
             Log.e("mRecyclerView.addItem", "exception", e);
         }
+
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        priseListe.add(a);
-        priseListe.add(b);
-        priseListe.add(c);
-        priseListe.add(d);
-        priseListe.add(u);
-        priseListe.add(f);
-        priseListe.add(g);
-        mAdapter.notifyDataSetChanged();
+        if (priseListe.isEmpty()) {
+            priseListe.add(a);
+            priseListe.add(b);
+            priseListe.add(y);
+            priseListe.add(d);
+            priseListe.add(u);
+            mAdapter.notifyDataSetChanged();
+
+        }
         return acc;
     }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        //you can set the title for your toolbar here for different fragments different titles
-        getActivity().setTitle("Accueil");
+        @Override
+        public void onViewCreated (View view, @Nullable Bundle savedInstanceState){
+            super.onViewCreated(view, savedInstanceState);
+            //you can set the title for your toolbar here for different fragments different titles
+            getActivity().setTitle("Accueil");
+        }
     }
-}
