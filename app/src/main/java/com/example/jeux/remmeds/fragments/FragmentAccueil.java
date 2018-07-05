@@ -34,11 +34,9 @@ public class FragmentAccueil extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new PriseAdapter(priseListe);
 
-        Prise u = new Prise("Lexomil 500", R.drawable.comp2, "20h30");
-        Prise d = new Prise("Doliprane", R.drawable.comp3, "15h00");
-        Prise y = new Prise("Doliprane", R.drawable.comp3, "12h00");
-        Prise b = new Prise("Smecta", R.drawable.comp5, "11h00");
-        Prise a = new Prise("Paracétamol", R.drawable.comp8, "9h00");
+        Prise u = new Prise("Tramadol", R.drawable.comp2, "20h00");
+        Prise d = new Prise("Paracetamol", R.drawable.comp1, "15h00");
+        Prise a = new Prise("Tramadol", R.drawable.comp2, "9h00");
 
         try {
             mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL));
@@ -50,8 +48,6 @@ public class FragmentAccueil extends Fragment {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         if (priseListe.isEmpty()) {
             priseListe.add(a);
-            priseListe.add(b);
-            priseListe.add(y);
             priseListe.add(d);
             priseListe.add(u);
             mAdapter.notifyDataSetChanged();
