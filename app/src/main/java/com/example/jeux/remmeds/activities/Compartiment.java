@@ -1,7 +1,5 @@
 package com.example.jeux.remmeds.activities;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
@@ -9,8 +7,6 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.ToggleButton;
-
-import java.util.ArrayList;
 
 import com.example.jeux.remmeds.R;
 
@@ -63,16 +59,14 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            default:
-                break;
             case R.id.ptitdej_switch_layout_compartiment:
-                choixheure();
+
                 break;
             case R.id.dejeuner_switch_layout_compartiment:
-                choixheure();
+
                 break;
             case R.id.diner_switch_layout_compartiment:
-                choixheure();
+
                 break;
             case R.id.coucher_switch_layout_compartiment:
 
@@ -82,6 +76,8 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.frequenceperso_switch_layout_compartiment:
                 optionsfrequenceperso();
+                break;
+            default:
                 break;
         }
     }
@@ -118,34 +114,5 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
             edinbrheure.setVisibility(View.GONE);
             ediapartirde.setVisibility(View.GONE);
         }
-    }
-
-    private void choixheure() {
-        final CharSequence[] items = {" Avant ", " Pendant ", " Après "};
-        // arraylist pour l'item sélectionné
-        final ArrayList<Integer> selectedItems = new ArrayList<>();
-        new AlertDialog.Builder(this)
-                .setTitle("A quel moment du repas ?")
-                .setMultiChoiceItems(items, null, new DialogInterface.OnMultiChoiceClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int indexSelected, boolean isChecked) {
-                        if (isChecked) {
-                            // ajoute valeur dans selectedItems
-                            selectedItems.add(indexSelected);
-                        } else if (selectedItems.contains(indexSelected)) {
-                            // si valeur déjà dans array, supprimer
-                            selectedItems.remove(Integer.valueOf(indexSelected));
-                        }
-                    }
-                })
-                .setPositiveButton("Valider", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //permet d'ajouter une action au bouton
-                    }
-
-                })
-                .setNegativeButton("Annuler", null)
-                .show();
     }
 }

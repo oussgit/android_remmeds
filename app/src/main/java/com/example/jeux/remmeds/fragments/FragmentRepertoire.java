@@ -27,6 +27,7 @@ import org.json.JSONObject;
 import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -123,10 +124,7 @@ public class FragmentRepertoire extends Fragment {
     }
 
     public static void emptyContact(){
-        int i;
-        for(i=0;i<contactList.size();i++){
-            contactList.remove(i);
-        }
+        contactList.clear();
     }
     public static void addItem(String nom, String prenom, String adresse, String numero, String mailCheck, String smsCheck, String note, String id) {
         Contact contact = new Contact(nom, prenom, adresse, numero, mailCheck, smsCheck, note, id);

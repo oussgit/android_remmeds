@@ -85,7 +85,6 @@ public class Ajoutcontact extends AppCompatActivity {
                     FragmentRepertoire.emptyContact();
                     MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/add_contact/" + MainActivity.getUserID() + "&" + nomContact + "&" + prenomContact + "&" + numContact + "&" + mailContact + "&" + smsCheckContact + "&" + mailCheckContact + "&" + noteContact));
                     FragmentRepertoire.fillRecyclerRep(MainActivity.getUserID());
-                    FragmentRepertoire.refreshRecyclerRep();
                     onBackPressed();
 
                 } else {
