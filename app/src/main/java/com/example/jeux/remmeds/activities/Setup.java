@@ -3,6 +3,7 @@ package com.example.jeux.remmeds.activities;
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,18 +11,30 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.jeux.remmeds.R;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
 
 import java.text.DecimalFormat;
 import java.util.Calendar;
 
+import cz.msebera.android.httpclient.Header;
+
 public class Setup extends AppCompatActivity {
+
+    String mailAccount;
+    String passwordAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
+
+        Intent inscriptionActivity = getIntent();
+        mailAccount = inscriptionActivity.getStringExtra("mailAccount");
+        passwordAccount = inscriptionActivity.getStringExtra("passwordAccount");
         final EditText fieldPrenom = findViewById(R.id.prenom_edittext_layout_setup);
         final EditText fieldNom = findViewById(R.id.nom_edittext_layout_setup);
         final EditText fieldBreakfast = findViewById(R.id.breakfast_editText_layout_setup);
@@ -39,7 +52,30 @@ public class Setup extends AppCompatActivity {
                 if (!TextUtils.isEmpty(fieldPrenom.getText()) && !TextUtils.isEmpty(fieldNom.getText()) &&
                         !TextUtils.isEmpty(fieldBreakfast.getText()) && !TextUtils.isEmpty(fieldLunch.getText()) &&
                         !TextUtils.isEmpty(fieldDinner.getText()) && !TextUtils.isEmpty(fieldBedtime.getText())) {
-                    //ATM  do nothing, Future add values in DB 
+                    String prenom = fieldPrenom.getText().toString();
+                    String nom = fieldNom.getText().toString();
+                    String breakfast = fieldBreakfast.getText().toString();
+                    String lunch = fieldLunch.getText().toString();
+                    String dinner = fieldDinner.getText().toString();
+                    String bedTime = fieldBedtime.getText().toString();
+                    String createAccountURL = "http://212.73.217.202:15020/user/create_account/" + mailAccount + "&" + passwordAccount + "&" + nom + "&" + prenom + "&" + breakfast + "&" + lunch + "&" + dinner + "&" + bedTime;
+
+                    AsyncHttpClient client = new AsyncHttpClient();
+                    client.post(createAccountURL, new AsyncHttpResponseHandler() {
+                        @Override
+                        public void onSuccess(int arg0,
+                                              Header[] arg1, byte[] arg2) {
+                            Toast.makeText(Setup.this, "Compte créé avec succès", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onFailure(int arg0,
+                                              Header[] arg1, byte[] arg2,
+                                              Throwable arg3) {
+                            Toast.makeText(Setup.this, "Problème de création de compte", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
                     finish();
                 } else {
                     alertDialogMissingFieldError();
