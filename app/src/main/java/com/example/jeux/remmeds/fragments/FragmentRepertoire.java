@@ -126,11 +126,6 @@ public class FragmentRepertoire extends Fragment {
     public static void emptyContact(){
         contactList.clear();
     }
-    public static void addItem(String nom, String prenom, String adresse, String numero, String mailCheck, String smsCheck, String note, String id) {
-        Contact contact = new Contact(nom, prenom, adresse, numero, mailCheck, smsCheck, note, id);
-        contactList.add(contact);
-        refreshRecyclerRep();
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
