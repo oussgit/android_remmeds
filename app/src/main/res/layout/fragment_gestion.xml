@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.200" />
 
     <Button
-        android:id="@+id/compartiment2_button_layout_pilulier"
+        android:id="@+id/compartiment5_button_layout_pilulier"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:contentDescription="@string/description_button_layout_pilulier"
@@ -50,7 +50,7 @@
 
 
     <Button
-        android:id="@+id/compartiment3_button_layout_pilulier"
+        android:id="@+id/compartiment2_button_layout_pilulier"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:contentDescription="@string/description_button_layout_pilulier"
@@ -65,7 +65,7 @@
         app:layout_constraintVertical_bias="0.450" />
 
     <Button
-        android:id="@+id/compartiment4_button_layout_pilulier"
+        android:id="@+id/compartiment6_button_layout_pilulier"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:contentDescription="@string/description_button_layout_pilulier"
@@ -81,7 +81,7 @@
 
 
     <Button
-        android:id="@+id/compartiment5_button_layout_pilulier"
+        android:id="@+id/compartiment3_button_layout_pilulier"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:contentDescription="@string/description_button_layout_pilulier"
@@ -96,7 +96,7 @@
         app:layout_constraintVertical_bias="0.700" />
 
     <Button
-        android:id="@+id/compartiment6_button_layout_pilulier"
+        android:id="@+id/compartiment7_button_layout_pilulier"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:contentDescription="@string/description_button_layout_pilulier"
@@ -112,7 +112,7 @@
 
 
     <Button
-        android:id="@+id/compartiment7_button_layout_pilulier"
+        android:id="@+id/compartiment4_button_layout_pilulier"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:contentDescription="@string/description_button_layout_pilulier"

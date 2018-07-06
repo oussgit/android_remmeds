@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity
     public static JSONObject getDoInBackground(String targetURL) {
         //Permet d'initier la connexion à l'api pour des requetes GET
         // targetURL : Url du chemin de l'API
+        //Retourne un JSON
 
         URLConnection urlConn = null;
         BufferedReader bufferedReader = null;
@@ -128,7 +129,6 @@ public class MainActivity extends AppCompatActivity
                 response.append('\r');
             }
             rd.close();
-            Log.i("azerty", "azerty" + response.toString());
 
         } catch (Exception e) {
             Log.e("doPost", "Exception catched :" + e);

@@ -2,7 +2,6 @@ package com.example.jeux.remmeds.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -89,7 +88,7 @@ public class Ajoutcontact extends AppCompatActivity {
 
                 } else {
                     Contact contact1 = new Contact();
-                    contact1 = FragmentRepertoire.contactList.get(contactPos);
+                    contact1 = FragmentRepertoire.getContact(contactPos);
                     contact1.setNom(nomContact);
                     contact1.setPrenom(prenomContact);
                     contact1.setMailContact(mailContact);

@@ -32,8 +32,8 @@ import java.util.List;
 
 
 public class FragmentRepertoire extends Fragment {
-    public static List<Contact> contactList = new ArrayList<>();
-    public static ContactAdapter mAdapter = new ContactAdapter(contactList);
+    private static List<Contact> contactList = new ArrayList<>();
+    private static ContactAdapter mAdapter = new ContactAdapter(contactList);
 
     @Nullable
     @Override
@@ -108,6 +108,10 @@ public class FragmentRepertoire extends Fragment {
             }
         }
         refreshRecyclerRep();
+    }
+
+    public static Contact getContact(int contactPos){
+        return contactList.get(contactPos);
     }
 
     public static void refreshRecyclerRep() {
