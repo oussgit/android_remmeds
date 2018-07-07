@@ -33,6 +33,7 @@ public class Ajoutcontact extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             okTest = "1";
+            supprimer.setVisibility(View.VISIBLE);
             nom.setText(getIntent().getExtras().getString("ContactNom"));
             prenom.setText(getIntent().getExtras().getString("ContactPrenom"));
             num.setText(getIntent().getExtras().getString("ContactNum"));
@@ -68,6 +69,7 @@ public class Ajoutcontact extends AppCompatActivity {
                 String noteContact = note.getText().toString();
                 String smsCheckContact;
                 String mailCheckContact;
+
                 if (smsCheck.isChecked()) {
                     smsCheckContact = "1";
                 } else {
