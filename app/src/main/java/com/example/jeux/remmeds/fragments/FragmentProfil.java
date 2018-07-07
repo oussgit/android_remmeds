@@ -4,13 +4,22 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
 import android.support.annotation.NonNull;
+
 import com.example.jeux.remmeds.R;
+import com.example.jeux.remmeds.activities.MainActivity;
+import com.example.jeux.remmeds.classes.Profil;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.DecimalFormat;
 import java.util.Calendar;
@@ -57,15 +66,63 @@ public class FragmentProfil extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Profil");
-
-        final EditText field_breakfast_profil = view.findViewById(R.id.breakfast_editText_layout_profil);
-        final EditText field_lunch_profil = view.findViewById(R.id.lunch_edittext_layout_profil);
-        final EditText field_dinner_profil = view.findViewById(R.id.dinner_edittext_layout_profil);
-        final EditText field_bedtime_profil = view.findViewById(R.id.bedtime_edittext_layout_profil);
+        String userID = MainActivity.getUserID();
+        String profilURL = "http://212.73.217.202:15020/raspberry/get_user/" + userID;
+        JSONObject data = MainActivity.getDoInBackground(profilURL);
+        Profil user = new Profil();
+        JSONArray array = new JSONArray();
+        try {
+            array = data.getJSONArray("user");
+        } catch (JSONException e) {
+            Log.e("arrayRecycler", "Exception catched" + e);
+        } catch (java.lang.NullPointerException e) {
+            Log.e("arrayRecycler", "NULL JSON" + e);
+        }
+        for (int i = 0; i < array.length(); i++) {
+            try {
+                user.setLastname(array.getJSONObject(i).getString("lastname"));
+                user.setFirstname(array.getJSONObject(i).getString("firstname"));
+                user.setMail(array.getJSONObject(i).getString("mail"));
+                user.setBreakfastHour(array.getJSONObject(i).getString("pref_breakfast"));
+                user.setLunchHour(array.getJSONObject(i).getString("pref_lunch"));
+                user.setDinnerHour(array.getJSONObject(i).getString("pref_dinner"));
+                user.setBedHour(array.getJSONObject(i).getString("pref_bedtime"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        EditText field_lastname_profil = view.findViewById(R.id.nom_edittext_layout_profil);
+        field_lastname_profil.setText(user.getLastname());
+        EditText field_firstname_profil = view.findViewById(R.id.prenom_edittext_layout_profil);
+        field_firstname_profil.setText(user.getFirstname());
+        EditText field_breakfast_profil = view.findViewById(R.id.breakfast_editText_layout_profil);
+        field_breakfast_profil.setText(user.getBreakfastHour());
+        EditText field_lunch_profil = view.findViewById(R.id.lunch_edittext_layout_profil);
+        field_lunch_profil.setText(user.getLunchHour());
+        EditText field_dinner_profil = view.findViewById(R.id.dinner_edittext_layout_profil);
+        field_dinner_profil.setText(user.getDinnerHour());
+        EditText field_bedtime_profil = view.findViewById(R.id.bedtime_edittext_layout_profil);
+        field_bedtime_profil.setText(user.getBedHour());
 
         get_formatted_hour(field_breakfast_profil);
         get_formatted_hour(field_lunch_profil);
         get_formatted_hour(field_dinner_profil);
         get_formatted_hour(field_bedtime_profil);
+
+        Button enregistrer_button = view.findViewById(R.id.enregistrer_button_layout_profil);
+        enregistrer_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        Button changer_mdp_button = view.findViewById(R.id.password_button_layout_profil);
+        changer_mdp_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
     }
 }
