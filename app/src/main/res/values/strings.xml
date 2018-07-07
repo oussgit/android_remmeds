@@ -116,4 +116,11 @@
     <string name="six">6</string>
     <string name="seven">7</string>
     <string name="eight">8</string>
+    <string name="mot_de_passe_actuel">Mot de passe actuel</string>
+    <string name="ancien_mot_de_passe">Ancien mot de passe</string>
+    <string name="nouveau_mot_de_passe">Nouveau mot de passe</string>
+    <string name="nouveau_mot_de_passe2">Nouveau mot de passe</string>
+    <string name="confirmation_nouveau_mot_de_passe">Confirmation nouveau mot de passe</string>
+    <string name="confirmer">Confirmer</string>
+    <string name="annuler">Annuler</string>
 </resources>

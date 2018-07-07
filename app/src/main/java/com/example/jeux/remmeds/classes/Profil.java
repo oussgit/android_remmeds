@@ -8,15 +8,19 @@ public class Profil {
     private String lunchHour;
     private String dinnerHour;
     private String bedHour;
+    private String password;
 
-    public Profil(String lastname, String firstname, String mail, String breakfastHour, String lunchHour, String dinnerHour, String bedHour) {
+
+    public Profil(String lastname, String firstname, String mail, String password, String breakfastHour, String lunchHour, String dinnerHour, String bedHour) {
         this.lastname = lastname;
         this.firstname = firstname;
         this.mail = mail;
+        this.password = password;
         this.breakfastHour = breakfastHour;
         this.lunchHour = lunchHour;
         this.dinnerHour = dinnerHour;
         this.bedHour = bedHour;
+
     }
 
     public Profil(){}
@@ -75,5 +79,13 @@ public class Profil {
 
     public void setBedHour(String bedHour) {
         this.bedHour = bedHour;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
