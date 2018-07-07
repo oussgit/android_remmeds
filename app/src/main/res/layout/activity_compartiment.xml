@@ -229,56 +229,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.55" />
 
-    <TextView
-        android:id="@+id/debuttexte_textview_layout_commpartiment"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/heureperso_editText_layout_compartiment"
+        android:layout_width="64dp"
         android:layout_height="wrap_content"
-        android:text="@string/frequenceperso_checkbox_layout_compartiment"
+        android:ems="10"
+        android:hint="@string/blank"
+        android:focusable="false"
+        android:inputType="none"
+        android:theme="@style/style_edittext"
         android:visibility="gone"
-        app:layout_constraintHorizontal_bias="0.150"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/heureperso_switch_layout_compartiment" />
-
-    <EditText
-        android:id="@+id/nombreheure_editText_layout_compartiment"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/blank"
-        android:inputType="number"
-        android:theme="@style/style_edittext"
-        android:visibility="gone"
-        app:layout_constraintBaseline_toBaselineOf="@+id/debuttexte_textview_layout_commpartiment"
-        app:layout_constraintHorizontal_bias="0.370"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <TextView
-        android:id="@+id/fintexte_TextView_layout_compartiment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/fintexte_textview_layout_compartiment"
-        android:visibility="gone"
-        app:layout_constraintBaseline_toBaselineOf="@+id/debuttexte_textview_layout_commpartiment"
-        app:layout_constraintHorizontal_bias="0.700"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <EditText
-        android:id="@+id/heuredepart_editText_layout_compartiment"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/blank"
-        android:inputType="time"
-        android:textSize="12sp"
-        android:theme="@style/style_edittext"
-        android:visibility="gone"
-        app:layout_constraintBaseline_toBaselineOf="@+id/debuttexte_textview_layout_commpartiment"
-        app:layout_constraintHorizontal_bias="0.950"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/heureperso_textView_layout_compartiment"
+        app:layout_constraintVertical_bias="0.55"/>
 
     <Switch
         android:id="@+id/frequenceperso_switch_layout_compartiment"
@@ -288,7 +256,7 @@
         app:layout_constraintHorizontal_bias="0.100"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/debuttexte_textview_layout_commpartiment" />
+        app:layout_constraintTop_toBottomOf="@+id/heureperso_switch_layout_compartiment" />
 
     <TextView
         android:id="@+id/frequenceperso_textView_layout_compartiment"
@@ -425,7 +393,8 @@
         android:layout_marginStart="20dp"
         android:ems="10"
         android:hint="@string/blank"
-        android:inputType="textMultiLine"
+        android:inputType="text"
+        android:lines="1"
         android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

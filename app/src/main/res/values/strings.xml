@@ -35,8 +35,7 @@
     <string name="diner_textview_layout_compartiment">Dîner</string>
     <string name="coucher_textview_layout_compartiment">Au coucher</string>
     <string name="heureperso_textview_layout_compartiment">Heure personnalisée</string>
-    <string name="frequenceperso_checkbox_layout_compartiment">Toutes les</string>
-    <string name="fintexte_textview_layout_compartiment">heure(s), à partir de</string>
+    <string name="heurepersohint_checkbox_layout_compartiment">Choisir</string>
     <string name="frequenceperso_textview_layout_compartiment">Fréquence personnalisée</string>
     <string name="lundi_togglebutton_layout_compartiment">L</string>
     <string name="marmer_togglebutton_layout_compartiment">M</string>
