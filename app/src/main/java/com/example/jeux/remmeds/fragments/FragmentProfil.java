@@ -135,11 +135,11 @@ public class FragmentProfil extends Fragment {
             public void onClick(View v) {
                 AlertDialog.Builder passwordChange = new AlertDialog.Builder(getActivity());
                 @SuppressLint("InflateParams") View myView = getLayoutInflater().inflate(R.layout.dialog_new_password, null);
-                final EditText oldPassword = myView.findViewById(R.id.oldPassword);
-                final EditText newPassword = myView.findViewById(R.id.newPassword);
-                final EditText newPasswordConfirmation = myView.findViewById(R.id.newPasswordConfirmation);
-                Button confirmation = myView.findViewById(R.id.confirmation_button_layout_password);
-                Button annuler = myView.findViewById(R.id.annuler_button_layout_password);
+                final EditText oldPassword = myView.findViewById(R.id.actuel_edittext_ayout_profil);
+                final EditText newPassword = myView.findViewById(R.id.nouveau_edittext_layout_profil);
+                final EditText newPasswordConfirmation = myView.findViewById(R.id.confnouveau_edittext_layout_profil);
+                Button confirmation = myView.findViewById(R.id.confirmer_button_layout_profil);
+                Button annuler = myView.findViewById(R.id.annuler_button_layout_profil);
                 passwordChange.setView(myView);
                 final AlertDialog dialog = passwordChange.create();
                 dialog.show();
