@@ -12,8 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
 import android.support.annotation.NonNull;
+import android.widget.Toast;
 
 import com.example.jeux.remmeds.R;
+import com.example.jeux.remmeds.activities.Authentification;
 import com.example.jeux.remmeds.activities.MainActivity;
 import com.example.jeux.remmeds.classes.Profil;
 
@@ -66,10 +68,10 @@ public class FragmentProfil extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
         getActivity().setTitle("Profil");
-        String userID = MainActivity.getUserID();
+        final String userID = MainActivity.getUserID();
         String profilURL = "http://212.73.217.202:15020/raspberry/get_user/" + userID;
         JSONObject data = MainActivity.getDoInBackground(profilURL);
-        Profil user = new Profil();
+        final Profil user = new Profil();
         JSONArray array = new JSONArray();
         try {
             array = data.getJSONArray("user");
@@ -91,17 +93,17 @@ public class FragmentProfil extends Fragment {
                 e.printStackTrace();
             }
         }
-        EditText field_lastname_profil = view.findViewById(R.id.nom_edittext_layout_profil);
+        final EditText field_lastname_profil = view.findViewById(R.id.nom_edittext_layout_profil);
         field_lastname_profil.setText(user.getLastname());
-        EditText field_firstname_profil = view.findViewById(R.id.prenom_edittext_layout_profil);
+        final EditText field_firstname_profil = view.findViewById(R.id.prenom_edittext_layout_profil);
         field_firstname_profil.setText(user.getFirstname());
-        EditText field_breakfast_profil = view.findViewById(R.id.breakfast_editText_layout_profil);
+        final EditText field_breakfast_profil = view.findViewById(R.id.breakfast_editText_layout_profil);
         field_breakfast_profil.setText(user.getBreakfastHour());
-        EditText field_lunch_profil = view.findViewById(R.id.lunch_edittext_layout_profil);
+        final EditText field_lunch_profil = view.findViewById(R.id.lunch_edittext_layout_profil);
         field_lunch_profil.setText(user.getLunchHour());
-        EditText field_dinner_profil = view.findViewById(R.id.dinner_edittext_layout_profil);
+        final EditText field_dinner_profil = view.findViewById(R.id.dinner_edittext_layout_profil);
         field_dinner_profil.setText(user.getDinnerHour());
-        EditText field_bedtime_profil = view.findViewById(R.id.bedtime_edittext_layout_profil);
+        final EditText field_bedtime_profil = view.findViewById(R.id.bedtime_edittext_layout_profil);
         field_bedtime_profil.setText(user.getBedHour());
 
         get_formatted_hour(field_breakfast_profil);
@@ -113,7 +115,16 @@ public class FragmentProfil extends Fragment {
         enregistrer_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String new_firstname = field_firstname_profil.getText().toString();
+                String new_lastname = field_lastname_profil.getText().toString();
+                String new_bf = field_breakfast_profil.getText().toString();
+                String new_lun = field_lunch_profil.getText().toString();
+                String new_din = field_dinner_profil.getText().toString();
+                String new_bed = field_bedtime_profil.getText().toString();
+                String mail = user.getMail();
+                String urlUpdateProfil = "http://212.73.217.202:15020/user/update_account/" + userID + "&" + mail + "&" + new_lastname + "&" + new_firstname + "&" + new_bf + "&" + new_lun + "&" + new_din + "&" + new_bed;
+                MainActivity.postDoInBackground(urlUpdateProfil);
+                Toast.makeText(getActivity(), "Profil mis à jour", Toast.LENGTH_SHORT).show();
             }
         });
         Button changer_mdp_button = view.findViewById(R.id.password_button_layout_profil);
