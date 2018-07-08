@@ -121,8 +121,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/notes_textview_layout_compartiment"
-        android:inputType="textMultiLine"
-        android:lines="2"
+        android:inputType="text"
+        android:lines="1"
         android:theme="@style/style_edittext"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -179,15 +179,16 @@
 
     <Button
         android:id="@+id/supprimer_button_layout_ajoutcontact"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:background="@drawable/ic_delete"
-        app:layout_constraintHorizontal_bias="0.3"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintVertical_bias="0.96"
         android:scaleType="fitXY"/>
 
     <Button
@@ -195,7 +196,6 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/ic_save"
-        app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

@@ -1,5 +1,6 @@
 package com.example.jeux.remmeds.activities;
 
+import android.app.TimePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,9 +10,13 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.view.View;
+import android.widget.TimePicker;
 import android.widget.ToggleButton;
 
 import com.example.jeux.remmeds.R;
+
+import java.text.DecimalFormat;
+import java.util.Calendar;
 
 public class Compartiment extends AppCompatActivity implements View.OnClickListener {
 
@@ -52,11 +57,8 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
 
         note = findViewById(R.id.note_editText_layout_compartiment);
         nbrduree = findViewById(R.id.nombre_editText_layout_compartiment);
-        texapartirde = findViewById(R.id.fintexte_TextView_layout_compartiment);
-        textoutesles = findViewById(R.id.debuttexte_textview_layout_commpartiment);
         texnommedic = findViewById(R.id.nom_editText_layout_compartiment);
-        edinbrheure = findViewById(R.id.nombreheure_editText_layout_compartiment);
-        ediapartirde = findViewById(R.id.heuredepart_editText_layout_compartiment);
+        edinbrheure = findViewById(R.id.heureperso_editText_layout_compartiment);
 
         toglundi = findViewById(R.id.lundi_toggleButton_layout_compartiment);
         togmardi = findViewById(R.id.mardi_toggleButton_layout_compartiment);
@@ -65,6 +67,9 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
         togvendredi = findViewById(R.id.vendredi_toggleButton_layout_compartiment);
         togsamedi = findViewById(R.id.samedi_toggleButton_layout_compartiment);
         togdimanche = findViewById(R.id.dimanche_toggleButton_layout_compartiment);
+
+
+        getFormattedHour(edinbrheure);
 
 
         swibreakfast.setOnClickListener(this);
@@ -187,6 +192,31 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private void getFormattedHour(final EditText whichField) {
+        //Launch a time picker instead of keyboard on clock field
+        whichField.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Calendar myCurrentTime = Calendar.getInstance();
+                int hour = myCurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = myCurrentTime.get(Calendar.MINUTE);
+
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(Compartiment.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                        DecimalFormat addZero = new DecimalFormat("00");
+                        whichField.setText(addZero.format(selectedHour) + ":" + addZero.format(selectedMinute)); //NOSONAR
+                    }
+                }, hour, minute, true);
+                mTimePicker.setTitle("Sélectionner heure");
+                mTimePicker.show();
+
+            }
+        });
+    }
+
     private void optionsfrequenceperso() {
         if (swifrequenceperso.isChecked()) {
             toglundi.setVisibility(View.VISIBLE);
@@ -209,15 +239,9 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
 
     private void optionsheureperso() {
         if (swiheureperso.isChecked()) {
-            texapartirde.setVisibility(View.VISIBLE);
-            textoutesles.setVisibility(View.VISIBLE);
             edinbrheure.setVisibility(View.VISIBLE);
-            ediapartirde.setVisibility(View.VISIBLE);
         } else {
-            texapartirde.setVisibility(View.GONE);
-            textoutesles.setVisibility(View.GONE);
             edinbrheure.setVisibility(View.GONE);
-            ediapartirde.setVisibility(View.GONE);
         }
     }
 }

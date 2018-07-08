@@ -35,8 +35,7 @@
     <string name="diner_textview_layout_compartiment">Dîner</string>
     <string name="coucher_textview_layout_compartiment">Au coucher</string>
     <string name="heureperso_textview_layout_compartiment">Heure personnalisée</string>
-    <string name="frequenceperso_checkbox_layout_compartiment">Toutes les</string>
-    <string name="fintexte_textview_layout_compartiment">heure(s), à partir de</string>
+    <string name="heurepersohint_checkbox_layout_compartiment">Choisir</string>
     <string name="frequenceperso_textview_layout_compartiment">Fréquence personnalisée</string>
     <string name="lundi_togglebutton_layout_compartiment">L</string>
     <string name="marmer_togglebutton_layout_compartiment">M</string>
@@ -80,6 +79,14 @@
     <string name="nom_textview_layout_profil">Nom</string>
     <string name="vosheures_textview_layout_profil">Vos heures de référence</string>
     <string name="password_button_layout_profil">Changer le mot de passe</string>
+    <!-- PROFIL - POPUP EDIT PSWD -->
+    <string name="actuel_textview_layout_profil">Mot de passe actuel</string>
+    <string name="actuel_edittext_ayout_profil">Ancien mot de passe</string>
+    <string name="nouveau_textview_layout_profil">Nouveau mot de passe</string>
+    <string name="nouveau_edittext_layout_profil">Nouveau mot de passe</string>
+    <string name="confnouveau_edittext_layout_profil">Confirmation nouveau mot de passe</string>
+    <string name="confirmer_button_layout_profil">Confirmer</string>
+    <string name="annuler_button_layout_profil">Annuler</string>
 
     <!-- AUTHENTIFICATION -->
     <string name="connexion_button_layout_authentification">Connexion</string>
@@ -116,11 +123,5 @@
     <string name="six">6</string>
     <string name="seven">7</string>
     <string name="eight">8</string>
-    <string name="mot_de_passe_actuel">Mot de passe actuel</string>
-    <string name="ancien_mot_de_passe">Ancien mot de passe</string>
-    <string name="nouveau_mot_de_passe">Nouveau mot de passe</string>
-    <string name="nouveau_mot_de_passe2">Nouveau mot de passe</string>
-    <string name="confirmation_nouveau_mot_de_passe">Confirmation nouveau mot de passe</string>
-    <string name="confirmer">Confirmer</string>
-    <string name="annuler">Annuler</string>
+
 </resources>
