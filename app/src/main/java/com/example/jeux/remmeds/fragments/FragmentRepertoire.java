@@ -113,12 +113,11 @@ public class FragmentRepertoire extends Fragment {
     public static Contact getContact(int contactPos){
         return contactList.get(contactPos);
     }
-
     public static void refreshRecyclerRep() {
         mAdapter.notifyDataSetChanged();
     }
 
-    public static void changeItemRecyclerRep(int position){
+    public static void updateItemRecyclerRep(int position){
         mAdapter.notifyItemChanged(position);
     }
 

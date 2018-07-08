@@ -53,64 +53,70 @@ public class Ajoutcontact extends AppCompatActivity {
         supprimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentRepertoire.removeItem(contactPos);
-                MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/delete_contact/" + contactId));
-                onBackPressed();
+                deleteContact();
             }
         });
 
         ajout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String nomContact = nom.getText().toString();
-                String prenomContact = prenom.getText().toString();
-                String numContact = num.getText().toString();
-                String mailContact = mail.getText().toString();
-                String noteContact = note.getText().toString();
-                String smsCheckContact;
-                String mailCheckContact;
-
-                if (smsCheck.isChecked()) {
-                    smsCheckContact = "1";
-                } else {
-                    smsCheckContact = "0";
-                }
-                if (mailCheck.isChecked()) {
-                    mailCheckContact = "1";
-                } else {
-                    mailCheckContact = "0";
-                }
-
-                if (okTest == "0") {
-
-                    FragmentRepertoire.emptyContact();
-                    MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/add_contact/" + MainActivity.getUserID() + "&" + nomContact + "&" + prenomContact + "&" + numContact + "&" + mailContact + "&" + smsCheckContact + "&" + mailCheckContact + "&" + noteContact));
-                    FragmentRepertoire.fillRecyclerRep(MainActivity.getUserID());
-                    onBackPressed();
-
-                } else {
-                    Contact contact1 = new Contact();
-                    contact1 = FragmentRepertoire.getContact(contactPos);
-                    contact1.setNom(nomContact);
-                    contact1.setPrenom(prenomContact);
-                    contact1.setMailContact(mailContact);
-                    contact1.setNoteContact(noteContact);
-                    if (smsCheck.isChecked()) {
-                        contact1.setSmsCheck("1");
-                    } else {
-                        contact1.setSmsCheck("0");
-                    }
-                    if (mailCheck.isChecked()) {
-                        contact1.setMailCheck("1");
-                    } else {
-                        contact1.setMailCheck("0");
-                    }
-                    FragmentRepertoire.changeItemRecyclerRep(contactPos);
-                    MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/update_contact/" + contactId + "&" + nomContact + "&" + prenomContact + "&" + numContact + "&" + mailContact + "&" + smsCheckContact + "&" + mailCheckContact + "&" + noteContact));
-                    onBackPressed();
-                }
+                alterContact(nom, prenom, num, mail, note, smsCheck, mailCheck);
             }
         });
     }
+
+    private void deleteContact() {
+        FragmentRepertoire.removeItem(contactPos);
+        MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/delete_contact/" + contactId));
+        onBackPressed();
+    }
+
+    private void alterContact(EditText nom, EditText prenom, EditText num, EditText mail, EditText note, CheckBox smsCheck, CheckBox mailCheck) {
+        String nomContact = nom.getText().toString();
+        String prenomContact = prenom.getText().toString();
+        String numContact = num.getText().toString();
+        String mailContact = mail.getText().toString();
+        String noteContact = note.getText().toString();
+        String smsCheckContact;
+        String mailCheckContact;
+        if (smsCheck.isChecked()) {
+            smsCheckContact = "1";
+        } else {
+            smsCheckContact = "0";
+        }
+        if (mailCheck.isChecked()) {
+            mailCheckContact = "1";
+        } else {
+            mailCheckContact = "0";
+        }
+        if (okTest == "0") {
+            addContact(nomContact,prenomContact,numContact,mailContact,noteContact,smsCheckContact,mailCheckContact);
+        } else {
+            updateContact(nomContact,prenomContact,numContact,mailContact,noteContact,smsCheckContact,mailCheckContact);
+        }
+
+    }
+
+    private void addContact(String nomContact, String prenomContact, String numContact, String mailContact, String noteContact,String smsCheckContact, String mailCheckContact) {
+        FragmentRepertoire.emptyContact();
+        MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/add_contact/" + MainActivity.getUserID() + "&" + nomContact + "&" + prenomContact + "&" + numContact + "&" + mailContact + "&" + smsCheckContact + "&" + mailCheckContact + "&" + noteContact));
+        FragmentRepertoire.fillRecyclerRep(MainActivity.getUserID());
+        onBackPressed();
+    }
+
+    private void updateContact(String nomContact, String prenomContact, String numContact, String mailContact, String noteContact,String smsCheckContact, String mailCheckContact){
+        Contact contact;
+        contact = FragmentRepertoire.getContact(contactPos);
+        contact.setNom(nomContact);
+        contact.setPrenom(prenomContact);
+        contact.setMailContact(mailContact);
+        contact.setNoteContact(noteContact);
+        contact.setSmsCheck(smsCheckContact);
+        contact.setMailCheck(mailCheckContact);
+        FragmentRepertoire.updateItemRecyclerRep(contactPos);
+        MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/update_contact/" + contactId + "&" + nomContact + "&" + prenomContact + "&" + numContact + "&" + mailContact + "&" + smsCheckContact + "&" + mailCheckContact + "&" + noteContact));
+        onBackPressed();
+    }
+
 }
 

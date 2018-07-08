@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.example.jeux.remmeds.R;
 import com.example.jeux.remmeds.classes.Prise;
 import com.example.jeux.remmeds.classes.PriseAdapter;
@@ -25,12 +26,10 @@ public class FragmentHistorique extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
-        //change R.layout.yourlayoutfilename for each of your fragments
-        RecyclerView mRecyclerView;
         final View acc = inflater.inflate(R.layout.fragment_historique, container, false);
-        PriseAdapter mAdapter;
-
+        RecyclerView mRecyclerView;
         mRecyclerView = acc.findViewById(R.id.evenements_recyclerview_layout_historique);
+        PriseAdapter mAdapter;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mAdapter = new PriseAdapter(priseListe);
 
