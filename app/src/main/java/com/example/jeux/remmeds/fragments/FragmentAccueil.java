@@ -32,8 +32,6 @@ public class FragmentAccueil extends Fragment {
     private static String durationtext;
     private static String durationnumber;
     private static String drugname;
-    private static String notes;
-    private static String compid;
     private static String heureperso;
 
     @Nullable
@@ -64,24 +62,31 @@ public class FragmentAccueil extends Fragment {
             priseListe.add(d);
             priseListe.add(u);
             mAdapter.notifyDataSetChanged();
-
         }
 
         JSONObject data = MainActivity.getDoInBackground("http://212.73.217.202:15020/compartment/list_com/" + MainActivity.getUserID());
         try {
             JSONArray array = data.getJSONArray("compartment");
-            generateListe(array);
+            generatePrises(array);
         } catch (java.lang.NullPointerException e) {
             Log.e("NullJson","Accueil"+e);
         }catch (org.json.JSONException e) {
             Log.e("JsonException","Accueil"+e);
         }
 
-
         return acc;
     }
-        private void generateListe(JSONArray array){
+        private void generatePrises(JSONArray array){
+            JSONObject object;
+            for(int i = 0; i<8 ; i++){
+                try {
+                    object = array.getJSONObject(i);
 
+
+                } catch (JSONException e) {
+                    Log.e("JSon Null ?","generatePrise "+e);
+                }
+            }
         }
         @Override
         public void onViewCreated (View view, @Nullable Bundle savedInstanceState){
