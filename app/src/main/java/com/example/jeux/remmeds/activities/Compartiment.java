@@ -13,6 +13,7 @@ import android.widget.TimePicker;
 import android.widget.ToggleButton;
 
 import com.example.jeux.remmeds.R;
+import com.example.jeux.remmeds.fragments.FragmentAccueil;
 
 
 import java.text.DecimalFormat;
@@ -40,14 +41,14 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
     private Switch swicoucher;
     private Spinner typeduree;
 
-    private static String dayperso;
-    private static String listpref;
-    private static String durationtext;
-    private static String durationnumber;
-    private static String drugname;
-    private static String notes;
-    private static String compid;
-    private static String heureperso;
+    private String dayperso;
+    private String listpref;
+    private String durationtext;
+    private String durationnumber;
+    private String drugname;
+    private String notes;
+    private String compid;
+    private String heureperso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +108,7 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
             nbrduree.setText(durationnumber);
             texnommedic.setText(drugname);
             texnotes.setText(notes);
-            if(!heureperso.equals(null)){
+            if(!heureperso.equals("")){
                 swiheureperso.setChecked(true);
                 optionsheureperso();
                 edinbrheure.setText(heureperso);
@@ -134,6 +135,7 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.enregistrer_button_layout_compartiment:
                 saveChanges();
+                FragmentAccueil.destroyRecyclerAccueil();
                 onBackPressed();
             default:
                 break;

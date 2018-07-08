@@ -3,6 +3,7 @@ package com.example.jeux.remmeds.classes;
 import android.util.Log;
 
 import com.example.jeux.remmeds.activities.MainActivity;
+import com.example.jeux.remmeds.fragments.FragmentAccueil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,20 +19,14 @@ public class Profil {
     private String bedHour;
     private String password;
 
-    public Profil(){
+    public Profil() {
         final String userID = MainActivity.getUserID();
-        String profilURL = "http://212.73.217.202:15020/raspberry/get_user/" + userID;
-        JSONObject data = MainActivity.getDoInBackground(profilURL);
-        JSONArray array = new JSONArray();
         try {
+            String profilURL = "http://212.73.217.202:15020/raspberry/get_user/" + userID;
+            JSONObject data = MainActivity.getDoInBackground(profilURL);
+            JSONArray array;
             array = data.getJSONArray("user");
-        } catch (JSONException e) {
-            Log.e("arrayRecycler", "Exception catched" + e);
-        } catch (java.lang.NullPointerException e) {
-            Log.e("arrayRecycler", "NULL JSON" + e);
-        }
-        for (int i = 0; i < array.length(); i++) {
-            try {
+            for (int i = 0; i < array.length(); i++) {
                 this.setLastname(array.getJSONObject(i).getString("lastname"));
                 this.setFirstname(array.getJSONObject(i).getString("firstname"));
                 this.setMail(array.getJSONObject(i).getString("mail"));
@@ -40,9 +35,12 @@ public class Profil {
                 this.setLunchHour(array.getJSONObject(i).getString("pref_lunch"));
                 this.setDinnerHour(array.getJSONObject(i).getString("pref_dinner"));
                 this.setBedHour(array.getJSONObject(i).getString("pref_bedtime"));
-            } catch (JSONException e) {
-                Log.i("JSON exception", "Get user :" + e);
             }
+        } catch (JSONException e) {
+            Log.e("arrayRecycler", "Exception catched" + e);
+        } catch (java.lang.NullPointerException e) {
+            Log.e("arrayRecyclerProfil", "NULL JSON" + e);
+            FragmentAccueil.destroyRecyclerAccueil();
         }
     }
 

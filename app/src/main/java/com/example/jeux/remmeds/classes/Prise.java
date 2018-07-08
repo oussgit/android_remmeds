@@ -1,20 +1,38 @@
 package com.example.jeux.remmeds.classes;
 
+import com.example.jeux.remmeds.fragments.FragmentAccueil;
+
 public class Prise {
-    private String nomMedicament;
+    private String nommedicament;
     private int compartiment;
     private String heurePrise;
     private String dayperso;
     private String listpref;
     private String durationtext;
     private String durationnumber;
-    private String drugname;
     private String heureperso;
 
-    public Prise(String nomMedicament, int compartiment, String heurePrise) {
-        this.nomMedicament = nomMedicament;
+    public Prise(String nommedicament, int compartiment, String dayperso, String listpref, String durationtext, String durationnumber, String heureperso) {
+        this.compartiment = compartiment;
+        this.dayperso= dayperso;
+        this.listpref = listpref;
+        this.durationtext = durationtext;
+        this.durationnumber = durationnumber;
+        this.nommedicament = nommedicament;
+        this.heureperso=heureperso;
+    }
+
+    public Prise(String nomMedicament, int compartiment, String heurePrise){
+        this.nommedicament = nomMedicament;
         this.compartiment = compartiment;
         this.heurePrise = heurePrise;
+        if(!heurePrise.equals("")){
+            FragmentAccueil.addPrise(this);
+        }
+        else{
+
+        }
+
     }
 
     public Prise() {
@@ -37,10 +55,6 @@ public class Prise {
         this.durationnumber = durationnumber;
     }
 
-    public void setDrugname(String drugname) {
-        this.drugname = drugname;
-    }
-
     public void setHeureperso(String heureperso) {
         this.heureperso = heureperso;
     }
@@ -61,16 +75,12 @@ public class Prise {
         return durationnumber;
     }
 
-    public String getDrugname() {
-        return drugname;
-    }
-
     public String getHeureperso() {
         return heureperso;
     }
 
-    public String getNomMedicament() {
-        return nomMedicament;
+    public String getNommedicament() {
+        return nommedicament;
     }
 
     public int getCompartiment() {
@@ -81,8 +91,8 @@ public class Prise {
         return heurePrise;
     }
 
-    public void setNomMedicament(String nomMedicament) {
-        this.nomMedicament = nomMedicament;
+    public void setNommedicament(String nommedicament) {
+        this.nommedicament = nommedicament;
     }
 
     public void setCompartiment(int compartiment) {
