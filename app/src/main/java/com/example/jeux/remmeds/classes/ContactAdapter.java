@@ -31,6 +31,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.MyViewHo
 
         @Override
         public void onClick(View v) {
+            //Overided by recycler
         }
     }
 

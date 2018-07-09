@@ -68,33 +68,9 @@ public class FragmentProfil extends Fragment {
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //you can set the title for your toolbar here for different fragments different titles
-        getActivity().setTitle("Profil");
         final String userID = MainActivity.getUserID();
-        String profilURL = "http://212.73.217.202:15020/raspberry/get_user/" + userID;
-        JSONObject data = MainActivity.getDoInBackground(profilURL);
+        getActivity().setTitle("Profil");
         final Profil user = new Profil();
-        JSONArray array = new JSONArray();
-        try {
-            array = data.getJSONArray("user");
-        } catch (JSONException e) {
-            Log.e("arrayRecycler", "Exception catched" + e);
-        } catch (java.lang.NullPointerException e) {
-            Log.e("arrayRecycler", "NULL JSON" + e);
-        }
-        for (int i = 0; i < array.length(); i++) {
-            try {
-                user.setLastname(array.getJSONObject(i).getString("lastname"));
-                user.setFirstname(array.getJSONObject(i).getString("firstname"));
-                user.setMail(array.getJSONObject(i).getString("mail"));
-                user.setPassword(array.getJSONObject(i).getString("password"));
-                user.setBreakfastHour(array.getJSONObject(i).getString("pref_breakfast"));
-                user.setLunchHour(array.getJSONObject(i).getString("pref_lunch"));
-                user.setDinnerHour(array.getJSONObject(i).getString("pref_dinner"));
-                user.setBedHour(array.getJSONObject(i).getString("pref_bedtime"));
-            } catch (JSONException e) {
-                Log.i("JSON exception", "Get user :" + e);
-            }
-        }
         final EditText fieldLastnameProfil = view.findViewById(R.id.nom_edittext_layout_profil);
         fieldLastnameProfil.setText(user.getLastname());
         final EditText fieldFirstnameProfil = view.findViewById(R.id.prenom_edittext_layout_profil);

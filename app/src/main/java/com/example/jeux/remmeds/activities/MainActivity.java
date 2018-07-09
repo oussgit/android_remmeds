@@ -83,12 +83,12 @@ public class MainActivity extends AppCompatActivity
 
         URLConnection urlConn = null;
         BufferedReader bufferedReader = null;
-
         try {
             URL url = new URL(targetURL);
             urlConn = url.openConnection();
+            urlConn.setConnectTimeout(3*1000);
+            urlConn.setReadTimeout(5*1000);
             bufferedReader = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
-
             StringBuilder stringBuilder = new StringBuilder();
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity
             return new JSONObject(stringBuilder.toString());
         } catch (Exception ex) {
             Log.e("App", "yourDataTask", ex);
+
             return null;
         }
     }
@@ -129,7 +130,6 @@ public class MainActivity extends AppCompatActivity
                 response.append('\r');
             }
             rd.close();
-
         } catch (Exception e) {
             Log.e("doPost", "Exception catched :" + e);
         } finally {

@@ -1,22 +1,86 @@
 package com.example.jeux.remmeds.classes;
 
+import com.example.jeux.remmeds.fragments.FragmentAccueil;
+
 public class Prise {
-    private String nomMedicament;
+    private String nommedicament;
     private int compartiment;
     private String heurePrise;
+    private String dayperso;
+    private String listpref;
+    private String durationtext;
+    private String durationnumber;
+    private String heureperso;
 
-    public Prise(String nomMedicament, int compartiment, String heurePrise) {
-        this.nomMedicament = nomMedicament;
+    public Prise(String nommedicament, int compartiment, String dayperso, String listpref, String durationtext, String durationnumber, String heureperso) {
+        this.compartiment = compartiment;
+        this.dayperso= dayperso;
+        this.listpref = listpref;
+        this.durationtext = durationtext;
+        this.durationnumber = durationnumber;
+        this.nommedicament = nommedicament;
+        this.heureperso=heureperso;
+    }
+
+    public Prise(String nomMedicament, int compartiment, String heurePrise){
+        this.nommedicament = nomMedicament;
         this.compartiment = compartiment;
         this.heurePrise = heurePrise;
+        if(!heurePrise.equals("")){
+            FragmentAccueil.addPrise(this);
+        }
+        else{
+
+        }
+
     }
 
     public Prise() {
 
     }
 
-    public String getNomMedicament() {
-        return nomMedicament;
+    public void setDayperso(String dayperso) {
+        this.dayperso = dayperso;
+    }
+
+    public void setListpref(String listpref) {
+        this.listpref = listpref;
+    }
+
+    public void setDurationtext(String durationtext) {
+        this.durationtext = durationtext;
+    }
+
+    public void setDurationnumber(String durationnumber) {
+        this.durationnumber = durationnumber;
+    }
+
+    public void setHeureperso(String heureperso) {
+        this.heureperso = heureperso;
+    }
+
+    public String getDayperso() {
+        return dayperso;
+    }
+
+    public String getListpref() {
+        return listpref;
+    }
+
+    public String getDurationtext() {
+        return durationtext;
+    }
+
+    public String getDurationnumber() {
+        return durationnumber;
+    }
+
+    public String getHeureperso() {
+        return heureperso;
+    }
+
+    public String getNommedicament() {
+        return nommedicament;
     }
 
     public int getCompartiment() {
@@ -27,8 +91,8 @@ public class Prise {
         return heurePrise;
     }
 
-    public void setNomMedicament(String nomMedicament) {
-        this.nomMedicament = nomMedicament;
+    public void setNommedicament(String nommedicament) {
+        this.nommedicament = nommedicament;
     }
 
     public void setCompartiment(int compartiment) {

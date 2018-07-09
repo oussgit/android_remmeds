@@ -46,7 +46,7 @@ public class PriseAdapter extends RecyclerView.Adapter<PriseAdapter.MyViewHolder
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Prise prise= priseList.get(position);
 
-        holder.nomMedicament.setText(prise.getNomMedicament());
+        holder.nomMedicament.setText(prise.getNommedicament());
         holder.compartiment.setImageResource(prise.getCompartiment());
         holder.heurePrise.setText(prise.getHeurePrise());
     }

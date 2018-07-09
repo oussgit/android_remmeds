@@ -1,5 +1,14 @@
 package com.example.jeux.remmeds.classes;
 
+import android.util.Log;
+
+import com.example.jeux.remmeds.activities.MainActivity;
+import com.example.jeux.remmeds.fragments.FragmentAccueil;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Profil {
     private String lastname;
     private String firstname;
@@ -10,20 +19,30 @@ public class Profil {
     private String bedHour;
     private String password;
 
-
-    public Profil(String lastname, String firstname, String mail, String password, String breakfastHour, String lunchHour, String dinnerHour, String bedHour) {
-        this.lastname = lastname;
-        this.firstname = firstname;
-        this.mail = mail;
-        this.password = password;
-        this.breakfastHour = breakfastHour;
-        this.lunchHour = lunchHour;
-        this.dinnerHour = dinnerHour;
-        this.bedHour = bedHour;
-
+    public Profil() {
+        final String userID = MainActivity.getUserID();
+        try {
+            String profilURL = "http://212.73.217.202:15020/raspberry/get_user/" + userID;
+            JSONObject data = MainActivity.getDoInBackground(profilURL);
+            JSONArray array;
+            array = data.getJSONArray("user");
+            for (int i = 0; i < array.length(); i++) {
+                this.setLastname(array.getJSONObject(i).getString("lastname"));
+                this.setFirstname(array.getJSONObject(i).getString("firstname"));
+                this.setMail(array.getJSONObject(i).getString("mail"));
+                this.setPassword(array.getJSONObject(i).getString("password"));
+                this.setBreakfastHour(array.getJSONObject(i).getString("pref_breakfast"));
+                this.setLunchHour(array.getJSONObject(i).getString("pref_lunch"));
+                this.setDinnerHour(array.getJSONObject(i).getString("pref_dinner"));
+                this.setBedHour(array.getJSONObject(i).getString("pref_bedtime"));
+            }
+        } catch (JSONException e) {
+            Log.e("arrayRecycler", "Exception catched" + e);
+        } catch (java.lang.NullPointerException e) {
+            Log.e("arrayRecyclerProfil", "NULL JSON" + e);
+            FragmentAccueil.destroyRecyclerAccueil();
+        }
     }
-
-    public Profil(){}
 
     public String getLastname() {
         return lastname;
