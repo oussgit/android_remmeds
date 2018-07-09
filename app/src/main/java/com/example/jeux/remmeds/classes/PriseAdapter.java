@@ -2,13 +2,19 @@ package com.example.jeux.remmeds.classes;
 
 import com.example.jeux.remmeds.R;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 
@@ -45,10 +51,33 @@ public class PriseAdapter extends RecyclerView.Adapter<PriseAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Prise prise= priseList.get(position);
-
         holder.nomMedicament.setText(prise.getNommedicament());
         holder.compartiment.setImageResource(prise.getCompartiment());
         holder.heurePrise.setText(prise.getHeurePrise());
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+            Date EndTimeRef = dateFormat.parse(prise.getHeurePrise());
+            Date EndTimeGreen = addMinutes(30,EndTimeRef);
+            Date CurrentTime = dateFormat.parse(dateFormat.format(new Date()));
+
+            if (CurrentTime.before(EndTimeGreen) && CurrentTime.after(EndTimeRef)){
+                holder.itemView.setBackgroundColor(Color.YELLOW);
+            }
+            else if(CurrentTime.after(EndTimeGreen)){
+                holder.itemView.setBackgroundColor(Color.RED);
+            }
+
+        } catch (ParseException e) {
+            Log.e("Parse exception","catched"+e);
+        }
+    }
+
+    private static Date addMinutes(int minutes, Date beforeTime){
+        final long ONE_MINUTE_IN_MILLIS = 60000;//millisecs
+
+        long curTimeInMs = beforeTime.getTime();
+        Date afterAddingMins = new Date(curTimeInMs + (minutes * ONE_MINUTE_IN_MILLIS));
+        return afterAddingMins;
     }
 
     @Override

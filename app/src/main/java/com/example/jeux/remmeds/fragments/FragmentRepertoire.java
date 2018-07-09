@@ -6,28 +6,26 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.jeux.remmeds.R;
 import com.example.jeux.remmeds.activities.Ajoutcontact;
-import com.example.jeux.remmeds.classes.RecyclerItemClickListener;
 import com.example.jeux.remmeds.activities.MainActivity;
 import com.example.jeux.remmeds.classes.Contact;
 import com.example.jeux.remmeds.classes.ContactAdapter;
-import com.example.jeux.remmeds.R;
-
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.widget.Button;
+import com.example.jeux.remmeds.classes.RecyclerItemClickListener;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -61,7 +59,7 @@ public class FragmentRepertoire extends Fragment {
                         i.putExtra("ContactNum", contact.getNumero());
                         i.putExtra("ContactNote", contact.getNoteContact());
                         i.putExtra("ContactPos", position);
-                        i.putExtra("ContactId",contact.getIdContact());
+                        i.putExtra("ContactId", contact.getIdContact());
                         startActivity(i);
                     }
                 })
@@ -86,47 +84,40 @@ public class FragmentRepertoire extends Fragment {
         JSONArray array = new JSONArray();
         try {
             array = data.getJSONArray("contact");
-        } catch (JSONException e) {
-            Log.e("arrayRecycler", "Exception catched" + e);
-        } catch (java.lang.NullPointerException e) {
-            Log.e("arrayRecycler", "NULL JSON" + e);
-        }
-        for (int i = 0; i < array.length(); i++) {
-            Contact a = new Contact();
-            try {
-                a.setNom(array.getJSONObject(i).getString("lastname"));
-                a.setPrenom(array.getJSONObject(i).getString("firstname"));
-                a.setMailContact(array.getJSONObject(i).getString("mail"));
-                a.setNumero(array.getJSONObject(i).getString("phonenumber"));
-                a.setMailCheck(array.getJSONObject(i).getString("chx_mail"));
-                a.setSmsCheck(array.getJSONObject(i).getString("chx_sms"));
-                a.setNoteContact(array.getJSONObject(i).getString("note"));
-                a.setIdContact(array.getJSONObject(i).getString("contact_id"));
-                contactList.add(a);
-            } catch (JSONException e) {
-                Log.e("CreationContact", "NULL JSON" + e);
+            for (int i = 0; i < array.length(); i++) {
+                Contact a = new Contact(array,i);
             }
+            refreshRecyclerRep();
+        } catch (JSONException e) {
+            Log.e("CreationContact", "Erreur" + e);
+        } catch (java.lang.NullPointerException e) {
+            Log.e("CreationContact", "NULL JSON" + e);
         }
-        refreshRecyclerRep();
     }
 
-    public static Contact getContact(int contactPos){
+
+    public static void addContact(Contact contact) {
+        contactList.add(contact);
+    }
+
+    public static Contact getContact(int contactPos) {
         return contactList.get(contactPos);
     }
+
     public static void refreshRecyclerRep() {
         mAdapter.notifyDataSetChanged();
     }
 
-    public static void updateItemRecyclerRep(int position){
+    public static void updateItemRecyclerRep(int position) {
         mAdapter.notifyItemChanged(position);
     }
 
-    public static void removeItem(int position){
+    public static void removeItem(int position) {
         contactList.remove(position);
         refreshRecyclerRep();
     }
 
-    public static void emptyContact(){
+    public static void emptyContact() {
         contactList.clear();
     }
 
