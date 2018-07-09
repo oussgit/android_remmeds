@@ -1,12 +1,8 @@
 package com.example.jeux.remmeds.fragments;
 
-import android.content.DialogInterface;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,9 +23,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -37,7 +30,6 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
 
 public class FragmentAccueil extends Fragment {
     private static List<Prise> priseListe = new ArrayList<>();
@@ -114,13 +106,13 @@ public class FragmentAccueil extends Fragment {
                                     Prise prise0 = new Prise(nommedicament, comp[compnum - 1], profil.getBreakfastHour(), 1);
                                     break;
                                 case "Lunch":
-                                    Prise prise1 = new Prise(nommedicament, comp[compnum - 1], profil.getLunchHour(),1);
+                                    Prise prise1 = new Prise(nommedicament, comp[compnum - 1], profil.getLunchHour(), 1);
                                     break;
                                 case "Dinner":
-                                    Prise prise2 = new Prise(nommedicament, comp[compnum - 1], profil.getDinnerHour(),1);
+                                    Prise prise2 = new Prise(nommedicament, comp[compnum - 1], profil.getDinnerHour(), 1);
                                     break;
                                 case "Bedtime":
-                                    Prise prise3 = new Prise(nommedicament, comp[compnum - 1], profil.getBedHour(),1);
+                                    Prise prise3 = new Prise(nommedicament, comp[compnum - 1], profil.getBedHour(), 1);
                                     break;
                                 default:
                                     break;
@@ -129,9 +121,10 @@ public class FragmentAccueil extends Fragment {
                     }
                     j++;
                 }
-                if (!heureperso.equals("")) {
-                    Prise prise4 = new Prise(nommedicament, comp[compnum - 1], heureperso,1);
+                if (!heureperso.equals("") && !heureperso.equals("0")) {
+                    Prise prise4 = new Prise(nommedicament, comp[compnum - 1], heureperso, 1);
                 }
+
             } catch (JSONException e) {
                 Log.e("JSon Null ?", "generatePrise " + e);
             }

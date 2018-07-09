@@ -3,7 +3,6 @@ package com.example.jeux.remmeds.activities;
 import android.app.TimePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -105,12 +104,10 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
             if (!getIntent().getExtras().getString("duration_text").equals("") && !getIntent().getExtras().getString("duration_text").equals("0")) {
                 durationtext = getIntent().getExtras().getString("duration_text");
                 setUpDureePref(durationtext);
-
             }
             if (!getIntent().getExtras().getString("perso_hour").equals("") && !getIntent().getExtras().getString("perso_hour").equals("0")) {
-                heureperso = getIntent().getExtras().getString("duration_text");
+                heureperso = getIntent().getExtras().getString("perso_hour");
                 setUpHeurePerso(heureperso);
-
             }
             if (!getIntent().getExtras().getString("duration_number").equals("") && !getIntent().getExtras().getString("duration_number").equals("0")) {
                 durationnumber = getIntent().getExtras().getString("duration_number");
@@ -130,8 +127,6 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
 
         }
     }
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -240,33 +235,38 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
     }
 
     private String saveDayPerso() {
-        String urldays = "";
-        if (toglundi.isChecked()) {
-            urldays += "Lundi,";
+        if (swifrequenceperso.isChecked()) {
+            String urldays = "";
+            if (toglundi.isChecked()) {
+                urldays += "Lundi,";
+            }
+            if (togmardi.isChecked()) {
+                urldays += "Mardi,";
+            }
+            if (togmercredi.isChecked()) {
+                urldays += "Mercredi,";
+            }
+            if (togjeudi.isChecked()) {
+                urldays += "Jeudi,";
+            }
+            if (togvendredi.isChecked()) {
+                urldays += "Vendredi,";
+            }
+            if (togsamedi.isChecked()) {
+                urldays += "Samedi,";
+            }
+            if (togdimanche.isChecked()) {
+                urldays += "Dimanche,";
+            }
+            if (urldays.equals("")) {
+                return "0";
+            } else {
+                urldays = urldays.substring(0, urldays.length() - 1);
+                return urldays;
+            }
         }
-        if (togmardi.isChecked()) {
-            urldays += "Mardi,";
-        }
-        if (togmercredi.isChecked()) {
-            urldays += "Mercredi,";
-        }
-        if (togjeudi.isChecked()) {
-            urldays += "Jeudi,";
-        }
-        if (togvendredi.isChecked()) {
-            urldays += "Vendredi,";
-        }
-        if (togsamedi.isChecked()) {
-            urldays += "Samedi,";
-        }
-        if (togdimanche.isChecked()) {
-            urldays += "Dimanche,";
-        }
-        if (urldays.equals("")) {
+        else{
             return "0";
-        } else {
-            urldays = urldays.substring(0, urldays.length() - 1);
-            return urldays;
         }
     }
 
