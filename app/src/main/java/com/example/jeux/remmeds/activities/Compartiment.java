@@ -3,6 +3,7 @@ package com.example.jeux.remmeds.activities;
 import android.app.TimePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -108,7 +109,7 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
             nbrduree.setText(durationnumber);
             texnommedic.setText(drugname);
             texnotes.setText(notes);
-            if(!heureperso.equals("")){
+            if (!heureperso.equals("")) {
                 swiheureperso.setChecked(true);
                 optionsheureperso();
                 edinbrheure.setText(heureperso);
@@ -143,6 +144,13 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
     }
 
     private void saveChanges() {
+        String drugname;
+        String notes;
+        String durationnumber;
+        String durationtext;
+        String dayperso;
+        String listpref;
+        String heureperso;
         drugname = texnommedic.getText().toString();
         notes = texnotes.getText().toString();
         durationnumber = nbrduree.getText().toString();
@@ -150,7 +158,7 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
         dayperso = saveDayPerso();
         listpref = saveListPref();
         heureperso = edinbrheure.getText().toString();
-        MainActivity.postDoInBackground("http://212.73.217.202:15020/compartment/update_com/" + compid + "&" + drugname + "&" + notes + "&" + durationnumber + "&" + durationtext + "&0&"+ heureperso +"&0&" + dayperso + "&" + listpref);
+        MainActivity.postDoInBackground("http://212.73.217.202:15020/compartment/update_com/" + compid + "&" + drugname + "&" + notes + "&" + durationnumber + "&" + durationtext + "&0&" + heureperso + "&0&" + dayperso + "&" + listpref);
     }
 
     private String saveListPref() {
@@ -167,8 +175,12 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
         if (swicoucher.isChecked()) {
             urlpref += "Bedtime,";
         }
-        urlpref = urlpref.substring(0, urlpref.length() - 1);
-        return urlpref;
+        if (urlpref.equals("")) {
+            return "0";
+        } else {
+            urlpref = urlpref.substring(0, urlpref.length() - 1);
+            return urlpref;
+        }
     }
 
     private String saveDayPerso() {
@@ -194,8 +206,12 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
         if (togdimanche.isChecked()) {
             urldays += "Dimanche,";
         }
-        urldays = urldays.substring(0, urldays.length() - 1);
-        return urldays;
+        if (urldays.equals("")) {
+            return "0";
+        } else {
+            urldays = urldays.substring(0, urldays.length() - 1);
+            return urldays;
+        }
     }
 
     private void setUpDureePref(String dureePref) {
@@ -217,58 +233,64 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
                 default:
                     break;
             }
+
         }
     }
 
     private void setUpTimePref(String timePref) {
-        String[] items = timePref.split(",");
-        for (String item : items) {
-            switch (item) {
-                case "Breakfast":
-                    swibreakfast.setChecked(true);
-                    break;
-                case "Lunch":
-                    swidejeuner.setChecked(true);
-                    break;
-                case "Dinner":
-                    swidiner.setChecked(true);
-                    break;
-                case "Bedtime":
-                    swicoucher.setChecked(true);
-                    break;
-                default:
-                    break;
+        if (!timePref.equals("0")) {
+            String[] items = timePref.split(",");
+            for (String item : items) {
+                switch (item) {
+                    case "Breakfast":
+                        swibreakfast.setChecked(true);
+                        break;
+                    case "Lunch":
+                        swidejeuner.setChecked(true);
+                        break;
+                    case "Dinner":
+                        swidiner.setChecked(true);
+                        break;
+                    case "Bedtime":
+                        swicoucher.setChecked(true);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
+
     }
 
     private void setUpDaysPref(String daysPref) {
-        String[] items = daysPref.split(",");
-        swifrequenceperso.setChecked(true);
-        optionsfrequenceperso();
-        for (String item : items) {
-            switch (item) {
-                case "Lundi":
-                    toglundi.setChecked(true);
-                    break;
-                case "Mardi":
-                    togmardi.setChecked(true);
-                    break;
-                case "Merecredi":
-                    togmercredi.setChecked(true);
-                    break;
-                case "Jeudi":
-                    togjeudi.setChecked(true);
-                    break;
-                case "Vendredi":
-                    togvendredi.setChecked(true);
-                    break;
-                case "Samedi":
-                    togsamedi.setChecked(true);
-                    break;
-                case "Dimanche":
-                    togdimanche.setChecked(true);
-                    break;
+        if (!daysPref.equals("0")) {
+            String[] items = daysPref.split(",");
+            swifrequenceperso.setChecked(true);
+            optionsfrequenceperso();
+            for (String item : items) {
+                switch (item) {
+                    case "Lundi":
+                        toglundi.setChecked(true);
+                        break;
+                    case "Mardi":
+                        togmardi.setChecked(true);
+                        break;
+                    case "Merecredi":
+                        togmercredi.setChecked(true);
+                        break;
+                    case "Jeudi":
+                        togjeudi.setChecked(true);
+                        break;
+                    case "Vendredi":
+                        togvendredi.setChecked(true);
+                        break;
+                    case "Samedi":
+                        togsamedi.setChecked(true);
+                        break;
+                    case "Dimanche":
+                        togdimanche.setChecked(true);
+                        break;
+                }
             }
         }
     }
