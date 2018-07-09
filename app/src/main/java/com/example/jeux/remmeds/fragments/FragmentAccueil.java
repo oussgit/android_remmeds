@@ -25,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
@@ -81,9 +82,11 @@ public class FragmentAccueil extends Fragment {
 
     private void generatePrises(JSONArray array, Profil profil) {
         JSONObject object;
-        LocalDate date = LocalDate.now();
-        DayOfWeek dow = date.getDayOfWeek();
-        String dayname = dow.getDisplayName(TextStyle.FULL, Locale.FRANCE);
+
+        Calendar calendar = Calendar.getInstance();
+        Date date = calendar.getTime();
+// full name form of the day
+        String dayname = new SimpleDateFormat("EEEE", Locale.FRANCE).format(date.getTime());
         dayname= dayname.substring(0,1).toUpperCase()+dayname.substring(1);
         for (int i = 0; i < 8; i++) {
             try {
@@ -144,8 +147,10 @@ public class FragmentAccueil extends Fragment {
     }
 
     public static void destroyRecyclerAccueil(){
-        priseListe.clear();
-        refreshRecyclerAccueil();
+        if (!priseListe.isEmpty()) {
+            priseListe.clear();
+            refreshRecyclerAccueil();
+        }
     }
 
 }

@@ -66,6 +66,7 @@ public class FragmentGestion extends Fragment implements View.OnClickListener {
 
     public void onClick(View v) {
         try {
+
             JSONObject data = MainActivity.getDoInBackground("http://212.73.217.202:15020/compartment/list_com/" + MainActivity.getUserID());
             JSONArray array = data.getJSONArray("compartment");
             switch (v.getId()) {
