@@ -10,6 +10,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Method;
+
 public class Contact {
     private String nomContact;
     private String prenomContact;
@@ -33,14 +35,40 @@ public class Contact {
 
     public Contact(JSONArray array, int jsonIndex) {
         try {
-            this.setNom(array.getJSONObject(jsonIndex).getString("lastname"));
-            this.setPrenom(array.getJSONObject(jsonIndex).getString("firstname"));
-            this.setMailContact(array.getJSONObject(jsonIndex).getString("mail"));
-            this.setNumero(array.getJSONObject(jsonIndex).getString("phonenumber"));
+            if(!array.getJSONObject(jsonIndex).getString("lastname").equals("0")){
+                this.setNom(array.getJSONObject(jsonIndex).getString("lastname"));
+            }
+            else{
+                this.setNom("");
+            }
+            if(!array.getJSONObject(jsonIndex).getString("firstname").equals("0")){
+                this.setPrenom(array.getJSONObject(jsonIndex).getString("firstname"));
+            }
+            else{
+                this.setPrenom("");
+            }
+            if(!array.getJSONObject(jsonIndex).getString("phonenumber").equals("0")){
+                this.setNumero(array.getJSONObject(jsonIndex).getString("phonenumber"));
+            }
+            else{
+                this.setNumero("");
+            }
+            if(!array.getJSONObject(jsonIndex).getString("note").equals("0")){
+                this.setNoteContact(array.getJSONObject(jsonIndex).getString("note"));
+            }
+            else{
+                this.setNoteContact("");
+            }
+            if(array.getJSONObject(jsonIndex).getString("mail").equals("0")){
+                this.setMailContact("");
+            }
+            else{
+                this.setMailContact(array.getJSONObject(jsonIndex).getString("mail"));
+
+            }
+            this.setIdContact(array.getJSONObject(jsonIndex).getString("contact_id"));
             this.setMailCheck(array.getJSONObject(jsonIndex).getString("chx_mail"));
             this.setSmsCheck(array.getJSONObject(jsonIndex).getString("chx_sms"));
-            this.setNoteContact(array.getJSONObject(jsonIndex).getString("note"));
-            this.setIdContact(array.getJSONObject(jsonIndex).getString("contact_id"));
             FragmentRepertoire.addContact(this);
         } catch (JSONException e) {
             Log.e("Contact", "Erreur" + e);
@@ -48,6 +76,7 @@ public class Contact {
             Log.e("Contact", "NULL JSON OBject" + e);
         }
     }
+
 
     public String getIdContact() {
         return idContact;

@@ -45,6 +45,7 @@ public class FragmentRepertoire extends Fragment {
         mRecyclerView = rep.findViewById(R.id.rep_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getContext(), new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
@@ -95,7 +96,6 @@ public class FragmentRepertoire extends Fragment {
         }
     }
 
-
     public static void addContact(Contact contact) {
         contactList.add(contact);
     }
@@ -106,10 +106,6 @@ public class FragmentRepertoire extends Fragment {
 
     public static void refreshRecyclerRep() {
         mAdapter.notifyDataSetChanged();
-    }
-
-    public static void updateItemRecyclerRep(int position) {
-        mAdapter.notifyItemChanged(position);
     }
 
     public static void removeItem(int position) {

@@ -12,24 +12,12 @@ public class Prise {
     private String durationnumber;
     private String heureperso;
 
-    public Prise(String nommedicament, int compartiment, String dayperso, String listpref, String durationtext, String durationnumber, String heureperso) {
-        this.compartiment = compartiment;
-        this.dayperso= dayperso;
-        this.listpref = listpref;
-        this.durationtext = durationtext;
-        this.durationnumber = durationnumber;
-        this.nommedicament = nommedicament;
-        this.heureperso=heureperso;
-    }
-
     public Prise(String nomMedicament, int compartiment, String heurePrise, int fromFragmentAccueil){
         this.nommedicament = nomMedicament;
         this.compartiment = compartiment;
         this.heurePrise = heurePrise;
-        if(!heurePrise.equals("") && !heurePrise.equals("0")){
-            FragmentAccueil.addPrise(this);
-            FragmentAccueil.sortPriseListe();
-        }
+        FragmentAccueil.addPrise(this);
+        FragmentAccueil.sortPriseListe();
     }
 
     public Prise(String nomMedicament, int compartiment, String heurePrise){
