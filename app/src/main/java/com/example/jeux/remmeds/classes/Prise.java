@@ -22,17 +22,20 @@ public class Prise {
         this.heureperso=heureperso;
     }
 
+    public Prise(String nomMedicament, int compartiment, String heurePrise, int fromFragmentAccueil){
+        this.nommedicament = nomMedicament;
+        this.compartiment = compartiment;
+        this.heurePrise = heurePrise;
+        if(!heurePrise.equals("") && !heurePrise.equals("0")){
+            FragmentAccueil.addPrise(this);
+            FragmentAccueil.sortPriseListe();
+        }
+    }
+
     public Prise(String nomMedicament, int compartiment, String heurePrise){
         this.nommedicament = nomMedicament;
         this.compartiment = compartiment;
         this.heurePrise = heurePrise;
-        if(!heurePrise.equals("")){
-            FragmentAccueil.addPrise(this);
-        }
-        else{
-
-        }
-
     }
 
     public Prise() {
