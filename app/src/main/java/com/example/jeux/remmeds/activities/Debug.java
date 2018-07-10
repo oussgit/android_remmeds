@@ -17,8 +17,6 @@ public class Debug extends AppCompatActivity {
 
     public void displayPage (View view){
         switch(view.getId()){
-            default:
-                break;
             case R.id.authentification_button_debug:
                 startActivity(new Intent(Debug.this, Authentification.class));
                 break;
@@ -33,6 +31,8 @@ public class Debug extends AppCompatActivity {
                 break;
             case R.id.setup_button_debug:
                 startActivity(new Intent(Debug.this, Setup.class));
+                break;
+            default:
                 break;
         }
     }

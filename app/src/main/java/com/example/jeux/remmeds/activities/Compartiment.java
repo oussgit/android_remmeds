@@ -3,6 +3,7 @@ package com.example.jeux.remmeds.activities;
 import android.app.TimePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -56,9 +57,7 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
         swifrequenceperso = findViewById(R.id.frequenceperso_switch_layout_compartiment);
 
         enregistrer = findViewById(R.id.enregistrer_button_layout_compartiment);
-
         typeduree = findViewById(R.id.typenombre_spinner_layout_compartiment);
-
         texnotes = findViewById(R.id.note_editText_layout_compartiment);
         nbrduree = findViewById(R.id.nombre_editText_layout_compartiment);
         texnommedic = findViewById(R.id.nom_editText_layout_compartiment);
@@ -83,50 +82,45 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
         enregistrer.setOnClickListener(this);
 
         Bundle extras = getIntent().getExtras();
-        String dayperso;
-        String listpref;
-        String durationtext;
-        String durationnumber;
-        String drugname;
-        String notes;
-        String heureperso;
-
         if (extras != null) {
+            String dayIntent = getIntent().getExtras().getString("days");
+            String listePrefIntent = getIntent().getExtras().getString("list_pref");
+            String durationTextIntent = getIntent().getExtras().getString("duration_text");
+            String persoHourIntent = getIntent().getExtras().getString("perso_hour");
+            String durationNumberIntent = getIntent().getExtras().getString("duration_number");
+            String drugNameIntent = getIntent().getExtras().getString("drug_name");
+            String noteIntent = getIntent().getExtras().getString("note");
             compid = getIntent().getExtras().getString("compartment_id");
-            if (!getIntent().getExtras().getString("days").equals("") && !getIntent().getExtras().getString("days").equals("0")) {
-                dayperso = getIntent().getExtras().getString("days");
-                setUpDaysPref(dayperso);
-            }
-            if (!getIntent().getExtras().getString("list_pref").equals("") && !getIntent().getExtras().getString("list_pref").equals("0")) {
-                listpref = getIntent().getExtras().getString("list_pref");
-                setUpTimePref(listpref);
-            }
-            if (!getIntent().getExtras().getString("duration_text").equals("") && !getIntent().getExtras().getString("duration_text").equals("0")) {
-                durationtext = getIntent().getExtras().getString("duration_text");
-                setUpDureePref(durationtext);
-            }
-            if (!getIntent().getExtras().getString("perso_hour").equals("") && !getIntent().getExtras().getString("perso_hour").equals("0")) {
-                heureperso = getIntent().getExtras().getString("perso_hour");
-                setUpHeurePerso(heureperso);
-            }
-            if (!getIntent().getExtras().getString("duration_number").equals("") && !getIntent().getExtras().getString("duration_number").equals("0")) {
-                durationnumber = getIntent().getExtras().getString("duration_number");
-                nbrduree.setText(durationnumber);
-            }
-
-            if (!getIntent().getExtras().getString("drug_name").equals("") && !getIntent().getExtras().getString("drug_name").equals("0")) {
-                drugname = getIntent().getExtras().getString("drug_name");
-                texnommedic.setText(drugname);
-            }
-
-            if (!getIntent().getExtras().getString("note").equals("") && !getIntent().getExtras().getString("note").equals("0")) {
-                notes = getIntent().getExtras().getString("note");
-                texnotes.setText(notes);
+            try {
+                if (!dayIntent.equals("") && !dayIntent.equals("0")) {
+                    setUpDaysPref(dayIntent);
+                }
+                if (!listePrefIntent.equals("") && !listePrefIntent.equals("0")) {
+                    setUpTimePref(listePrefIntent);
+                }
+                if (!durationTextIntent.equals("") && !durationTextIntent.equals("0")) {
+                    setUpDureePref(durationTextIntent);
+                }
+                if (!persoHourIntent.equals("") && !persoHourIntent.equals("0")) {
+                    setUpHeurePerso(persoHourIntent);
+                }
+                if (!durationNumberIntent.equals("") && !durationNumberIntent.equals("0")) {
+                    nbrduree.setText(durationNumberIntent);
+                }
+                if (!drugNameIntent.equals("") && !drugNameIntent.equals("0")) {
+                    texnommedic.setText(drugNameIntent);
+                }
+                if (!noteIntent.equals("") && !noteIntent.equals("0")) {
+                    texnotes.setText(noteIntent);
+                }
+            } catch (java.lang.NullPointerException e) {
+                Log.e("Null Intents", "Compartiments" + e);
             }
 
 
         }
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -148,27 +142,14 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
                 saveChanges();
                 FragmentAccueil.destroyRecyclerAccueil();
                 onBackPressed();
+                break;
             default:
                 break;
         }
     }
 
     private void saveChanges() {
-        String drugname;
-        String notes;
-        String durationnumber;
-        String durationtext;
-        String dayperso;
-        String listpref;
-        String heureperso;
-        drugname = saveDrugName();
-        notes = saveNotes();
-        durationnumber = saveDurationNumb();
-        durationtext = saveDurationText();
-        dayperso = saveDayPerso();
-        listpref = saveListPref();
-        heureperso = saveHeurePerso(swiheureperso);
-        MainActivity.postDoInBackground("http://212.73.217.202:15020/compartment/update_com/" + compid + "&" + drugname + "&" + notes + "&" + durationnumber + "&" + durationtext + "&0&" + heureperso + "&0&" + dayperso + "&" + listpref);
+        MainActivity.postDoInBackground("http://212.73.217.202:15020/compartment/update_com/" + compid + "&" + saveDrugName() + "&" + saveNotes()+ "&" + saveDurationNumb() + "&" + saveDurationText() + "&0&" + saveHeurePerso(swiheureperso) + "&0&" + saveDayPerso() + "&" + saveListPref());
         Toast.makeText(Compartiment.this, "Sauvegardé", Toast.LENGTH_SHORT).show();
     }
 
@@ -264,8 +245,7 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
                 urldays = urldays.substring(0, urldays.length() - 1);
                 return urldays;
             }
-        }
-        else{
+        } else {
             return "0";
         }
     }
@@ -349,6 +329,8 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
                     break;
                 case "Dimanche":
                     togdimanche.setChecked(true);
+                    break;
+                default:
                     break;
             }
         }

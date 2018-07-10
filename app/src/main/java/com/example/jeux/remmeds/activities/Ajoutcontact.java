@@ -96,7 +96,7 @@ public class Ajoutcontact extends AppCompatActivity {
     }
 
     private String checkEditText(EditText editText){
-        if(!editText.getText().toString().equals("") && !editText.getText().toString().equals("")){
+        if(!editText.getText().toString().equals("") && !editText.getText().toString().equals("0")){
             return editText.getText().toString();
         }
         else{

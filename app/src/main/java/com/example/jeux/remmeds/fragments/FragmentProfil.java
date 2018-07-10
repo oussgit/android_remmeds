@@ -6,7 +6,6 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +18,6 @@ import android.widget.Toast;
 import com.example.jeux.remmeds.R;
 import com.example.jeux.remmeds.activities.MainActivity;
 import com.example.jeux.remmeds.classes.Profil;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.text.DecimalFormat;
 import java.util.Calendar;

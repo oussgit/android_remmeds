@@ -1,5 +1,6 @@
 package com.example.jeux.remmeds.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.jeux.remmeds.R;
 import com.example.jeux.remmeds.activities.Ajoutcontact;
@@ -32,12 +34,14 @@ import java.util.List;
 public class FragmentRepertoire extends Fragment {
     private static List<Contact> contactList = new ArrayList<>();
     private static ContactAdapter mAdapter = new ContactAdapter(contactList);
+    private static Context mContext;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
 
+        mContext = this.getContext();
         final RecyclerView mRecyclerView;
         final View rep = inflater.inflate(R.layout.fragment_repertoire, container, false);
         Button addButton;
@@ -87,13 +91,19 @@ public class FragmentRepertoire extends Fragment {
             array = data.getJSONArray("contact");
             for (int i = 0; i < array.length(); i++) {
                 Contact a = new Contact(array,i);
+                addContact(a);
             }
             refreshRecyclerRep();
         } catch (JSONException e) {
             Log.e("CreationContact", "Erreur" + e);
         } catch (java.lang.NullPointerException e) {
             Log.e("CreationContact", "NULL JSON" + e);
+            Toast.makeText(getRepContext(), "Erreur de connexion, veuillez re-essayer", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public static Context getRepContext(){
+        return mContext;
     }
 
     public static void addContact(Contact contact) {
