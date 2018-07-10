@@ -27,7 +27,6 @@
         <activity android:name=".activities.Compartiment" />
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.Ajoutcontact" />
-        <activity android:name=".activities.Debug" />
         <activity android:name=".activities.Setup">
 
         </activity>
