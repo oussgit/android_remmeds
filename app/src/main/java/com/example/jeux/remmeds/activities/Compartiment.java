@@ -3,7 +3,6 @@ package com.example.jeux.remmeds.activities;
 import android.app.TimePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -11,6 +10,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.view.View;
 import android.widget.TimePicker;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.example.jeux.remmeds.R;
@@ -42,14 +42,7 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
     private Switch swicoucher;
     private Spinner typeduree;
 
-    private String dayperso;
-    private String listpref;
-    private String durationtext;
-    private String durationnumber;
-    private String drugname;
-    private String notes;
     private String compid;
-    private String heureperso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,33 +83,50 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
         enregistrer.setOnClickListener(this);
 
         Bundle extras = getIntent().getExtras();
+        String dayperso;
+        String listpref;
+        String durationtext;
+        String durationnumber;
+        String drugname;
+        String notes;
+        String heureperso;
+
         if (extras != null) {
             compid = getIntent().getExtras().getString("compartment_id");
-            if (getIntent().getExtras().getString("days") != null) {
+            if (!getIntent().getExtras().getString("days").equals("") && !getIntent().getExtras().getString("days").equals("0")) {
                 dayperso = getIntent().getExtras().getString("days");
                 setUpDaysPref(dayperso);
             }
-            if (getIntent().getExtras().getString("list_pref") != null) {
+            if (!getIntent().getExtras().getString("list_pref").equals("") && !getIntent().getExtras().getString("list_pref").equals("0")) {
                 listpref = getIntent().getExtras().getString("list_pref");
                 setUpTimePref(listpref);
             }
-            durationtext = getIntent().getExtras().getString("duration_text");
-            durationnumber = getIntent().getExtras().getString("duration_number");
-            drugname = getIntent().getExtras().getString("drug_name");
-            notes = getIntent().getExtras().getString("note");
-            heureperso = getIntent().getExtras().getString("perso_hour");
-            setUpDureePref(durationtext);
-            nbrduree.setText(durationnumber);
-            texnommedic.setText(drugname);
-            texnotes.setText(notes);
-            if (!heureperso.equals("")) {
-                swiheureperso.setChecked(true);
-                optionsheureperso();
-                edinbrheure.setText(heureperso);
+            if (!getIntent().getExtras().getString("duration_text").equals("") && !getIntent().getExtras().getString("duration_text").equals("0")) {
+                durationtext = getIntent().getExtras().getString("duration_text");
+                setUpDureePref(durationtext);
             }
+            if (!getIntent().getExtras().getString("perso_hour").equals("") && !getIntent().getExtras().getString("perso_hour").equals("0")) {
+                heureperso = getIntent().getExtras().getString("perso_hour");
+                setUpHeurePerso(heureperso);
+            }
+            if (!getIntent().getExtras().getString("duration_number").equals("") && !getIntent().getExtras().getString("duration_number").equals("0")) {
+                durationnumber = getIntent().getExtras().getString("duration_number");
+                nbrduree.setText(durationnumber);
+            }
+
+            if (!getIntent().getExtras().getString("drug_name").equals("") && !getIntent().getExtras().getString("drug_name").equals("0")) {
+                drugname = getIntent().getExtras().getString("drug_name");
+                texnommedic.setText(drugname);
+            }
+
+            if (!getIntent().getExtras().getString("note").equals("") && !getIntent().getExtras().getString("note").equals("0")) {
+                notes = getIntent().getExtras().getString("note");
+                texnotes.setText(notes);
+            }
+
+
         }
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -151,14 +161,55 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
         String dayperso;
         String listpref;
         String heureperso;
-        drugname = texnommedic.getText().toString();
-        notes = texnotes.getText().toString();
-        durationnumber = nbrduree.getText().toString();
-        durationtext = typeduree.getSelectedItem().toString();
+        drugname = saveDrugName();
+        notes = saveNotes();
+        durationnumber = saveDurationNumb();
+        durationtext = saveDurationText();
         dayperso = saveDayPerso();
         listpref = saveListPref();
-        heureperso = edinbrheure.getText().toString();
+        heureperso = saveHeurePerso(swiheureperso);
         MainActivity.postDoInBackground("http://212.73.217.202:15020/compartment/update_com/" + compid + "&" + drugname + "&" + notes + "&" + durationnumber + "&" + durationtext + "&0&" + heureperso + "&0&" + dayperso + "&" + listpref);
+        Toast.makeText(Compartiment.this, "Sauvegardé", Toast.LENGTH_SHORT).show();
+    }
+
+    private String saveHeurePerso(Switch heureperso) {
+        if (heureperso.isChecked()) {
+            return edinbrheure.getText().toString();
+        } else {
+            return "0";
+        }
+    }
+
+    private String saveDrugName() {
+        if (texnommedic.getText().toString().equals("")) {
+            return "0";
+        } else {
+            return texnommedic.getText().toString();
+        }
+    }
+
+    private String saveNotes() {
+        if (texnotes.getText().toString().equals("")) {
+            return "0";
+        } else {
+            return texnotes.getText().toString();
+        }
+    }
+
+    private String saveDurationNumb() {
+        if (nbrduree.getText().toString().equals("")) {
+            return "0";
+        } else {
+            return nbrduree.getText().toString();
+        }
+    }
+
+    private String saveDurationText() {
+        if (typeduree.getSelectedItem().toString().equals("")) {
+            return "0";
+        } else {
+            return typeduree.getSelectedItem().toString();
+        }
     }
 
     private String saveListPref() {
@@ -184,33 +235,38 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
     }
 
     private String saveDayPerso() {
-        String urldays = "";
-        if (toglundi.isChecked()) {
-            urldays += "Lundi,";
+        if (swifrequenceperso.isChecked()) {
+            String urldays = "";
+            if (toglundi.isChecked()) {
+                urldays += "Lundi,";
+            }
+            if (togmardi.isChecked()) {
+                urldays += "Mardi,";
+            }
+            if (togmercredi.isChecked()) {
+                urldays += "Mercredi,";
+            }
+            if (togjeudi.isChecked()) {
+                urldays += "Jeudi,";
+            }
+            if (togvendredi.isChecked()) {
+                urldays += "Vendredi,";
+            }
+            if (togsamedi.isChecked()) {
+                urldays += "Samedi,";
+            }
+            if (togdimanche.isChecked()) {
+                urldays += "Dimanche,";
+            }
+            if (urldays.equals("")) {
+                return "0";
+            } else {
+                urldays = urldays.substring(0, urldays.length() - 1);
+                return urldays;
+            }
         }
-        if (togmardi.isChecked()) {
-            urldays += "Mardi,";
-        }
-        if (togmercredi.isChecked()) {
-            urldays += "Mercredi,";
-        }
-        if (togjeudi.isChecked()) {
-            urldays += "Jeudi,";
-        }
-        if (togvendredi.isChecked()) {
-            urldays += "Vendredi,";
-        }
-        if (togsamedi.isChecked()) {
-            urldays += "Samedi,";
-        }
-        if (togdimanche.isChecked()) {
-            urldays += "Dimanche,";
-        }
-        if (urldays.equals("")) {
+        else{
             return "0";
-        } else {
-            urldays = urldays.substring(0, urldays.length() - 1);
-            return urldays;
         }
     }
 
@@ -237,60 +293,63 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void setUpHeurePerso(String heureperso) {
+        swiheureperso.setChecked(true);
+        optionsheureperso();
+        edinbrheure.setText(heureperso);
+    }
+
     private void setUpTimePref(String timePref) {
-        if (!timePref.equals("0")) {
-            String[] items = timePref.split(",");
-            for (String item : items) {
-                switch (item) {
-                    case "Breakfast":
-                        swibreakfast.setChecked(true);
-                        break;
-                    case "Lunch":
-                        swidejeuner.setChecked(true);
-                        break;
-                    case "Dinner":
-                        swidiner.setChecked(true);
-                        break;
-                    case "Bedtime":
-                        swicoucher.setChecked(true);
-                        break;
-                    default:
-                        break;
-                }
+        String[] items = timePref.split(",");
+        for (String item : items) {
+            switch (item) {
+                case "Breakfast":
+                    swibreakfast.setChecked(true);
+                    break;
+                case "Lunch":
+                    swidejeuner.setChecked(true);
+                    break;
+                case "Dinner":
+                    swidiner.setChecked(true);
+                    break;
+                case "Bedtime":
+                    swicoucher.setChecked(true);
+                    break;
+                default:
+                    break;
             }
         }
+
 
     }
 
     private void setUpDaysPref(String daysPref) {
-        if (!daysPref.equals("0")) {
-            String[] items = daysPref.split(",");
-            swifrequenceperso.setChecked(true);
-            optionsfrequenceperso();
-            for (String item : items) {
-                switch (item) {
-                    case "Lundi":
-                        toglundi.setChecked(true);
-                        break;
-                    case "Mardi":
-                        togmardi.setChecked(true);
-                        break;
-                    case "Merecredi":
-                        togmercredi.setChecked(true);
-                        break;
-                    case "Jeudi":
-                        togjeudi.setChecked(true);
-                        break;
-                    case "Vendredi":
-                        togvendredi.setChecked(true);
-                        break;
-                    case "Samedi":
-                        togsamedi.setChecked(true);
-                        break;
-                    case "Dimanche":
-                        togdimanche.setChecked(true);
-                        break;
-                }
+        String[] items = daysPref.split(",");
+        swifrequenceperso.setChecked(true);
+        optionsfrequenceperso();
+        for (String item : items) {
+            switch (item) {
+                case "Lundi":
+                    toglundi.setChecked(true);
+                    break;
+                case "Mardi":
+                    togmardi.setChecked(true);
+                    break;
+                case "Merecredi":
+                    togmercredi.setChecked(true);
+                    break;
+                case "Jeudi":
+                    togjeudi.setChecked(true);
+                    break;
+                case "Vendredi":
+                    togvendredi.setChecked(true);
+                    break;
+                case "Samedi":
+                    togsamedi.setChecked(true);
+                    break;
+                case "Dimanche":
+                    togdimanche.setChecked(true);
+                    break;
             }
         }
     }

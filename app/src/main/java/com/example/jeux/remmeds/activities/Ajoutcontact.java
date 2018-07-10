@@ -42,7 +42,6 @@ public class Ajoutcontact extends AppCompatActivity {
             contactPos = getIntent().getIntExtra("ContactPos", 0);
             contactId = getIntent().getExtras().getString("ContactId");
 
-
             if ((getIntent().getExtras().getString("ContactSmsCheck")).equals("1")) {
                 smsCheck.setChecked(true);
             }
@@ -72,11 +71,11 @@ public class Ajoutcontact extends AppCompatActivity {
     }
 
     private void alterContact(EditText nom, EditText prenom, EditText num, EditText mail, EditText note, CheckBox smsCheck, CheckBox mailCheck) {
-        String nomContact = nom.getText().toString();
-        String prenomContact = prenom.getText().toString();
-        String numContact = num.getText().toString();
-        String mailContact = mail.getText().toString();
-        String noteContact = note.getText().toString();
+        String nomContact = checkEditText(nom);
+        String prenomContact = checkEditText(prenom);
+        String numContact = checkEditText(num);
+        String mailContact = checkEditText(mail);
+        String noteContact = checkEditText(note);
         String smsCheckContact;
         String mailCheckContact;
         if (smsCheck.isChecked()) {
@@ -94,7 +93,15 @@ public class Ajoutcontact extends AppCompatActivity {
         } else {
             updateContact(nomContact,prenomContact,numContact,mailContact,noteContact,smsCheckContact,mailCheckContact);
         }
+    }
 
+    private String checkEditText(EditText editText){
+        if(!editText.getText().toString().equals("") && !editText.getText().toString().equals("")){
+            return editText.getText().toString();
+        }
+        else{
+            return "0";
+        }
     }
 
     private void addContact(String nomContact, String prenomContact, String numContact, String mailContact, String noteContact,String smsCheckContact, String mailCheckContact) {
@@ -113,8 +120,9 @@ public class Ajoutcontact extends AppCompatActivity {
         contact.setNoteContact(noteContact);
         contact.setSmsCheck(smsCheckContact);
         contact.setMailCheck(mailCheckContact);
-        FragmentRepertoire.updateItemRecyclerRep(contactPos);
+        FragmentRepertoire.emptyContact();
         MainActivity.postDoInBackground(("http://212.73.217.202:15020/contact/update_contact/" + contactId + "&" + nomContact + "&" + prenomContact + "&" + numContact + "&" + mailContact + "&" + smsCheckContact + "&" + mailCheckContact + "&" + noteContact));
+        FragmentRepertoire.fillRecyclerRep(MainActivity.getUserID());
         onBackPressed();
     }
 

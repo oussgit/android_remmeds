@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-
     public static JSONObject getDoInBackground(String targetURL) {
         //Permet d'initier la connexion à l'api pour des requetes GET
         // targetURL : Url du chemin de l'API
@@ -86,8 +85,8 @@ public class MainActivity extends AppCompatActivity
         try {
             URL url = new URL(targetURL);
             urlConn = url.openConnection();
-            urlConn.setConnectTimeout(3*1000);
-            urlConn.setReadTimeout(5*1000);
+            urlConn.setConnectTimeout(3 * 1000);
+            urlConn.setReadTimeout(5 * 1000);
             bufferedReader = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
             StringBuilder stringBuilder = new StringBuilder();
             String line;
@@ -97,7 +96,6 @@ public class MainActivity extends AppCompatActivity
             return new JSONObject(stringBuilder.toString());
         } catch (Exception ex) {
             Log.e("App", "yourDataTask", ex);
-
             return null;
         }
     }
