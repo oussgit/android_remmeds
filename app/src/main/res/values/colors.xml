@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#0078FF</color>
     <color name="bleu_remmeds">#0078FF</color>
+    <color name="rouge_transparent">#59ff0000</color>
+    <color name="jaune_transparent">#59fffa00</color>
 </resources>

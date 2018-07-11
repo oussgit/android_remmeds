@@ -60,10 +60,10 @@ public class PriseAdapter extends RecyclerView.Adapter<PriseAdapter.MyViewHolder
             Date currentTime = dateFormat.parse(dateFormat.format(new Date()));
 
             if (currentTime.before(endTimeGreen) && currentTime.after(endTimeRef)){
-                holder.itemView.setBackgroundColor(Color.YELLOW);
+                holder.itemView.setBackgroundResource(R.color.jaune_transparent);
             }
             else if(currentTime.after(endTimeGreen)){
-                holder.itemView.setBackgroundColor(Color.RED);
+                holder.itemView.setBackgroundResource(R.color.rouge_transparent);
             }
 
         } catch (ParseException e) {
