@@ -1,5 +1,6 @@
 package com.example.jeux.remmeds.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.jeux.remmeds.R;
 import com.example.jeux.remmeds.activities.MainActivity;
@@ -34,10 +36,13 @@ import java.util.Locale;
 public class FragmentAccueil extends Fragment {
     private static List<Prise> priseListe = new ArrayList<>();
     private static PriseAdapter mAdapter = new PriseAdapter(priseListe);
+    private static Context mContext;
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        mContext = this.getContext();
         RecyclerView mRecyclerView;
         final View acc = inflater.inflate(R.layout.fragment_accueil, container, false);
 
@@ -70,7 +75,8 @@ public class FragmentAccueil extends Fragment {
             } catch (java.lang.NullPointerException e) {
                 Log.e("NullJson", "Accueil" + e);
             } catch (org.json.JSONException e) {
-                Log.e("JsonException", "Accueil" + e);
+                Log.e("JsonException", "catched " + e);
+                Toast.makeText(getActivity(), "Erreur de connexion, veuillez re-essayer", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -103,16 +109,20 @@ public class FragmentAccueil extends Fragment {
                         for (String pref : prefs) {
                             switch (pref) {
                                 case "Breakfast":
-                                    Prise prise0 = new Prise(nommedicament, comp[compnum - 1], profil.getBreakfastHour(), 1);
+                                    Prise prise0 = new Prise(nommedicament, comp[compnum - 1], profil.getBreakfastHour());
+                                    addPrise(prise0);
                                     break;
                                 case "Lunch":
-                                    Prise prise1 = new Prise(nommedicament, comp[compnum - 1], profil.getLunchHour(), 1);
+                                    Prise prise1 = new Prise(nommedicament, comp[compnum - 1], profil.getLunchHour());
+                                    addPrise(prise1);
                                     break;
                                 case "Dinner":
-                                    Prise prise2 = new Prise(nommedicament, comp[compnum - 1], profil.getDinnerHour(), 1);
+                                    Prise prise2 = new Prise(nommedicament, comp[compnum - 1], profil.getDinnerHour());
+                                    addPrise(prise2);
                                     break;
                                 case "Bedtime":
-                                    Prise prise3 = new Prise(nommedicament, comp[compnum - 1], profil.getBedHour(), 1);
+                                    Prise prise3 = new Prise(nommedicament, comp[compnum - 1], profil.getBedHour());
+                                    addPrise(prise3);
                                     break;
                                 default:
                                     break;
@@ -122,9 +132,10 @@ public class FragmentAccueil extends Fragment {
                     j++;
                 }
                 if (!heureperso.equals("") && !heureperso.equals("0")) {
-                    Prise prise4 = new Prise(nommedicament, comp[compnum - 1], heureperso, 1);
+                    Prise prise4 = new Prise(nommedicament, comp[compnum - 1], heureperso);
+                    addPrise(prise4);
                 }
-
+                sortPriseListe();
             } catch (JSONException e) {
                 Log.e("JSon Null ?", "generatePrise " + e);
             }
@@ -150,6 +161,10 @@ public class FragmentAccueil extends Fragment {
 
     public static void addPrise(Prise prise) {
         priseListe.add(prise);
+    }
+
+    public static Context getAccueilContext(){
+        return mContext;
     }
 
     public static void destroyRecyclerAccueil() {

@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -56,14 +55,14 @@ public class PriseAdapter extends RecyclerView.Adapter<PriseAdapter.MyViewHolder
         holder.heurePrise.setText(prise.getHeurePrise());
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
-            Date EndTimeRef = dateFormat.parse(prise.getHeurePrise());
-            Date EndTimeGreen = addMinutes(30,EndTimeRef);
-            Date CurrentTime = dateFormat.parse(dateFormat.format(new Date()));
+            Date endTimeRef = dateFormat.parse(prise.getHeurePrise());
+            Date endTimeGreen = addMinutes(30,endTimeRef);
+            Date currentTime = dateFormat.parse(dateFormat.format(new Date()));
 
-            if (CurrentTime.before(EndTimeGreen) && CurrentTime.after(EndTimeRef)){
+            if (currentTime.before(endTimeGreen) && currentTime.after(endTimeRef)){
                 holder.itemView.setBackgroundColor(Color.YELLOW);
             }
-            else if(CurrentTime.after(EndTimeGreen)){
+            else if(currentTime.after(endTimeGreen)){
                 holder.itemView.setBackgroundColor(Color.RED);
             }
 

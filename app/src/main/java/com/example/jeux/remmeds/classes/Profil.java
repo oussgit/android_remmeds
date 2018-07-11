@@ -1,6 +1,8 @@
 package com.example.jeux.remmeds.classes;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.jeux.remmeds.activities.MainActivity;
 import com.example.jeux.remmeds.fragments.FragmentAccueil;
@@ -41,6 +43,7 @@ public class Profil {
         } catch (java.lang.NullPointerException e) {
             Log.e("arrayRecyclerProfil", "NULL JSON" + e);
             FragmentAccueil.destroyRecyclerAccueil();
+            Toast.makeText(FragmentAccueil.getAccueilContext(), "Erreur de connexion, veuillez rafraîchir", Toast.LENGTH_SHORT).show();
         }
     }
 

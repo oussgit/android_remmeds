@@ -3,14 +3,11 @@ package com.example.jeux.remmeds.classes;
 
 import android.util.Log;
 
-import com.example.jeux.remmeds.activities.MainActivity;
 import com.example.jeux.remmeds.fragments.FragmentRepertoire;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.lang.reflect.Method;
 
 public class Contact {
     private String nomContact;
@@ -69,7 +66,6 @@ public class Contact {
             this.setIdContact(array.getJSONObject(jsonIndex).getString("contact_id"));
             this.setMailCheck(array.getJSONObject(jsonIndex).getString("chx_mail"));
             this.setSmsCheck(array.getJSONObject(jsonIndex).getString("chx_sms"));
-            FragmentRepertoire.addContact(this);
         } catch (JSONException e) {
             Log.e("Contact", "Erreur" + e);
         } catch (java.lang.NullPointerException e) {

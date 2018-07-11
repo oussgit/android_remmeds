@@ -37,7 +37,6 @@ public class FragmentGestion extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
-        //return inflater.inflate(R.layout.fragment_gestion, container, false);
 
         final View ges = inflater.inflate(R.layout.fragment_gestion, container, false);
 
@@ -91,6 +90,8 @@ public class FragmentGestion extends Fragment implements View.OnClickListener {
                     break;
                 case R.id.compartiment8_button_layout_pilulier:
                     putItents(array.getJSONObject(7));
+                default:
+                    break;
             }
         } catch (JSONException e) {
             Log.e("JsonErreur", "Onclick.comp" + e);
