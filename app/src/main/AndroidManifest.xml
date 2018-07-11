@@ -31,6 +31,8 @@
         <activity android:name=".activities.Ajoutcontact" />
         <activity android:name=".activities.Setup" />
         <activity android:name=".activities.About" />
+        <activity android:name=".activities.Refresh"
+            android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" />
     </application>
 
 </manifest>
