@@ -5,7 +5,7 @@
     <string name="nav_header_title">Prénom Nom</string>
     <string name="nav_header_subtitle">prenom.nom@mail.com</string>
     <string name="nav_header_desc">En-tete menu</string>
-    <string name="action_settings">Debug</string>
+    <string name="action_settings">A propos</string>
     <string name="blank"> </string>
 
     <!-- NavigationBar -->
@@ -107,12 +107,18 @@
     <string name="conditions_checkbox_layout_inscription">J\'accepte les Conditions d\'utilisation</string>
     <string name="valider_burrton_layout_inscription">Valider</string>
 
-    <!-- DEBUG -->
-    <string name="authentification_debug">Authentification</string>
-    <string name="inscription_debug">Inscription</string>
-    <string name="compartiment_debug">Compartiment</string>
-    <string name="ajoutcontact_debug">Ajout contact</string>
-    <string name="setup_debug">Step by step</string>
+    <!-- ABOUT -->
+    <string name="partner_textview_layout_about">Notre partenaire :</string>
+    <string name="version_textview_layout_about">Version : 0.33</string>
+    <string name="authortitle_textview_layout_about">Auteurs :</string>
+    <string name="MFO_textview_layout_about">Mathieu FOUCHER\n
+      Chef de projet et développeur Android</string>
+    <string name="OCA_textview_layout_about">Oussama CALLAS\n
+      Développeur Android</string>
+    <string name="QNI_textview_layout_about">Quentin NICOLAS\n
+      Développeur Android/API</string>
+    <string name="KHA_textview_layout_about">Koceila HADDOUCHE\n
+      Développeur Python</string>
 
     <!-- NOMBRES -->
     <string name="one">1</string>
