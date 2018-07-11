@@ -315,7 +315,7 @@ public class Compartiment extends AppCompatActivity implements View.OnClickListe
                 case "Mardi":
                     togmardi.setChecked(true);
                     break;
-                case "Merecredi":
+                case "Mercredi":
                     togmercredi.setChecked(true);
                     break;
                 case "Jeudi":
