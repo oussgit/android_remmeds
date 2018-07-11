@@ -107,9 +107,6 @@
     <string name="conditions_checkbox_layout_inscription">J\'accepte les Conditions d\'utilisation</string>
     <string name="valider_burrton_layout_inscription">Valider</string>
 
-    <!-- REFRESH -->
-    <string name="appuyez_textview_layout_refresh">Appuyez pour rafraîchir</string>
-
     <!-- ABOUT -->
     <string name="partner_textview_layout_about">Notre partenaire :</string>
     <string name="version_textview_layout_about">Version : 0.33</string>
