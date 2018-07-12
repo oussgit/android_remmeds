@@ -20,6 +20,7 @@ public class HistoriqueAdapter extends RecyclerView.Adapter<HistoriqueAdapter.My
         private TextView heurePrise;
         private TextView datePrise;
         private ImageView image;
+        private TextView plageHorraire;
 
 
         private MyViewHolder(View view) {
@@ -28,6 +29,7 @@ public class HistoriqueAdapter extends RecyclerView.Adapter<HistoriqueAdapter.My
             heurePrise = view.findViewById(R.id.historique_recycler_heurePrise);
             datePrise = view.findViewById(R.id.historique_recycler_datePrise);
             image = view.findViewById(R.id.historique_recycler_compartiment);
+            plageHorraire = view.findViewById(R.id.historique_plage_horraire);
         }
 
         @Override
@@ -55,10 +57,11 @@ public class HistoriqueAdapter extends RecyclerView.Adapter<HistoriqueAdapter.My
         holder.nom.setText(prise.getNommedicament());
         holder.heurePrise.setText(prise.getHeurePrise());
         holder.datePrise.setText(prise.getDatePrise());
+        holder.plageHorraire.setText(prise.getPlageHorraire());
         holder.image.setImageResource(prise.getCompartiment());
 
         if (prise.getIsTaken().equals("1")){
-            holder.itemView.setBackgroundResource(R.color.jaune_transparent);
+            holder.itemView.setBackgroundResource(R.color.vert_transparent);
         }else{
             holder.itemView.setBackgroundResource(R.color.rouge_transparent);
         }

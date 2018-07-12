@@ -26,12 +26,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import static com.example.jeux.remmeds.fragments.FragmentAccueil.refreshRecyclerAccueil;
 
 public class FragmentHistorique extends Fragment {
     private static List<Prise> priseListe = new ArrayList<>();
+    private static JSONObject historiqueData = MainActivity.getDoInBackground("http://212.73.217.202:15020/historic/list_historic/" + MainActivity.getUserID());
 
     @Nullable
     @Override
@@ -45,9 +48,8 @@ public class FragmentHistorique extends Fragment {
         mAdapter = new HistoriqueAdapter(priseListe);
         mRecyclerView.setAdapter(mAdapter);
 
-        JSONObject data = MainActivity.getDoInBackground("http://212.73.217.202:15020/historic/list_historic/" + MainActivity.getUserID());
         try {
-            JSONArray array = data.getJSONArray("historic");
+            JSONArray array = historiqueData.getJSONArray("historic");
             generateHistoric(array);
             if (priseListe.isEmpty()) {
                 generateHistoric(array);
@@ -77,6 +79,7 @@ public class FragmentHistorique extends Fragment {
         String hour;
         String numComp;
         String isTaken;
+        String plageHorraire;
         for (int i = 0; i < array.length(); i++) {
             try {
                 JSONObject object = array.getJSONObject(i);
@@ -85,8 +88,8 @@ public class FragmentHistorique extends Fragment {
                 hour = object.getString("hour");
                 numComp = object.getString("num_comp");
                 isTaken = object.getString("respected");
-
-                Prise prise = new Prise(drugName, getPicture(numComp), hour, day, isTaken);
+                plageHorraire = object.getString("time_slot");
+                Prise prise = new Prise(drugName, getPicture(numComp), hour, day, plageHorraire, isTaken);
                 priseListe.add(prise);
             } catch (JSONException e) {
                 Log.e("Exception Catched", "Fragment Historique " + e);
@@ -94,7 +97,23 @@ public class FragmentHistorique extends Fragment {
                 Log.e("JSON Null", "Fragment Historique " + e);
             }
         }
+        sortPriseListe();
     }
+
+    public static void sortPriseListe() {
+        Collections.sort(priseListe, new Comparator<Prise>() {
+            public int compare(Prise obj1, Prise obj2) {
+                // ## Ascending order
+                return obj1.getDatePrise().compareToIgnoreCase(obj2.getDatePrise()); // To compare string values
+                // return Integer.valueOf(obj1.empId).compareTo(obj2.empId); // To compare integer values
+                // ## Descending order
+                // return obj2.firstName.compareToIgnoreCase(obj1.firstName); // To compare string values
+                // return Integer.valueOf(obj2.empId).compareTo(obj1.empId); // To compare integer values
+            }
+        });
+    }
+
+
 
     private int getPicture(String numComp) {
         int compPicture;
