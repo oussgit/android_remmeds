@@ -11,6 +11,7 @@ public class Prise {
     private String durationtext;
     private String durationnumber;
     private String heureperso;
+    private String datePrise;
 
     public Prise(String nomMedicament, int compartiment, String heurePrise){
         this.nommedicament = nomMedicament;
@@ -18,9 +19,24 @@ public class Prise {
         this.heurePrise = heurePrise;
     }
 
+    public Prise(String nomMedicament, int compartiment, String heurePrise, String datePrise){
+        this.nommedicament = nomMedicament;
+        this.compartiment = compartiment;
+        this.heurePrise = heurePrise;
+        this.datePrise = datePrise;
+    }
+
 
     public Prise() {
 
+    }
+
+    public void setDatePrise(String datePrise) {
+        this.datePrise = datePrise;
+    }
+
+    public String getDatePrise() {
+        return datePrise;
     }
 
     public void setDayperso(String dayperso) {
