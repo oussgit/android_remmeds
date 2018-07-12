@@ -12,6 +12,7 @@ public class Prise {
     private String durationnumber;
     private String heureperso;
     private String datePrise;
+    private String isTaken;
 
     public Prise(String nomMedicament, int compartiment, String heurePrise){
         this.nommedicament = nomMedicament;
@@ -19,16 +20,26 @@ public class Prise {
         this.heurePrise = heurePrise;
     }
 
-    public Prise(String nomMedicament, int compartiment, String heurePrise, String datePrise){
+    public Prise(String nomMedicament, int compartiment, String heurePrise, String datePrise, String isTaken){
         this.nommedicament = nomMedicament;
         this.compartiment = compartiment;
         this.heurePrise = heurePrise;
         this.datePrise = datePrise;
+        this.isTaken = isTaken;
     }
 
 
     public Prise() {
 
+    }
+
+    public void setIsTaken(String isTaken) {
+        this.isTaken = isTaken;
+    }
+
+    public String getIsTaken() {
+
+        return isTaken;
     }
 
     public void setDatePrise(String datePrise) {
