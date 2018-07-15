@@ -6,4 +6,5 @@
     <color name="bleu_remmeds">#0078FF</color>
     <color name="rouge_transparent">#59ff0000</color>
     <color name="jaune_transparent">#59fffa00</color>
+    <color name="vert_transparent">#592eff00</color>
 </resources>
