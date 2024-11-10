@@ -23,7 +23,7 @@ Voir [lien repository](https://github.com/RemMeds/script_raspberry).
 
 ### Auteurs
 
-* Oussama CALLAS
-* Mathieu FOUCHER
-* Koceila HADDOUCHE
-* Quentin NICOLAS
+* Oussama CALLAS - Developpeur Java : Application
+* Mathieu FOUCHER - Chef de Projet
+* Koceila HADDOUCHE - Developpeur Python : Pillulier, Raspberry PI
+* Quentin NICOLAS - Business
